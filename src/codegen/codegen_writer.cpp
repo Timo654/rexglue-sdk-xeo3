@@ -69,7 +69,7 @@ nlohmann::json buildTemplateData(const rex::codegen::CodegenContext& ctx,
 
     functionsJson.push_back({
         {"address", fmt::format("0x{:X}", fn->base())},
-        {"relative_address", fmt::format("0x{:X}", fn->base() - ctx.binary().baseAddress())}, // TODO
+        {"relative_address", fmt::format("0x{:X}", fn->base() - ctx.binary().baseAddress())},
         {"name", funcName},
         {"is_rexcrt", isRexcrt},
         {"below_code_base", (fn->base() < codeMin)},

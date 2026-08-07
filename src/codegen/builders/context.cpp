@@ -85,7 +85,7 @@ std::string BuilderContext::cr(size_t index) {
 const char* BuilderContext::ctr() {
   if (config().ctrAsLocalVariable) {
     locals.ctr = true;
-    return "ADJ(ctr)";
+    return "ctr";
   }
   return "ADJ(ctx)->ctr";
 }
