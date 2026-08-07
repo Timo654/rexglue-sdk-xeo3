@@ -59,54 +59,54 @@ u32 HidReadMouseChanges_entry(u32 unk1, u32 unk2) {
 
 }  // namespace rex::kernel::xboxkrnl
 
-REX_EXPORT(__imp__HidReadKeys, rex::kernel::xboxkrnl::HidReadKeys_entry)
-REX_EXPORT(__imp__HidGetCapabilities, rex::kernel::xboxkrnl::HidGetCapabilities_entry)
-REX_EXPORT(__imp__HidGetLastInputTime, rex::kernel::xboxkrnl::HidGetLastInputTime_entry)
-REX_EXPORT(__imp__HidReadMouseChanges, rex::kernel::xboxkrnl::HidReadMouseChanges_entry)
+REX_EXPORT(__import__HidReadKeys, rex::kernel::xboxkrnl::HidReadKeys_entry)
+REX_EXPORT(__import__HidGetCapabilities, rex::kernel::xboxkrnl::HidGetCapabilities_entry)
+REX_EXPORT(__import__HidGetLastInputTime, rex::kernel::xboxkrnl::HidGetLastInputTime_entry)
+REX_EXPORT(__import__HidReadMouseChanges, rex::kernel::xboxkrnl::HidReadMouseChanges_entry)
 
 // XInputd stubs
-REX_EXPORT_STUB(__imp__XInputdGetCapabilities);
-REX_EXPORT_STUB(__imp__XInputdReadState);
-REX_EXPORT_STUB(__imp__XInputdWriteState);
-REX_EXPORT_STUB(__imp__XInputdNotify);
-REX_EXPORT_STUB(__imp__XInputdRawState);
-REX_EXPORT_STUB(__imp__XInputdGetDeviceStats);
-REX_EXPORT_STUB(__imp__XInputdResetDevice);
-REX_EXPORT_STUB(__imp__XInputdSetRingOfLight);
-REX_EXPORT_STUB(__imp__XInputdSetRFPowerMode);
-REX_EXPORT_STUB(__imp__XInputdSetRadioFrequency);
-REX_EXPORT_STUB(__imp__XInputdPassThroughRFCommand);
-REX_EXPORT_STUB(__imp__XInputdPowerDownDevice);
-REX_EXPORT_STUB(__imp__XInputdReadTextKeystroke);
-REX_EXPORT_STUB(__imp__XInputdSendStayAliveRequest);
-REX_EXPORT_STUB(__imp__XInputdFFGetDeviceInfo);
-REX_EXPORT_STUB(__imp__XInputdFFSetEffect);
-REX_EXPORT_STUB(__imp__XInputdFFUpdateEffect);
-REX_EXPORT_STUB(__imp__XInputdFFEffectOperation);
-REX_EXPORT_STUB(__imp__XInputdFFDeviceControl);
-REX_EXPORT_STUB(__imp__XInputdFFSetDeviceGain);
-REX_EXPORT_STUB(__imp__XInputdFFCancelIo);
-REX_EXPORT_STUB(__imp__XInputdFFSetRumble);
-REX_EXPORT_STUB(__imp__XInputdGetLastTextInputTime);
-REX_EXPORT_STUB(__imp__XInputdSetTextMessengerIndicator);
-REX_EXPORT_STUB(__imp__XInputdSetTextDeviceKeyLocks);
-REX_EXPORT_STUB(__imp__XInputdGetTextDeviceKeyLocks);
-REX_EXPORT_STUB(__imp__XInputdControl);
-REX_EXPORT_STUB(__imp__XInputdSetWifiChannel);
-REX_EXPORT_STUB(__imp__XInputdGetDevicePid);
-REX_EXPORT_STUB(__imp__XInputdGetFailedConnectionOrBind);
-REX_EXPORT_STUB(__imp__XInputdSetFailedConnectionOrBindCallback);
-REX_EXPORT_STUB(__imp__XInputdSetMinMaxAuthDelay);
+REX_EXPORT_STUB(__import__XInputdGetCapabilities);
+REX_EXPORT_STUB(__import__XInputdReadState);
+REX_EXPORT_STUB(__import__XInputdWriteState);
+REX_EXPORT_STUB(__import__XInputdNotify);
+REX_EXPORT_STUB(__import__XInputdRawState);
+REX_EXPORT_STUB(__import__XInputdGetDeviceStats);
+REX_EXPORT_STUB(__import__XInputdResetDevice);
+REX_EXPORT_STUB(__import__XInputdSetRingOfLight);
+REX_EXPORT_STUB(__import__XInputdSetRFPowerMode);
+REX_EXPORT_STUB(__import__XInputdSetRadioFrequency);
+REX_EXPORT_STUB(__import__XInputdPassThroughRFCommand);
+REX_EXPORT_STUB(__import__XInputdPowerDownDevice);
+REX_EXPORT_STUB(__import__XInputdReadTextKeystroke);
+REX_EXPORT_STUB(__import__XInputdSendStayAliveRequest);
+REX_EXPORT_STUB(__import__XInputdFFGetDeviceInfo);
+REX_EXPORT_STUB(__import__XInputdFFSetEffect);
+REX_EXPORT_STUB(__import__XInputdFFUpdateEffect);
+REX_EXPORT_STUB(__import__XInputdFFEffectOperation);
+REX_EXPORT_STUB(__import__XInputdFFDeviceControl);
+REX_EXPORT_STUB(__import__XInputdFFSetDeviceGain);
+REX_EXPORT_STUB(__import__XInputdFFCancelIo);
+REX_EXPORT_STUB(__import__XInputdFFSetRumble);
+REX_EXPORT_STUB(__import__XInputdGetLastTextInputTime);
+REX_EXPORT_STUB(__import__XInputdSetTextMessengerIndicator);
+REX_EXPORT_STUB(__import__XInputdSetTextDeviceKeyLocks);
+REX_EXPORT_STUB(__import__XInputdGetTextDeviceKeyLocks);
+REX_EXPORT_STUB(__import__XInputdControl);
+REX_EXPORT_STUB(__import__XInputdSetWifiChannel);
+REX_EXPORT_STUB(__import__XInputdGetDevicePid);
+REX_EXPORT_STUB(__import__XInputdGetFailedConnectionOrBind);
+REX_EXPORT_STUB(__import__XInputdSetFailedConnectionOrBindCallback);
+REX_EXPORT_STUB(__import__XInputdSetMinMaxAuthDelay);
 
 // Drv stubs
-REX_EXPORT_STUB(__imp__DrvSetSysReqCallback);
-REX_EXPORT_STUB(__imp__DrvSetUserBindingCallback);
-REX_EXPORT_STUB(__imp__DrvSetContentStorageCallback);
-REX_EXPORT_STUB(__imp__DrvSetAutobind);
-REX_EXPORT_STUB(__imp__DrvGetContentStorageNotification);
-REX_EXPORT_STUB(__imp__DrvXenonButtonPressed);
-REX_EXPORT_STUB(__imp__DrvBindToUser);
-REX_EXPORT_STUB(__imp__DrvSetDeviceConfigChangeCallback);
-REX_EXPORT_STUB(__imp__DrvDeviceConfigChange);
-REX_EXPORT_STUB(__imp__DrvSetMicArrayStartCallback);
-REX_EXPORT_STUB(__imp__DrvSetAudioLatencyCallback);
+REX_EXPORT_STUB(__import__DrvSetSysReqCallback);
+REX_EXPORT_STUB(__import__DrvSetUserBindingCallback);
+REX_EXPORT_STUB(__import__DrvSetContentStorageCallback);
+REX_EXPORT_STUB(__import__DrvSetAutobind);
+REX_EXPORT_STUB(__import__DrvGetContentStorageNotification);
+REX_EXPORT_STUB(__import__DrvXenonButtonPressed);
+REX_EXPORT_STUB(__import__DrvBindToUser);
+REX_EXPORT_STUB(__import__DrvSetDeviceConfigChangeCallback);
+REX_EXPORT_STUB(__import__DrvDeviceConfigChange);
+REX_EXPORT_STUB(__import__DrvSetMicArrayStartCallback);
+REX_EXPORT_STUB(__import__DrvSetAudioLatencyCallback);

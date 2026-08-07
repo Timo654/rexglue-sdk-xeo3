@@ -63,7 +63,7 @@ bool build_bl(BuilderContext& ctx) {
 
   // Always set LR (unless skipLr)
   if (!ctx.config().skipLr)
-    ctx.println("\tctx.lr = 0x{:X};", ctx.base + 4);
+    ctx.println("\tADJ(ctx)->lr = 0x{:X};", ctx.base + 4);
 
   // Use graph to classify the target
   // true = call instruction, so own-base means recursive call (not loop back)
@@ -98,9 +98,9 @@ bool build_blr(BuilderContext& ctx) {
 
 bool build_blrl(BuilderContext& ctx) {
   // BLRL: save return address, then branch-and-link to current LR
-  ctx.println("\t{{ auto old_lr = ctx.lr;");
+  ctx.println("\t{{ auto old_lr = ADJ(ctx)->lr;");
   if (!ctx.config().skipLr)
-    ctx.println("\tctx.lr = 0x{:X};", ctx.base + 4);
+    ctx.println("\tADJ(ctx)->lr = 0x{:X};", ctx.base + 4);
   ctx.println("\tREX_CALL_INDIRECT_FUNC(uint32_t(old_lr)); }}");
   ctx.csrState = CSRState::Unknown;
   return true;
@@ -146,7 +146,7 @@ bool build_bctr(BuilderContext& ctx) {
         case TargetKind::Function:
         case TargetKind::Import:
           if (auto* targetFn = ctx.graph().getFunction(label)) {
-            ctx.println("\t\t{}(ctx, base);", targetFn->name());
+            ctx.println("\t\t{}(ADJ(ctx), base);", targetFn->name());
           } else {
             REXCODEGEN_ERROR(
                 "Jump target 0x{:08X} classified as function but not in graph at bctr 0x{:08X}",
@@ -184,7 +184,7 @@ bool build_bctr(BuilderContext& ctx) {
 
 bool build_bctrl(BuilderContext& ctx) {
   if (!ctx.config().skipLr)
-    ctx.println("\tctx.lr = 0x{:X};", ctx.base + 4);
+    ctx.println("\tADJ(ctx)->lr = 0x{:X};", ctx.base + 4);
   ctx.println("\tREX_CALL_INDIRECT_FUNC({}.u32);", ctx.ctr());
   ctx.csrState = CSRState::Unknown;  // the call could change it
   return true;

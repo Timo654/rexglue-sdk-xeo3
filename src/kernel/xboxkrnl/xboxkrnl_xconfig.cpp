@@ -127,5 +127,5 @@ u32 ExGetXConfigSetting_entry(u16 category, u16 setting, mapped_void buffer_ptr,
 
 }  // namespace rex::kernel::xboxkrnl
 
-REX_EXPORT(__imp__ExGetXConfigSetting, rex::kernel::xboxkrnl::ExGetXConfigSetting_entry)
-REX_EXPORT_STUB(__imp__ExSetXConfigSetting);
+REX_EXPORT(__import__ExGetXConfigSetting, rex::kernel::xboxkrnl::ExGetXConfigSetting_entry)
+REX_EXPORT_STUB(__import__ExSetXConfigSetting);

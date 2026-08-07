@@ -477,7 +477,7 @@ VoidResult registerEntryPoints(CodegenContext& ctx) {
 
         if (exp) {
           if (exp->type == runtime::Export::Type::kFunction) {
-            resolvedName = "__imp__" + std::string(exp->name);
+            resolvedName = "__import__" + std::string(exp->name);
             resolvedCount++;
           } else {
             variableCount++;

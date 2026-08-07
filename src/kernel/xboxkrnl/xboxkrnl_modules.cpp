@@ -216,49 +216,49 @@ u32 XexLoadImageHeaders_entry(mapped_string path, mapped_void headers) {
 
 }  // namespace rex::kernel::xboxkrnl
 
-REX_EXPORT(__imp__XexCheckExecutablePrivilege,
+REX_EXPORT(__import__XexCheckExecutablePrivilege,
            rex::kernel::xboxkrnl::XexCheckExecutablePrivilege_entry)
-REX_EXPORT(__imp__XexGetModuleHandle, rex::kernel::xboxkrnl::XexGetModuleHandle_entry)
-REX_EXPORT(__imp__XexGetModuleSection, rex::kernel::xboxkrnl::XexGetModuleSection_entry)
-REX_EXPORT(__imp__XexLoadImage, rex::kernel::xboxkrnl::XexLoadImage_entry)
-REX_EXPORT(__imp__XexUnloadImage, rex::kernel::xboxkrnl::XexUnloadImage_entry)
-REX_EXPORT(__imp__XexGetProcedureAddress, rex::kernel::xboxkrnl::XexGetProcedureAddress_entry)
-REX_EXPORT(__imp__ExRegisterTitleTerminateNotification,
+REX_EXPORT(__import__XexGetModuleHandle, rex::kernel::xboxkrnl::XexGetModuleHandle_entry)
+REX_EXPORT(__import__XexGetModuleSection, rex::kernel::xboxkrnl::XexGetModuleSection_entry)
+REX_EXPORT(__import__XexLoadImage, rex::kernel::xboxkrnl::XexLoadImage_entry)
+REX_EXPORT(__import__XexUnloadImage, rex::kernel::xboxkrnl::XexUnloadImage_entry)
+REX_EXPORT(__import__XexGetProcedureAddress, rex::kernel::xboxkrnl::XexGetProcedureAddress_entry)
+REX_EXPORT(__import__ExRegisterTitleTerminateNotification,
            rex::kernel::xboxkrnl::ExRegisterTitleTerminateNotification_entry)
-REX_EXPORT(__imp__XexLoadImageHeaders, rex::kernel::xboxkrnl::XexLoadImageHeaders_entry)
+REX_EXPORT(__import__XexLoadImageHeaders, rex::kernel::xboxkrnl::XexLoadImageHeaders_entry)
 
-REX_EXPORT_STUB(__imp__XexLoadExecutable);
-REX_EXPORT_STUB(__imp__XexLoadImageFromMemory);
-REX_EXPORT_STUB(__imp__XexPcToFileHeader);
-REX_EXPORT_STUB(__imp__XexRegisterPatchDescriptor);
-REX_EXPORT_STUB(__imp__XexSendDeferredNotifications);
-REX_EXPORT_STUB(__imp__XexStartExecutable);
-REX_EXPORT_STUB(__imp__XexUnloadImageAndExitThread);
-REX_EXPORT_STUB(__imp__XexUnloadTitleModules);
-REX_EXPORT_STUB(__imp__XexVerifyImageHeaders);
-REX_EXPORT_STUB(__imp__XexGetModuleImportVersions);
-REX_EXPORT_STUB(__imp__XexActivationGetNonce);
-REX_EXPORT_STUB(__imp__XexActivationSetLicense);
-REX_EXPORT_STUB(__imp__XexActivationVerifyOwnership);
-REX_EXPORT_STUB(__imp__XexDisableVerboseDbgPrint);
-REX_EXPORT_STUB(__imp__XexImportTraceEnable);
-REX_EXPORT_STUB(__imp__XexSetExecutablePrivilege);
-REX_EXPORT_STUB(__imp__XexSetLastKdcTime);
-REX_EXPORT_STUB(__imp__XexTransformImageKey);
-REX_EXPORT_STUB(__imp__XexShimDisable);
-REX_EXPORT_STUB(__imp__XexShimEnable);
-REX_EXPORT_STUB(__imp__XexShimEntryDisable);
-REX_EXPORT_STUB(__imp__XexShimEntryEnable);
-REX_EXPORT_STUB(__imp__XexShimEntryRegister);
-REX_EXPORT_STUB(__imp__XexShimLock);
-REX_EXPORT_STUB(__imp__XexTitleHash);
-REX_EXPORT_STUB(__imp__XexTitleHashClose);
-REX_EXPORT_STUB(__imp__XexTitleHashContinue);
-REX_EXPORT_STUB(__imp__XexTitleHashOpen);
-REX_EXPORT_STUB(__imp__XexReserveCodeBuffer);
-REX_EXPORT_STUB(__imp__XexCommitCodeBuffer);
-REX_EXPORT_STUB(__imp__XexRegisterUsermodeModule);
-REX_EXPORT_STUB(__imp__LDICreateDecompression);
-REX_EXPORT_STUB(__imp__LDIDecompress);
-REX_EXPORT_STUB(__imp__LDIDestroyDecompression);
-REX_EXPORT_STUB(__imp__LDIResetDecompression);
+REX_EXPORT_STUB(__import__XexLoadExecutable);
+REX_EXPORT_STUB(__import__XexLoadImageFromMemory);
+REX_EXPORT_STUB(__import__XexPcToFileHeader);
+REX_EXPORT_STUB(__import__XexRegisterPatchDescriptor);
+REX_EXPORT_STUB(__import__XexSendDeferredNotifications);
+REX_EXPORT_STUB(__import__XexStartExecutable);
+REX_EXPORT_STUB(__import__XexUnloadImageAndExitThread);
+REX_EXPORT_STUB(__import__XexUnloadTitleModules);
+REX_EXPORT_STUB(__import__XexVerifyImageHeaders);
+REX_EXPORT_STUB(__import__XexGetModuleImportVersions);
+REX_EXPORT_STUB(__import__XexActivationGetNonce);
+REX_EXPORT_STUB(__import__XexActivationSetLicense);
+REX_EXPORT_STUB(__import__XexActivationVerifyOwnership);
+REX_EXPORT_STUB(__import__XexDisableVerboseDbgPrint);
+REX_EXPORT_STUB(__import__XexImportTraceEnable);
+REX_EXPORT_STUB(__import__XexSetExecutablePrivilege);
+REX_EXPORT_STUB(__import__XexSetLastKdcTime);
+REX_EXPORT_STUB(__import__XexTransformImageKey);
+REX_EXPORT_STUB(__import__XexShimDisable);
+REX_EXPORT_STUB(__import__XexShimEnable);
+REX_EXPORT_STUB(__import__XexShimEntryDisable);
+REX_EXPORT_STUB(__import__XexShimEntryEnable);
+REX_EXPORT_STUB(__import__XexShimEntryRegister);
+REX_EXPORT_STUB(__import__XexShimLock);
+REX_EXPORT_STUB(__import__XexTitleHash);
+REX_EXPORT_STUB(__import__XexTitleHashClose);
+REX_EXPORT_STUB(__import__XexTitleHashContinue);
+REX_EXPORT_STUB(__import__XexTitleHashOpen);
+REX_EXPORT_STUB(__import__XexReserveCodeBuffer);
+REX_EXPORT_STUB(__import__XexCommitCodeBuffer);
+REX_EXPORT_STUB(__import__XexRegisterUsermodeModule);
+REX_EXPORT_STUB(__import__LDICreateDecompression);
+REX_EXPORT_STUB(__import__LDIDecompress);
+REX_EXPORT_STUB(__import__LDIDestroyDecompression);
+REX_EXPORT_STUB(__import__LDIResetDecompression);

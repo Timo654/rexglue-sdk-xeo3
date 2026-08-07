@@ -84,20 +84,20 @@ u32 XamTaskCloseHandle_entry(u32 handle) {
 }  // namespace kernel
 }  // namespace rex
 
-REX_EXPORT(__imp__XamTaskSchedule, rex::kernel::xam::XamTaskSchedule_entry)
-REX_EXPORT(__imp__XamTaskShouldExit, rex::kernel::xam::XamTaskShouldExit_entry)
-REX_EXPORT(__imp__XamTaskCloseHandle, rex::kernel::xam::XamTaskCloseHandle_entry)
+REX_EXPORT(__import__XamTaskSchedule, rex::kernel::xam::XamTaskSchedule_entry)
+REX_EXPORT(__import__XamTaskShouldExit, rex::kernel::xam::XamTaskShouldExit_entry)
+REX_EXPORT(__import__XamTaskCloseHandle, rex::kernel::xam::XamTaskCloseHandle_entry)
 
-REX_EXPORT_STUB(__imp__XamTaskCancel);
-REX_EXPORT_STUB(__imp__XamTaskCancelWaitAndCloseWaitTask);
-REX_EXPORT_STUB(__imp__XamTaskCreateQueue);
-REX_EXPORT_STUB(__imp__XamTaskCreateQueueEx);
-REX_EXPORT_STUB(__imp__XamTaskGetAttributes);
-REX_EXPORT_STUB(__imp__XamTaskGetCompletionStatus);
-REX_EXPORT_STUB(__imp__XamTaskGetCurrentTask);
-REX_EXPORT_STUB(__imp__XamTaskGetStatus);
-REX_EXPORT_STUB(__imp__XamTaskModify);
-REX_EXPORT_STUB(__imp__XamTaskQueryProperty);
-REX_EXPORT_STUB(__imp__XamTaskReschedule);
-REX_EXPORT_STUB(__imp__XamTaskSetCancelSubTasks);
-REX_EXPORT_STUB(__imp__XamTaskWaitOnCompletion);
+REX_EXPORT_STUB(__import__XamTaskCancel);
+REX_EXPORT_STUB(__import__XamTaskCancelWaitAndCloseWaitTask);
+REX_EXPORT_STUB(__import__XamTaskCreateQueue);
+REX_EXPORT_STUB(__import__XamTaskCreateQueueEx);
+REX_EXPORT_STUB(__import__XamTaskGetAttributes);
+REX_EXPORT_STUB(__import__XamTaskGetCompletionStatus);
+REX_EXPORT_STUB(__import__XamTaskGetCurrentTask);
+REX_EXPORT_STUB(__import__XamTaskGetStatus);
+REX_EXPORT_STUB(__import__XamTaskModify);
+REX_EXPORT_STUB(__import__XamTaskQueryProperty);
+REX_EXPORT_STUB(__import__XamTaskReschedule);
+REX_EXPORT_STUB(__import__XamTaskSetCancelSubTasks);
+REX_EXPORT_STUB(__import__XamTaskWaitOnCompletion);

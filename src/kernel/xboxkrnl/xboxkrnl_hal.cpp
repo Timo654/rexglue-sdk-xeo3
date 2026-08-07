@@ -36,31 +36,31 @@ void HalReturnToFirmware_entry(u32 routine) {
 
 }  // namespace rex::kernel::xboxkrnl
 
-REX_EXPORT(__imp__HalReturnToFirmware, rex::kernel::xboxkrnl::HalReturnToFirmware_entry)
+REX_EXPORT(__import__HalReturnToFirmware, rex::kernel::xboxkrnl::HalReturnToFirmware_entry)
 
-REX_EXPORT_STUB(__imp__HalGetCurrentAVPack);
-REX_EXPORT_STUB(__imp__HalGpioControl);
-REX_EXPORT_STUB(__imp__HalOpenCloseODDTray);
-REX_EXPORT_STUB(__imp__HalReadWritePCISpace);
-REX_EXPORT_STUB(__imp__HalRegisterPowerDownNotification);
-REX_EXPORT_STUB(__imp__HalRegisterSMCNotification);
-REX_EXPORT_STUB(__imp__HalSendSMCMessage);
-REX_EXPORT_STUB(__imp__HalSetAudioEnable);
-REX_EXPORT_STUB(__imp__HalIsExecutingPowerDownDpc);
-REX_EXPORT_STUB(__imp__HalGetPowerUpCause);
-REX_EXPORT_STUB(__imp__HalRegisterPowerDownCallback);
-REX_EXPORT_STUB(__imp__HalRegisterBackgroundModeTransitionCallback);
-REX_EXPORT_STUB(__imp__HalClampUnclampOutputDACs);
-REX_EXPORT_STUB(__imp__HalPowerDownToBackgroundMode);
-REX_EXPORT_STUB(__imp__HalNotifyAddRemoveBackgroundTask);
-REX_EXPORT_STUB(__imp__HalCallBackgroundModeNotificationRoutines);
-REX_EXPORT_STUB(__imp__HalGetMemoryInformation);
-REX_EXPORT_STUB(__imp__HalNotifyBackgroundModeTransitionComplete);
-REX_EXPORT_STUB(__imp__HalFinalizePowerLossRecovery);
-REX_EXPORT_STUB(__imp__HalSetPowerLossRecovery);
-REX_EXPORT_STUB(__imp__HalRegisterXamPowerDownCallback);
-REX_EXPORT_STUB(__imp__HalRegisterHdDvdRomNotification);
-REX_EXPORT_STUB(__imp__HalGetNotedArgonErrors);
-REX_EXPORT_STUB(__imp__HalReadArgonEeprom);
-REX_EXPORT_STUB(__imp__HalWriteArgonEeprom);
-REX_EXPORT_STUB(__imp__HalConfigureVeDevice);
+REX_EXPORT_STUB(__import__HalGetCurrentAVPack);
+REX_EXPORT_STUB(__import__HalGpioControl);
+REX_EXPORT_STUB(__import__HalOpenCloseODDTray);
+REX_EXPORT_STUB(__import__HalReadWritePCISpace);
+REX_EXPORT_STUB(__import__HalRegisterPowerDownNotification);
+REX_EXPORT_STUB(__import__HalRegisterSMCNotification);
+REX_EXPORT_STUB(__import__HalSendSMCMessage);
+REX_EXPORT_STUB(__import__HalSetAudioEnable);
+REX_EXPORT_STUB(__import__HalIsExecutingPowerDownDpc);
+REX_EXPORT_STUB(__import__HalGetPowerUpCause);
+REX_EXPORT_STUB(__import__HalRegisterPowerDownCallback);
+REX_EXPORT_STUB(__import__HalRegisterBackgroundModeTransitionCallback);
+REX_EXPORT_STUB(__import__HalClampUnclampOutputDACs);
+REX_EXPORT_STUB(__import__HalPowerDownToBackgroundMode);
+REX_EXPORT_STUB(__import__HalNotifyAddRemoveBackgroundTask);
+REX_EXPORT_STUB(__import__HalCallBackgroundModeNotificationRoutines);
+REX_EXPORT_STUB(__import__HalGetMemoryInformation);
+REX_EXPORT_STUB(__import__HalNotifyBackgroundModeTransitionComplete);
+REX_EXPORT_STUB(__import__HalFinalizePowerLossRecovery);
+REX_EXPORT_STUB(__import__HalSetPowerLossRecovery);
+REX_EXPORT_STUB(__import__HalRegisterXamPowerDownCallback);
+REX_EXPORT_STUB(__import__HalRegisterHdDvdRomNotification);
+REX_EXPORT_STUB(__import__HalGetNotedArgonErrors);
+REX_EXPORT_STUB(__import__HalReadArgonEeprom);
+REX_EXPORT_STUB(__import__HalWriteArgonEeprom);
+REX_EXPORT_STUB(__import__HalConfigureVeDevice);

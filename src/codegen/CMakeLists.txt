@@ -62,6 +62,8 @@ set(INJA_TEMPLATE_FILES
     ${TEMPLATE_SOURCE_DIR}/codegen/_indirect_call.inja
     ${TEMPLATE_SOURCE_DIR}/codegen/init_cpp.inja
     ${TEMPLATE_SOURCE_DIR}/codegen/init_h.inja
+    ${TEMPLATE_SOURCE_DIR}/codegen/precomp_init_cpp.inja
+    ${TEMPLATE_SOURCE_DIR}/codegen/import_mapping_cpp.inja
     ${TEMPLATE_SOURCE_DIR}/codegen/sources_cmake.inja
     ${TEMPLATE_SOURCE_DIR}/test/ppc_test_cases_cpp.inja
     ${TEMPLATE_SOURCE_DIR}/test/ppc_test_decls_h.inja

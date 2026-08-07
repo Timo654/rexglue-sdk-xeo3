@@ -416,53 +416,53 @@ u32 XamContentDeleteInternal_entry(mapped_void content_data_ptr, mapped_void ove
 }  // namespace kernel
 }  // namespace rex
 
-REX_EXPORT(__imp__XamContentGetLicenseMask, rex::kernel::xam::XamContentGetLicenseMask_entry)
-REX_EXPORT(__imp__XamContentResolve, rex::kernel::xam::XamContentResolve_entry)
-REX_EXPORT(__imp__XamContentCreateEnumerator, rex::kernel::xam::XamContentCreateEnumerator_entry)
-REX_EXPORT(__imp__XamContentCreateEx, rex::kernel::xam::XamContentCreateEx_entry)
-REX_EXPORT(__imp__XamContentCreate, rex::kernel::xam::XamContentCreate_entry)
-REX_EXPORT(__imp__XamContentCreateInternal, rex::kernel::xam::XamContentCreateInternal_entry)
-REX_EXPORT(__imp__XamContentOpenFile, rex::kernel::xam::XamContentOpenFile_entry)
-REX_EXPORT(__imp__XamContentFlush, rex::kernel::xam::XamContentFlush_entry)
-REX_EXPORT(__imp__XamContentClose, rex::kernel::xam::XamContentClose_entry)
-REX_EXPORT(__imp__XamContentGetCreator, rex::kernel::xam::XamContentGetCreator_entry)
-REX_EXPORT(__imp__XamContentGetThumbnail, rex::kernel::xam::XamContentGetThumbnail_entry)
-REX_EXPORT(__imp__XamContentSetThumbnail, rex::kernel::xam::XamContentSetThumbnail_entry)
-REX_EXPORT(__imp__XamContentDelete, rex::kernel::xam::XamContentDelete_entry)
-REX_EXPORT(__imp__XamContentDeleteInternal, rex::kernel::xam::XamContentDeleteInternal_entry)
+REX_EXPORT(__import__XamContentGetLicenseMask, rex::kernel::xam::XamContentGetLicenseMask_entry)
+REX_EXPORT(__import__XamContentResolve, rex::kernel::xam::XamContentResolve_entry)
+REX_EXPORT(__import__XamContentCreateEnumerator, rex::kernel::xam::XamContentCreateEnumerator_entry)
+REX_EXPORT(__import__XamContentCreateEx, rex::kernel::xam::XamContentCreateEx_entry)
+REX_EXPORT(__import__XamContentCreate, rex::kernel::xam::XamContentCreate_entry)
+REX_EXPORT(__import__XamContentCreateInternal, rex::kernel::xam::XamContentCreateInternal_entry)
+REX_EXPORT(__import__XamContentOpenFile, rex::kernel::xam::XamContentOpenFile_entry)
+REX_EXPORT(__import__XamContentFlush, rex::kernel::xam::XamContentFlush_entry)
+REX_EXPORT(__import__XamContentClose, rex::kernel::xam::XamContentClose_entry)
+REX_EXPORT(__import__XamContentGetCreator, rex::kernel::xam::XamContentGetCreator_entry)
+REX_EXPORT(__import__XamContentGetThumbnail, rex::kernel::xam::XamContentGetThumbnail_entry)
+REX_EXPORT(__import__XamContentSetThumbnail, rex::kernel::xam::XamContentSetThumbnail_entry)
+REX_EXPORT(__import__XamContentDelete, rex::kernel::xam::XamContentDelete_entry)
+REX_EXPORT(__import__XamContentDeleteInternal, rex::kernel::xam::XamContentDeleteInternal_entry)
 
-REX_EXPORT_STUB(__imp__XamContentClosePackageFile);
-REX_EXPORT_STUB(__imp__XamContentCopyInternal);
-REX_EXPORT_STUB(__imp__XamContentCreateAndMountPackage);
-REX_EXPORT_STUB(__imp__XamContentCreateEnumeratorInternal);
-REX_EXPORT_STUB(__imp__XamContentDismountAndClosePackage);
-REX_EXPORT_STUB(__imp__XamContentDuplicateFileHandle);
-REX_EXPORT_STUB(__imp__XamContentExistsOnDeviceInternal);
-REX_EXPORT_STUB(__imp__XamContentFlushPackage);
-REX_EXPORT_STUB(__imp__XamContentGetAttributes);
-REX_EXPORT_STUB(__imp__XamContentGetAttributesInternal);
-REX_EXPORT_STUB(__imp__XamContentGetHeaderInternal);
-REX_EXPORT_STUB(__imp__XamContentGetLocalizedString);
-REX_EXPORT_STUB(__imp__XamContentGetMetaDataInternal);
-REX_EXPORT_STUB(__imp__XamContentGetMountedPackageByRootName);
-REX_EXPORT_STUB(__imp__XamContentGetOnlineCreator);
-REX_EXPORT_STUB(__imp__XamContentInstall);
-REX_EXPORT_STUB(__imp__XamContentInstallInternal);
-REX_EXPORT_STUB(__imp__XamContentIsGameInstalledToHDD);
-REX_EXPORT_STUB(__imp__XamContentLaunchImage);
-REX_EXPORT_STUB(__imp__XamContentLaunchImageFromFileInternal);
-REX_EXPORT_STUB(__imp__XamContentLaunchImageInternal);
-REX_EXPORT_STUB(__imp__XamContentLaunchImageInternalEx);
-REX_EXPORT_STUB(__imp__XamContentLockUnlockPackageHeaders);
-REX_EXPORT_STUB(__imp__XamContentMountInstalledGame);
-REX_EXPORT_STUB(__imp__XamContentMountPackage);
-REX_EXPORT_STUB(__imp__XamContentMoveInternal);
-REX_EXPORT_STUB(__imp__XamContentOpenFileInternal);
-REX_EXPORT_STUB(__imp__XamContentOpenPackageFile);
-REX_EXPORT_STUB(__imp__XamContentQueryLicenseInternal);
-REX_EXPORT_STUB(__imp__XamContentRegisterChangeCallback);
-REX_EXPORT_STUB(__imp__XamContentResolveInternal);
-REX_EXPORT_STUB(__imp__XamContentSetAttributes);
-REX_EXPORT_STUB(__imp__XamContentSetMediaMetaDataInternal);
-REX_EXPORT_STUB(__imp__XamContentSetThumbnailInternal);
-REX_EXPORT_STUB(__imp__XamContentWritePackageHeader);
+REX_EXPORT_STUB(__import__XamContentClosePackageFile);
+REX_EXPORT_STUB(__import__XamContentCopyInternal);
+REX_EXPORT_STUB(__import__XamContentCreateAndMountPackage);
+REX_EXPORT_STUB(__import__XamContentCreateEnumeratorInternal);
+REX_EXPORT_STUB(__import__XamContentDismountAndClosePackage);
+REX_EXPORT_STUB(__import__XamContentDuplicateFileHandle);
+REX_EXPORT_STUB(__import__XamContentExistsOnDeviceInternal);
+REX_EXPORT_STUB(__import__XamContentFlushPackage);
+REX_EXPORT_STUB(__import__XamContentGetAttributes);
+REX_EXPORT_STUB(__import__XamContentGetAttributesInternal);
+REX_EXPORT_STUB(__import__XamContentGetHeaderInternal);
+REX_EXPORT_STUB(__import__XamContentGetLocalizedString);
+REX_EXPORT_STUB(__import__XamContentGetMetaDataInternal);
+REX_EXPORT_STUB(__import__XamContentGetMountedPackageByRootName);
+REX_EXPORT_STUB(__import__XamContentGetOnlineCreator);
+REX_EXPORT_STUB(__import__XamContentInstall);
+REX_EXPORT_STUB(__import__XamContentInstallInternal);
+REX_EXPORT_STUB(__import__XamContentIsGameInstalledToHDD);
+REX_EXPORT_STUB(__import__XamContentLaunchImage);
+REX_EXPORT_STUB(__import__XamContentLaunchImageFromFileInternal);
+REX_EXPORT_STUB(__import__XamContentLaunchImageInternal);
+REX_EXPORT_STUB(__import__XamContentLaunchImageInternalEx);
+REX_EXPORT_STUB(__import__XamContentLockUnlockPackageHeaders);
+REX_EXPORT_STUB(__import__XamContentMountInstalledGame);
+REX_EXPORT_STUB(__import__XamContentMountPackage);
+REX_EXPORT_STUB(__import__XamContentMoveInternal);
+REX_EXPORT_STUB(__import__XamContentOpenFileInternal);
+REX_EXPORT_STUB(__import__XamContentOpenPackageFile);
+REX_EXPORT_STUB(__import__XamContentQueryLicenseInternal);
+REX_EXPORT_STUB(__import__XamContentRegisterChangeCallback);
+REX_EXPORT_STUB(__import__XamContentResolveInternal);
+REX_EXPORT_STUB(__import__XamContentSetAttributes);
+REX_EXPORT_STUB(__import__XamContentSetMediaMetaDataInternal);
+REX_EXPORT_STUB(__import__XamContentSetThumbnailInternal);
+REX_EXPORT_STUB(__import__XamContentWritePackageHeader);

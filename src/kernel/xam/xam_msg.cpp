@@ -129,14 +129,14 @@ u32 XamGetOverlappedResult_entry(ppc_ptr_t<XAM_OVERLAPPED> overlapped_ptr, mappe
 }  // namespace kernel
 }  // namespace rex
 
-REX_EXPORT(__imp__XMsgInProcessCall, rex::kernel::xam::XMsgInProcessCall_entry)
-REX_EXPORT(__imp__XMsgSystemProcessCall, rex::kernel::xam::XMsgSystemProcessCall_entry)
-REX_EXPORT(__imp__XMsgStartIORequestEx, rex::kernel::xam::XMsgStartIORequestEx_entry)
-REX_EXPORT(__imp__XMsgStartIORequest, rex::kernel::xam::XMsgStartIORequest_entry)
-REX_EXPORT(__imp__XMsgCancelIORequest, rex::kernel::xam::XMsgCancelIORequest_entry)
-REX_EXPORT(__imp__XMsgCompleteIORequest, rex::kernel::xam::XMsgCompleteIORequest_entry)
-REX_EXPORT(__imp__XamGetOverlappedResult, rex::kernel::xam::XamGetOverlappedResult_entry)
+REX_EXPORT(__import__XMsgInProcessCall, rex::kernel::xam::XMsgInProcessCall_entry)
+REX_EXPORT(__import__XMsgSystemProcessCall, rex::kernel::xam::XMsgSystemProcessCall_entry)
+REX_EXPORT(__import__XMsgStartIORequestEx, rex::kernel::xam::XMsgStartIORequestEx_entry)
+REX_EXPORT(__import__XMsgStartIORequest, rex::kernel::xam::XMsgStartIORequest_entry)
+REX_EXPORT(__import__XMsgCancelIORequest, rex::kernel::xam::XMsgCancelIORequest_entry)
+REX_EXPORT(__import__XMsgCompleteIORequest, rex::kernel::xam::XMsgCompleteIORequest_entry)
+REX_EXPORT(__import__XamGetOverlappedResult, rex::kernel::xam::XamGetOverlappedResult_entry)
 
-REX_EXPORT_STUB(__imp__XMsgAcquireAsyncMessageFromOverlapped);
-REX_EXPORT_STUB(__imp__XMsgProcessRequest);
-REX_EXPORT_STUB(__imp__XMsgReleaseAsyncMessageToOverlapped);
+REX_EXPORT_STUB(__import__XMsgAcquireAsyncMessageFromOverlapped);
+REX_EXPORT_STUB(__import__XMsgProcessRequest);
+REX_EXPORT_STUB(__import__XMsgReleaseAsyncMessageToOverlapped);

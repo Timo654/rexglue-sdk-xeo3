@@ -39,28 +39,28 @@ void XamAvatarShutdown_entry() {
 }  // namespace kernel
 }  // namespace rex
 
-REX_EXPORT(__imp__XamAvatarInitialize, rex::kernel::xam::XamAvatarInitialize_entry)
-REX_EXPORT(__imp__XamAvatarShutdown, rex::kernel::xam::XamAvatarShutdown_entry)
+REX_EXPORT(__import__XamAvatarInitialize, rex::kernel::xam::XamAvatarInitialize_entry)
+REX_EXPORT(__import__XamAvatarShutdown, rex::kernel::xam::XamAvatarShutdown_entry)
 
-REX_EXPORT_STUB(__imp__XamAvatarBeginEnumAssets);
-REX_EXPORT_STUB(__imp__XamAvatarEndEnumAssets);
-REX_EXPORT_STUB(__imp__XamAvatarEnumAssets);
-REX_EXPORT_STUB(__imp__XamAvatarGenerateMipMaps);
-REX_EXPORT_STUB(__imp__XamAvatarGetAssetBinary);
-REX_EXPORT_STUB(__imp__XamAvatarGetAssetIcon);
-REX_EXPORT_STUB(__imp__XamAvatarGetAssets);
-REX_EXPORT_STUB(__imp__XamAvatarGetAssetsResultSize);
-REX_EXPORT_STUB(__imp__XamAvatarGetInstalledAssetPackageDescription);
-REX_EXPORT_STUB(__imp__XamAvatarGetInstrumentation);
-REX_EXPORT_STUB(__imp__XamAvatarGetManifestLocalUser);
-REX_EXPORT_STUB(__imp__XamAvatarGetManifestsByXuid);
-REX_EXPORT_STUB(__imp__XamAvatarGetMetadataRandom);
-REX_EXPORT_STUB(__imp__XamAvatarGetMetadataSignedOutProfile);
-REX_EXPORT_STUB(__imp__XamAvatarGetMetadataSignedOutProfileCount);
-REX_EXPORT_STUB(__imp__XamAvatarLoadAnimation);
-REX_EXPORT_STUB(__imp__XamAvatarManifestGetBodyType);
-REX_EXPORT_STUB(__imp__XamAvatarReinstallAwardedAsset);
-REX_EXPORT_STUB(__imp__XamAvatarSetCustomAsset);
-REX_EXPORT_STUB(__imp__XamAvatarSetManifest);
-REX_EXPORT_STUB(__imp__XamAvatarSetMocks);
-REX_EXPORT_STUB(__imp__XamAvatarWearNow);
+REX_EXPORT_STUB(__import__XamAvatarBeginEnumAssets);
+REX_EXPORT_STUB(__import__XamAvatarEndEnumAssets);
+REX_EXPORT_STUB(__import__XamAvatarEnumAssets);
+REX_EXPORT_STUB(__import__XamAvatarGenerateMipMaps);
+REX_EXPORT_STUB(__import__XamAvatarGetAssetBinary);
+REX_EXPORT_STUB(__import__XamAvatarGetAssetIcon);
+REX_EXPORT_STUB(__import__XamAvatarGetAssets);
+REX_EXPORT_STUB(__import__XamAvatarGetAssetsResultSize);
+REX_EXPORT_STUB(__import__XamAvatarGetInstalledAssetPackageDescription);
+REX_EXPORT_STUB(__import__XamAvatarGetInstrumentation);
+REX_EXPORT_STUB(__import__XamAvatarGetManifestLocalUser);
+REX_EXPORT_STUB(__import__XamAvatarGetManifestsByXuid);
+REX_EXPORT_STUB(__import__XamAvatarGetMetadataRandom);
+REX_EXPORT_STUB(__import__XamAvatarGetMetadataSignedOutProfile);
+REX_EXPORT_STUB(__import__XamAvatarGetMetadataSignedOutProfileCount);
+REX_EXPORT_STUB(__import__XamAvatarLoadAnimation);
+REX_EXPORT_STUB(__import__XamAvatarManifestGetBodyType);
+REX_EXPORT_STUB(__import__XamAvatarReinstallAwardedAsset);
+REX_EXPORT_STUB(__import__XamAvatarSetCustomAsset);
+REX_EXPORT_STUB(__import__XamAvatarSetManifest);
+REX_EXPORT_STUB(__import__XamAvatarSetMocks);
+REX_EXPORT_STUB(__import__XamAvatarWearNow);

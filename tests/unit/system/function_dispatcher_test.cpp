@@ -64,7 +64,7 @@ TEST_CASE("FunctionDispatcher: caller_address routes thunk to caller's module po
 TEST_CASE("FunctionDispatcher: AllocateThunk(0) uses the entrypoint pool only when explicit",
           "[runtime][dispatcher]") {
   // caller_address=0 is reserved for host-initiated allocations that have no
-  // guest caller (the entrypoint wiring its own __imp__* exports during
+  // guest caller (the entrypoint wiring its own __import__* exports during
   // setup). It must land in the entrypoint module's pool.
   auto& memory = GetTestMemory();
   rex::runtime::ExportResolver resolver;

@@ -394,38 +394,38 @@ u32 XamGetLocaleEx_entry(u32 max_country_id, u32 max_locale_id) {
 }  // namespace kernel
 }  // namespace rex
 
-REX_EXPORT(__imp__XamGetLocale, rex::kernel::xam::XamGetLocale_entry)
-REX_EXPORT(__imp__XamGetOnlineCountryFromLocale,
+REX_EXPORT(__import__XamGetLocale, rex::kernel::xam::XamGetLocale_entry)
+REX_EXPORT(__import__XamGetOnlineCountryFromLocale,
            rex::kernel::xam::XamGetOnlineCountryFromLocale_entry)
-REX_EXPORT(__imp__XamGetOnlineCountryString, rex::kernel::xam::XamGetOnlineCountryString_entry)
-REX_EXPORT(__imp__XamGetCountryString, rex::kernel::xam::XamGetCountryString_entry)
-REX_EXPORT(__imp__XamGetLanguageString, rex::kernel::xam::XamGetLanguageString_entry)
-REX_EXPORT(__imp__XamGetLanguageLocaleString, rex::kernel::xam::XamGetLanguageLocaleString_entry)
-REX_EXPORT(__imp__XamGetOnlineLanguageAndCountryString,
+REX_EXPORT(__import__XamGetOnlineCountryString, rex::kernel::xam::XamGetOnlineCountryString_entry)
+REX_EXPORT(__import__XamGetCountryString, rex::kernel::xam::XamGetCountryString_entry)
+REX_EXPORT(__import__XamGetLanguageString, rex::kernel::xam::XamGetLanguageString_entry)
+REX_EXPORT(__import__XamGetLanguageLocaleString, rex::kernel::xam::XamGetLanguageLocaleString_entry)
+REX_EXPORT(__import__XamGetOnlineLanguageAndCountryString,
            rex::kernel::xam::XamGetOnlineLanguageAndCountryString_entry)
-REX_EXPORT(__imp__XamGetLocaleString, rex::kernel::xam::XamGetLocaleString_entry)
-REX_EXPORT(__imp__XamGetLocaleFromOnlineCountry,
+REX_EXPORT(__import__XamGetLocaleString, rex::kernel::xam::XamGetLocaleString_entry)
+REX_EXPORT(__import__XamGetLocaleFromOnlineCountry,
            rex::kernel::xam::XamGetLocaleFromOnlineCountry_entry)
-REX_EXPORT(__imp__XamGetLanguageFromOnlineLanguage,
+REX_EXPORT(__import__XamGetLanguageFromOnlineLanguage,
            rex::kernel::xam::XamGetLanguageFromOnlineLanguage_entry)
-REX_EXPORT(__imp__XamGetOnlineLanguageString, rex::kernel::xam::XamGetOnlineLanguageString_entry)
-REX_EXPORT(__imp__XamGetCountryFromOnlineCountry,
+REX_EXPORT(__import__XamGetOnlineLanguageString, rex::kernel::xam::XamGetOnlineLanguageString_entry)
+REX_EXPORT(__import__XamGetCountryFromOnlineCountry,
            rex::kernel::xam::XamGetCountryFromOnlineCountry_entry)
-REX_EXPORT(__imp__XamGetLocaleEx, rex::kernel::xam::XamGetLocaleEx_entry)
+REX_EXPORT(__import__XamGetLocaleEx, rex::kernel::xam::XamGetLocaleEx_entry)
 
-REX_EXPORT_STUB(__imp__XamFormatCurrency);
-REX_EXPORT_STUB(__imp__XamFormatMessage);
-REX_EXPORT_STUB(__imp__XamFormatSystemDateString);
-REX_EXPORT_STUB(__imp__XamGetCountry);
-REX_EXPORT_STUB(__imp__XamGetCurrencyFormat);
-REX_EXPORT_STUB(__imp__XamGetLanguage);
-REX_EXPORT_STUB(__imp__XamGetLanguageLocaleFallbackString);
-REX_EXPORT_STUB(__imp__XamGetLanguageTypeface);
-REX_EXPORT_STUB(__imp__XamGetLanguageTypefacePatch);
-REX_EXPORT_STUB(__imp__XamGetLocaleDateFormat);
-REX_EXPORT_STUB(__imp__XamGetLocaleTimeFormat);
-REX_EXPORT_STUB(__imp__XamGetOnlineCountryFeatures);
-REX_EXPORT_STUB(__imp__XamGetOnlineLanguageAndCountry);
-REX_EXPORT_STUB(__imp__XamGetStoreFront);
-REX_EXPORT_STUB(__imp__XamUniSortCmpString);
-REX_EXPORT_STUB(__imp__XamValidateCountry);
+REX_EXPORT_STUB(__import__XamFormatCurrency);
+REX_EXPORT_STUB(__import__XamFormatMessage);
+REX_EXPORT_STUB(__import__XamFormatSystemDateString);
+REX_EXPORT_STUB(__import__XamGetCountry);
+REX_EXPORT_STUB(__import__XamGetCurrencyFormat);
+REX_EXPORT_STUB(__import__XamGetLanguage);
+REX_EXPORT_STUB(__import__XamGetLanguageLocaleFallbackString);
+REX_EXPORT_STUB(__import__XamGetLanguageTypeface);
+REX_EXPORT_STUB(__import__XamGetLanguageTypefacePatch);
+REX_EXPORT_STUB(__import__XamGetLocaleDateFormat);
+REX_EXPORT_STUB(__import__XamGetLocaleTimeFormat);
+REX_EXPORT_STUB(__import__XamGetOnlineCountryFeatures);
+REX_EXPORT_STUB(__import__XamGetOnlineLanguageAndCountry);
+REX_EXPORT_STUB(__import__XamGetStoreFront);
+REX_EXPORT_STUB(__import__XamUniSortCmpString);
+REX_EXPORT_STUB(__import__XamValidateCountry);

@@ -359,7 +359,7 @@ std::string FunctionNode::emitCpp(const EmitContext& ctx) const {
 
     std::string name;
     if (base() == ctx.entryPoint) {
-      name = "xstart";
+      name = fmt::format("sub_{:08X}", base());
     } else if (!name_.empty()) {
       name = name_;
     } else {
@@ -471,7 +471,7 @@ std::string FunctionNode::emitCpp(const EmitContext& ctx) const {
   // --- Function name ---
   std::string name;
   if (base() == ctx.entryPoint) {
-    name = "xstart";
+    name = fmt::format("sub_{:08X}", base());
   } else if (!name_.empty()) {
     name = name_;
   } else {
@@ -617,14 +617,14 @@ std::string FunctionNode::emitCpp(const EmitContext& ctx) const {
     for (auto it = sehInfo->scopes.rbegin(); it != sehInfo->scopes.rend(); ++it) {
       const auto& scope = *it;
       if (scope.filter == 0 && scope.handler != 0) {
-        emit_println(body, "\t\t\tsub_{:08X}(ctx, base);  // __finally handler", scope.handler);
+        emit_println(body, "\t\t\tsub_{:08X}(ctx, base, frame);  // __finally handler", scope.handler);
       }
     }
 
     if (sehInfo->restoreHelper != 0) {
       auto* restoreFn = ctx.graph.getFunction(sehInfo->restoreHelper);
       if (restoreFn && !restoreFn->name().empty()) {
-        emit_println(body, "\t\t\t{}(ctx, base);  // Restore caller registers", restoreFn->name());
+        emit_println(body, "\t\t\t{}(ctx, base, frame);  // Restore caller registers", restoreFn->name());
       }
     }
 

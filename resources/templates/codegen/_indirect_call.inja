@@ -16,23 +16,17 @@
 #define REX_PROFILE_INDIRECT_DISPATCH()
 #endif
 
-#define REX_LOOKUP_FUNC(x, y) \
-  (*(PPCFunc**)(x + REX_IMAGE_BASE + REX_IMAGE_SIZE + (u64(u32(y) - REX_CODE_BASE) * 2)))
+#define REX_LOOKUP_FUNC(x, y) *(PPCFunc**)(ADJ(ctx)->image_mem_base + 2 * (uint64_t)y)
 
-#define REX_CALL_INDIRECT_FUNC(x)                                                          \
-  do {                                                                                     \
-    REX_PROFILE_INDIRECT_DISPATCH();                                                       \
-    uint32_t rex_indirect_target_ = (uint32_t)(x);                                         \
-    PPCFunc* rex_indirect_func_;                                                           \
-    if ((uint32_t)(rex_indirect_target_ - REX_CODE_BASE) <                                 \
-        REX_CODE_SIZE + REX_THUNK_RESERVE_SIZE) [[likely]] {                               \
-      rex_indirect_func_ = REX_LOOKUP_FUNC(base, rex_indirect_target_);                    \
-    } else {                                                                               \
-      rex_indirect_func_ = nullptr;                                                        \
-    }                                                                                      \
-    if (!rex_indirect_func_) [[unlikely]] {                                                \
-      ctx.last_indirect_target = rex_indirect_target_;                                     \
-      rex_indirect_func_ = rex::runtime::ResolveIndirectFunction(rex_indirect_target_);    \
-    }                                                                                      \
-    rex_indirect_func_(ctx, base);                                                         \
-  } while (0)
+#ifndef REX_CALL_INDIRECT_FUNC
+#define REX_CALL_INDIRECT_FUNC(x) (REX_LOOKUP_FUNC(base, x))(ctx, base, frame)
+#endif
+
+#ifndef REX_IMPORT_FUNC_IMPL
+#define REX_IMPORT_FUNC_IMPL(n,i) __attribute__((preserve_none)) void n(uintptr_t ctx, uintptr_t base, uintptr_t frame) { \
+    REX_CALL_INDIRECT_FUNC(PrecompiledImportTable[i].dest_addr); \
+}
+
+extern PPCFunc* HostFuncs[];
+extern int HostFuncsCount;
+#endif

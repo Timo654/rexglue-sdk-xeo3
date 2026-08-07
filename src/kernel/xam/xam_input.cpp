@@ -199,36 +199,36 @@ i32 XamUserGetDeviceContext_entry(u32 user_index, u32 unk, mapped_u32 out_ptr) {
 }  // namespace kernel
 }  // namespace rex
 
-REX_EXPORT(__imp__XamResetInactivity, rex::kernel::xam::XamResetInactivity_entry)
-REX_EXPORT(__imp__XamEnableInactivityProcessing,
+REX_EXPORT(__import__XamResetInactivity, rex::kernel::xam::XamResetInactivity_entry)
+REX_EXPORT(__import__XamEnableInactivityProcessing,
            rex::kernel::xam::XamEnableInactivityProcessing_entry)
-REX_EXPORT(__imp__XamInputGetCapabilities, rex::kernel::xam::XamInputGetCapabilities_entry)
-REX_EXPORT(__imp__XamInputGetCapabilitiesEx, rex::kernel::xam::XamInputGetCapabilitiesEx_entry)
-REX_EXPORT(__imp__XamInputGetState, rex::kernel::xam::XamInputGetState_entry)
-REX_EXPORT(__imp__XamInputSetState, rex::kernel::xam::XamInputSetState_entry)
-REX_EXPORT(__imp__XamInputGetKeystroke, rex::kernel::xam::XamInputGetKeystroke_entry)
-REX_EXPORT(__imp__XamInputGetKeystrokeEx, rex::kernel::xam::XamInputGetKeystrokeEx_entry)
-REX_EXPORT(__imp__XamUserGetDeviceContext, rex::kernel::xam::XamUserGetDeviceContext_entry)
+REX_EXPORT(__import__XamInputGetCapabilities, rex::kernel::xam::XamInputGetCapabilities_entry)
+REX_EXPORT(__import__XamInputGetCapabilitiesEx, rex::kernel::xam::XamInputGetCapabilitiesEx_entry)
+REX_EXPORT(__import__XamInputGetState, rex::kernel::xam::XamInputGetState_entry)
+REX_EXPORT(__import__XamInputSetState, rex::kernel::xam::XamInputSetState_entry)
+REX_EXPORT(__import__XamInputGetKeystroke, rex::kernel::xam::XamInputGetKeystroke_entry)
+REX_EXPORT(__import__XamInputGetKeystrokeEx, rex::kernel::xam::XamInputGetKeystrokeEx_entry)
+REX_EXPORT(__import__XamUserGetDeviceContext, rex::kernel::xam::XamUserGetDeviceContext_entry)
 
-REX_EXPORT_STUB(__imp__XamInputControl);
-REX_EXPORT_STUB(__imp__XamInputEnableAutobind);
-REX_EXPORT_STUB(__imp__XamInputGetDeviceStats);
-REX_EXPORT_STUB(__imp__XamInputGetFailedConnectionOrBind);
-REX_EXPORT_STUB(__imp__XamInputGetKeyLocks);
-REX_EXPORT_STUB(__imp__XamInputGetKeystrokeHud);
-REX_EXPORT_STUB(__imp__XamInputGetKeystrokeHudEx);
-REX_EXPORT_STUB(__imp__XamInputGetUserVibrationLevel);
-REX_EXPORT_STUB(__imp__XamInputNonControllerGetRaw);
-REX_EXPORT_STUB(__imp__XamInputNonControllerGetRawEx);
-REX_EXPORT_STUB(__imp__XamInputNonControllerSetRaw);
-REX_EXPORT_STUB(__imp__XamInputNonControllerSetRawEx);
-REX_EXPORT_STUB(__imp__XamInputRawState);
-REX_EXPORT_STUB(__imp__XamInputResetLayoutKeyboard);
-REX_EXPORT_STUB(__imp__XamInputSendStayAliveRequest);
-REX_EXPORT_STUB(__imp__XamInputSendXenonButtonPress);
-REX_EXPORT_STUB(__imp__XamInputSetKeyLocks);
-REX_EXPORT_STUB(__imp__XamInputSetKeyboardTranslationHud);
-REX_EXPORT_STUB(__imp__XamInputSetLayoutKeyboard);
-REX_EXPORT_STUB(__imp__XamInputSetMinMaxAuthDelay);
-REX_EXPORT_STUB(__imp__XamInputSetTextMessengerIndicator);
-REX_EXPORT_STUB(__imp__XamInputToggleKeyLocks);
+REX_EXPORT_STUB(__import__XamInputControl);
+REX_EXPORT_STUB(__import__XamInputEnableAutobind);
+REX_EXPORT_STUB(__import__XamInputGetDeviceStats);
+REX_EXPORT_STUB(__import__XamInputGetFailedConnectionOrBind);
+REX_EXPORT_STUB(__import__XamInputGetKeyLocks);
+REX_EXPORT_STUB(__import__XamInputGetKeystrokeHud);
+REX_EXPORT_STUB(__import__XamInputGetKeystrokeHudEx);
+REX_EXPORT_STUB(__import__XamInputGetUserVibrationLevel);
+REX_EXPORT_STUB(__import__XamInputNonControllerGetRaw);
+REX_EXPORT_STUB(__import__XamInputNonControllerGetRawEx);
+REX_EXPORT_STUB(__import__XamInputNonControllerSetRaw);
+REX_EXPORT_STUB(__import__XamInputNonControllerSetRawEx);
+REX_EXPORT_STUB(__import__XamInputRawState);
+REX_EXPORT_STUB(__import__XamInputResetLayoutKeyboard);
+REX_EXPORT_STUB(__import__XamInputSendStayAliveRequest);
+REX_EXPORT_STUB(__import__XamInputSendXenonButtonPress);
+REX_EXPORT_STUB(__import__XamInputSetKeyLocks);
+REX_EXPORT_STUB(__import__XamInputSetKeyboardTranslationHud);
+REX_EXPORT_STUB(__import__XamInputSetLayoutKeyboard);
+REX_EXPORT_STUB(__import__XamInputSetMinMaxAuthDelay);
+REX_EXPORT_STUB(__import__XamInputSetTextMessengerIndicator);
+REX_EXPORT_STUB(__import__XamInputToggleKeyLocks);

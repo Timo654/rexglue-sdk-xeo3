@@ -108,18 +108,18 @@ void XNotifyPositionUI_entry(u32 position) {
 }  // namespace kernel
 }  // namespace rex
 
-REX_EXPORT(__imp__XamNotifyCreateListener, rex::kernel::xam::XamNotifyCreateListener_entry)
-REX_EXPORT(__imp__XamNotifyCreateListenerInternal,
+REX_EXPORT(__import__XamNotifyCreateListener, rex::kernel::xam::XamNotifyCreateListener_entry)
+REX_EXPORT(__import__XamNotifyCreateListenerInternal,
            rex::kernel::xam::XamNotifyCreateListenerInternal_entry)
-REX_EXPORT(__imp__XNotifyGetNext, rex::kernel::xam::XNotifyGetNext_entry)
-REX_EXPORT(__imp__XNotifyDelayUI, rex::kernel::xam::XNotifyDelayUI_entry)
-REX_EXPORT(__imp__XNotifyPositionUI, rex::kernel::xam::XNotifyPositionUI_entry)
+REX_EXPORT(__import__XNotifyGetNext, rex::kernel::xam::XNotifyGetNext_entry)
+REX_EXPORT(__import__XNotifyDelayUI, rex::kernel::xam::XNotifyDelayUI_entry)
+REX_EXPORT(__import__XNotifyPositionUI, rex::kernel::xam::XNotifyPositionUI_entry)
 
-REX_EXPORT_STUB(__imp__XNotifyBroadcast);
-REX_EXPORT_STUB(__imp__XNotifyQueueUI);
-REX_EXPORT_STUB(__imp__XNotifyQueueUIEx);
-REX_EXPORT_STUB(__imp__XNotifyRegisterArea);
-REX_EXPORT_STUB(__imp__XNotifyUIGetOptions);
-REX_EXPORT_STUB(__imp__XNotifyUISetOptions);
-REX_EXPORT_STUB(__imp__XamNotifyCreateListenerRangeInternal);
-REX_EXPORT_STUB(__imp__XamNotifyDelayUIInternal);
+REX_EXPORT_STUB(__import__XNotifyBroadcast);
+REX_EXPORT_STUB(__import__XNotifyQueueUI);
+REX_EXPORT_STUB(__import__XNotifyQueueUIEx);
+REX_EXPORT_STUB(__import__XNotifyRegisterArea);
+REX_EXPORT_STUB(__import__XNotifyUIGetOptions);
+REX_EXPORT_STUB(__import__XNotifyUISetOptions);
+REX_EXPORT_STUB(__import__XamNotifyCreateListenerRangeInternal);
+REX_EXPORT_STUB(__import__XamNotifyDelayUIInternal);

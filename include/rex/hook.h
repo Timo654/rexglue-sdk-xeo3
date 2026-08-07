@@ -34,13 +34,13 @@
 #ifdef REXGLUE_ENABLE_PROFILING
 #include <tracy/Tracy.hpp>
 #define REX_HOOK(subroutine, function)                  \
-  extern "C" REX_FUNC(subroutine) {                     \
+  //extern "C" REX_FUNC(subroutine) {                     \
     ZoneNamedN(___tracy_hook_zone, #subroutine, true);  \
     rex::ppc::HostToGuestFunction<function>(ctx, base); \
   }
 #else
 #define REX_HOOK(subroutine, function)                  \
-  extern "C" REX_FUNC(subroutine) {                     \
+  //extern "C" REX_FUNC(subroutine) {                     \
     rex::ppc::HostToGuestFunction<function>(ctx, base); \
   }
 #endif
@@ -50,19 +50,19 @@
 
 // Stub: logs a warning when called.
 #define REX_STUB(subroutine)              \
-  extern "C" REX_FUNC(subroutine) {       \
+  //extern "C" REX_FUNC(subroutine) {       \
     (void)base;                           \
     REXKRNL_WARN("{} STUB", #subroutine); \
   }
 
 #define REX_STUB_LOG(subroutine, msg)               \
-  extern "C" REX_FUNC(subroutine) {                 \
+  //extern "C" REX_FUNC(subroutine) {                 \
     (void)base;                                     \
     REXKRNL_WARN("{} STUB - {}", #subroutine, msg); \
   }
 
 #define REX_STUB_RETURN(subroutine, value)                                                \
-  extern "C" REX_FUNC(subroutine) {                                                       \
+  //extern "C" REX_FUNC(subroutine) {                                                       \
     (void)base;                                                                           \
     REXKRNL_WARN("{} STUB - returning {:#x}", #subroutine, static_cast<uint32_t>(value)); \
     ctx.r3.u64 = (value);                                                                 \
@@ -70,15 +70,15 @@
 
 // Export: hook + register in global registry for kernel ordinal lookup.
 #define REX_EXPORT(name, function) \
-  REX_HOOK(name, function)         \
+  //REX_HOOK(name, function)         \
   static rex::ppc::detail::PPCFuncRegistrar _ppc_reg_##name(#name, &name);
 
 #define REX_EXPORT_STUB(name) \
-  REX_STUB(name)              \
+  //REX_STUB(name)              \
   static rex::ppc::detail::PPCFuncRegistrar _ppc_reg_##name(#name, &name);
 
 #define REX_EXPORT_STUB_RETURN(name, retval) \
-  REX_STUB_RETURN(name, retval)              \
+  //REX_STUB_RETURN(name, retval)              \
   static rex::ppc::detail::PPCFuncRegistrar _ppc_reg_##name(#name, &name);
 
 namespace rex {
@@ -126,7 +126,7 @@ struct ImportFunction<R(Args...)> {
   R operator()(PPCContext& ctx, uint8_t* base, Args... args) const {
     auto tpl = std::make_tuple(args...);
     _translate_args_to_guest(ctx, base, tpl);
-    fn(ctx, base);
+    //fn(ctx, base);
     if constexpr (std::is_void_v<R>) {
       return;
     } else if constexpr (is_precise_v<R>) {
@@ -148,7 +148,6 @@ struct ImportFunction<R(Args...)> {
 
     auto* ks = rex::system::kernel_state();
     uint8_t* base = ks->memory()->virtual_membase();
-
     PPCContext ctx{};
     ctx.r1 = parentCtx->r1;
     ctx.r1.u32 -= 0x70;
@@ -157,7 +156,7 @@ struct ImportFunction<R(Args...)> {
 
     auto tpl = std::make_tuple(args...);
     _translate_args_to_guest(ctx, base, tpl);
-    fn(ctx, base);
+    //fn(ctx, base);
 
     parentCtx->fpscr = ctx.fpscr;
 

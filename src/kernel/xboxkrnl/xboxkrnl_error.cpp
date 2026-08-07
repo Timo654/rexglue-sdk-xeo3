@@ -1022,4 +1022,4 @@ u32 RtlNtStatusToDosError_entry(u32 source_status) {
 
 }  // namespace rex::kernel::xboxkrnl
 
-REX_EXPORT(__imp__RtlNtStatusToDosError, rex::kernel::xboxkrnl::RtlNtStatusToDosError_entry)
+REX_EXPORT(__import__RtlNtStatusToDosError, rex::kernel::xboxkrnl::RtlNtStatusToDosError_entry)

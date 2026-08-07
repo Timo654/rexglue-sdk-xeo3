@@ -1,7 +1,7 @@
 set(REXKERNEL_SOURCES
     kernel_init.cpp
 
-    # XAM subsystem - provides __imp__Xam* symbols
+    # XAM subsystem - provides __import__Xam* symbols
     xam/xam_module.cpp
     xam/xam_avatar.cpp
     xam/xam_content.cpp
@@ -28,11 +28,11 @@ set(REXKERNEL_SOURCES
     xam/apps/xlivebase_app.cpp
     xam/apps/xmp_app.cpp
 
-    # XBDM subsystem - provides __imp__Xbdm* symbols
+    # XBDM subsystem - provides __import__Xbdm* symbols
     xbdm/xbdm_module.cpp
     xbdm/xbdm_misc.cpp
 
-    # xboxkrnl exports - provides __imp__ symbols for generated code
+    # xboxkrnl exports - provides __import__ symbols for generated code
     # xboxkrnl/cert_monitor.cpp    # TODO: Translate JIT methods for AOT
     # xboxkrnl/debug_monitor.cpp   # TODO: Translate JIT methods for AOT
     xboxkrnl/xboxkrnl_crypt.cpp

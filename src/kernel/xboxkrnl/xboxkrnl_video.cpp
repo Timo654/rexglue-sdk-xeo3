@@ -88,51 +88,51 @@ void WarnNoGpuEmulation(const char* export_name, std::atomic<bool>& warned) {
 namespace rex::kernel::xboxkrnl {
 using namespace rex::system;
 
-REX_EXPORT_STUB(__imp__VdBlockUntilGUIIdle);
-REX_EXPORT_STUB(__imp__VdDisplayFatalError);
-REX_EXPORT_STUB(__imp__VdEnableClosedCaption);
-REX_EXPORT_STUB(__imp__VdEnableDisablePowerSavingMode);
-REX_EXPORT_STUB(__imp__VdGenerateGPUCSCCoefficients);
-REX_EXPORT_STUB(__imp__VdGetClosedCaptionReadyStatus);
-REX_EXPORT_STUB(__imp__VdGetDisplayModeOverride);
-REX_EXPORT_STUB(__imp__VdInitializeScaler);
-REX_EXPORT_STUB(__imp__VdQuerySystemCommandBuffer);
-REX_EXPORT_STUB(__imp__VdReadDVERegisterUlong);
-REX_EXPORT_STUB(__imp__VdReadWriteHSIOCalibrationFlag);
-REX_EXPORT_STUB(__imp__VdRegisterGraphicsNotification);
-REX_EXPORT_STUB(__imp__VdRegisterXamGraphicsNotification);
-REX_EXPORT_STUB(__imp__VdSendClosedCaptionData);
-REX_EXPORT_STUB(__imp__VdSetCGMSOption);
-REX_EXPORT_STUB(__imp__VdSetColorProfileAdjustment);
-REX_EXPORT_STUB(__imp__VdSetCscMatricesOverride);
-REX_EXPORT_STUB(__imp__VdSetHDCPOption);
-REX_EXPORT_STUB(__imp__VdSetMacrovisionOption);
-REX_EXPORT_STUB(__imp__VdSetSystemCommandBuffer);
-REX_EXPORT_STUB(__imp__VdSetWSSData);
-REX_EXPORT_STUB(__imp__VdSetWSSOption);
-REX_EXPORT_STUB(__imp__VdTurnDisplayOff);
-REX_EXPORT_STUB(__imp__VdTurnDisplayOn);
-REX_EXPORT_STUB(__imp__VdWriteDVERegisterUlong);
-REX_EXPORT_STUB(__imp__VdInitializeEDRAM);
-REX_EXPORT_STUB(__imp__VdReadEEDIDBlock);
-REX_EXPORT_STUB(__imp__VdEnumerateVideoModes);
-REX_EXPORT_STUB(__imp__VdEnableHDCP);
-REX_EXPORT_STUB(__imp__VdRegisterHDCPNotification);
-REX_EXPORT_STUB(__imp__VdGetDisplayDiscoveryData);
-REX_EXPORT_STUB(__imp__VdStartDisplayDiscovery);
-REX_EXPORT_STUB(__imp__VdSetHDCPRevocationList);
-REX_EXPORT_STUB(__imp__VdEnableWMAProOverHDMI);
-REX_EXPORT_STUB(__imp__VdQueryRealVideoMode);
-REX_EXPORT_STUB(__imp__VdSetCGMSState);
-REX_EXPORT_STUB(__imp__VdSetSCMSState);
-REX_EXPORT_STUB(__imp__VdGetOption);
-REX_EXPORT_STUB(__imp__VdSetOption);
-REX_EXPORT_STUB(__imp__VdQueryVideoCapabilities);
-REX_EXPORT_STUB(__imp__VdGet3dVideoFormat);
-REX_EXPORT_STUB(__imp__VdGetWSS2Data);
-REX_EXPORT_STUB(__imp__VdSet3dVideoFormat);
-REX_EXPORT_STUB(__imp__VdSetWSS2Data);
-REX_EXPORT_STUB(__imp__VdSetStudioRGBMode);
+REX_EXPORT_STUB(__import__VdBlockUntilGUIIdle);
+REX_EXPORT_STUB(__import__VdDisplayFatalError);
+REX_EXPORT_STUB(__import__VdEnableClosedCaption);
+REX_EXPORT_STUB(__import__VdEnableDisablePowerSavingMode);
+REX_EXPORT_STUB(__import__VdGenerateGPUCSCCoefficients);
+REX_EXPORT_STUB(__import__VdGetClosedCaptionReadyStatus);
+REX_EXPORT_STUB(__import__VdGetDisplayModeOverride);
+REX_EXPORT_STUB(__import__VdInitializeScaler);
+REX_EXPORT_STUB(__import__VdQuerySystemCommandBuffer);
+REX_EXPORT_STUB(__import__VdReadDVERegisterUlong);
+REX_EXPORT_STUB(__import__VdReadWriteHSIOCalibrationFlag);
+REX_EXPORT_STUB(__import__VdRegisterGraphicsNotification);
+REX_EXPORT_STUB(__import__VdRegisterXamGraphicsNotification);
+REX_EXPORT_STUB(__import__VdSendClosedCaptionData);
+REX_EXPORT_STUB(__import__VdSetCGMSOption);
+REX_EXPORT_STUB(__import__VdSetColorProfileAdjustment);
+REX_EXPORT_STUB(__import__VdSetCscMatricesOverride);
+REX_EXPORT_STUB(__import__VdSetHDCPOption);
+REX_EXPORT_STUB(__import__VdSetMacrovisionOption);
+REX_EXPORT_STUB(__import__VdSetSystemCommandBuffer);
+REX_EXPORT_STUB(__import__VdSetWSSData);
+REX_EXPORT_STUB(__import__VdSetWSSOption);
+REX_EXPORT_STUB(__import__VdTurnDisplayOff);
+REX_EXPORT_STUB(__import__VdTurnDisplayOn);
+REX_EXPORT_STUB(__import__VdWriteDVERegisterUlong);
+REX_EXPORT_STUB(__import__VdInitializeEDRAM);
+REX_EXPORT_STUB(__import__VdReadEEDIDBlock);
+REX_EXPORT_STUB(__import__VdEnumerateVideoModes);
+REX_EXPORT_STUB(__import__VdEnableHDCP);
+REX_EXPORT_STUB(__import__VdRegisterHDCPNotification);
+REX_EXPORT_STUB(__import__VdGetDisplayDiscoveryData);
+REX_EXPORT_STUB(__import__VdStartDisplayDiscovery);
+REX_EXPORT_STUB(__import__VdSetHDCPRevocationList);
+REX_EXPORT_STUB(__import__VdEnableWMAProOverHDMI);
+REX_EXPORT_STUB(__import__VdQueryRealVideoMode);
+REX_EXPORT_STUB(__import__VdSetCGMSState);
+REX_EXPORT_STUB(__import__VdSetSCMSState);
+REX_EXPORT_STUB(__import__VdGetOption);
+REX_EXPORT_STUB(__import__VdSetOption);
+REX_EXPORT_STUB(__import__VdQueryVideoCapabilities);
+REX_EXPORT_STUB(__import__VdGet3dVideoFormat);
+REX_EXPORT_STUB(__import__VdGetWSS2Data);
+REX_EXPORT_STUB(__import__VdSet3dVideoFormat);
+REX_EXPORT_STUB(__import__VdSetWSS2Data);
+REX_EXPORT_STUB(__import__VdSetStudioRGBMode);
 
 // https://web.archive.org/web/20150805074003/https://www.tweakoz.com/orkid/
 // http://www.tweakoz.com/orkid/dox/d3/d52/xb360init_8cpp_source.html
@@ -553,32 +553,32 @@ void RegisterVideoExports(rex::runtime::ExportResolver* export_resolver,
 
 }  // namespace rex::kernel::xboxkrnl
 
-REX_EXPORT(__imp__VdGetCurrentDisplayGamma, rex::kernel::xboxkrnl::VdGetCurrentDisplayGamma_entry)
-REX_EXPORT(__imp__VdGetCurrentDisplayInformation,
+REX_EXPORT(__import__VdGetCurrentDisplayGamma, rex::kernel::xboxkrnl::VdGetCurrentDisplayGamma_entry)
+REX_EXPORT(__import__VdGetCurrentDisplayInformation,
            rex::kernel::xboxkrnl::VdGetCurrentDisplayInformation_entry)
-REX_EXPORT(__imp__VdQueryVideoMode, rex::kernel::xboxkrnl::VdQueryVideoMode_entry)
-REX_EXPORT(__imp__VdQueryVideoFlags, rex::kernel::xboxkrnl::VdQueryVideoFlags_entry)
-REX_EXPORT(__imp__VdSetDisplayMode, rex::kernel::xboxkrnl::VdSetDisplayMode_entry)
-REX_EXPORT(__imp__VdSetDisplayModeOverride, rex::kernel::xboxkrnl::VdSetDisplayModeOverride_entry)
-REX_EXPORT(__imp__VdInitializeEngines, rex::kernel::xboxkrnl::VdInitializeEngines_entry)
-REX_EXPORT(__imp__VdShutdownEngines, rex::kernel::xboxkrnl::VdShutdownEngines_entry)
-REX_EXPORT(__imp__VdGetGraphicsAsicID, rex::kernel::xboxkrnl::VdGetGraphicsAsicID_entry)
-REX_EXPORT(__imp__VdEnableDisableClockGating,
+REX_EXPORT(__import__VdQueryVideoMode, rex::kernel::xboxkrnl::VdQueryVideoMode_entry)
+REX_EXPORT(__import__VdQueryVideoFlags, rex::kernel::xboxkrnl::VdQueryVideoFlags_entry)
+REX_EXPORT(__import__VdSetDisplayMode, rex::kernel::xboxkrnl::VdSetDisplayMode_entry)
+REX_EXPORT(__import__VdSetDisplayModeOverride, rex::kernel::xboxkrnl::VdSetDisplayModeOverride_entry)
+REX_EXPORT(__import__VdInitializeEngines, rex::kernel::xboxkrnl::VdInitializeEngines_entry)
+REX_EXPORT(__import__VdShutdownEngines, rex::kernel::xboxkrnl::VdShutdownEngines_entry)
+REX_EXPORT(__import__VdGetGraphicsAsicID, rex::kernel::xboxkrnl::VdGetGraphicsAsicID_entry)
+REX_EXPORT(__import__VdEnableDisableClockGating,
            rex::kernel::xboxkrnl::VdEnableDisableClockGating_entry)
-REX_EXPORT(__imp__VdSetGraphicsInterruptCallback,
+REX_EXPORT(__import__VdSetGraphicsInterruptCallback,
            rex::kernel::xboxkrnl::VdSetGraphicsInterruptCallback_entry)
-REX_EXPORT(__imp__VdInitializeRingBuffer, rex::kernel::xboxkrnl::VdInitializeRingBuffer_entry)
-REX_EXPORT(__imp__VdEnableRingBufferRPtrWriteBack,
+REX_EXPORT(__import__VdInitializeRingBuffer, rex::kernel::xboxkrnl::VdInitializeRingBuffer_entry)
+REX_EXPORT(__import__VdEnableRingBufferRPtrWriteBack,
            rex::kernel::xboxkrnl::VdEnableRingBufferRPtrWriteBack_entry)
-REX_EXPORT(__imp__VdGetSystemCommandBuffer, rex::kernel::xboxkrnl::VdGetSystemCommandBuffer_entry)
-REX_EXPORT(__imp__VdSetSystemCommandBufferGpuIdentifierAddress,
+REX_EXPORT(__import__VdGetSystemCommandBuffer, rex::kernel::xboxkrnl::VdGetSystemCommandBuffer_entry)
+REX_EXPORT(__import__VdSetSystemCommandBufferGpuIdentifierAddress,
            rex::kernel::xboxkrnl::VdSetSystemCommandBufferGpuIdentifierAddress_entry)
-REX_EXPORT(__imp__VdInitializeScalerCommandBuffer,
+REX_EXPORT(__import__VdInitializeScalerCommandBuffer,
            rex::kernel::xboxkrnl::VdInitializeScalerCommandBuffer_entry)
-REX_EXPORT(__imp__VdCallGraphicsNotificationRoutines,
+REX_EXPORT(__import__VdCallGraphicsNotificationRoutines,
            rex::kernel::xboxkrnl::VdCallGraphicsNotificationRoutines_entry)
-REX_EXPORT(__imp__VdIsHSIOTrainingSucceeded, rex::kernel::xboxkrnl::VdIsHSIOTrainingSucceeded_entry)
-REX_EXPORT(__imp__VdPersistDisplay, rex::kernel::xboxkrnl::VdPersistDisplay_entry)
-REX_EXPORT(__imp__VdRetrainEDRAMWorker, rex::kernel::xboxkrnl::VdRetrainEDRAMWorker_entry)
-REX_EXPORT(__imp__VdRetrainEDRAM, rex::kernel::xboxkrnl::VdRetrainEDRAM_entry)
-REX_EXPORT(__imp__VdSwap, rex::kernel::xboxkrnl::VdSwap_entry)
+REX_EXPORT(__import__VdIsHSIOTrainingSucceeded, rex::kernel::xboxkrnl::VdIsHSIOTrainingSucceeded_entry)
+REX_EXPORT(__import__VdPersistDisplay, rex::kernel::xboxkrnl::VdPersistDisplay_entry)
+REX_EXPORT(__import__VdRetrainEDRAMWorker, rex::kernel::xboxkrnl::VdRetrainEDRAMWorker_entry)
+REX_EXPORT(__import__VdRetrainEDRAM, rex::kernel::xboxkrnl::VdRetrainEDRAM_entry)
+REX_EXPORT(__import__VdSwap, rex::kernel::xboxkrnl::VdSwap_entry)

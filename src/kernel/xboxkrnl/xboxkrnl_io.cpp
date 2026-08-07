@@ -760,61 +760,61 @@ u32 StfsControlDevice_entry(mapped_void device_object, u32 ioctl, mapped_void in
 
 }  // namespace rex::kernel::xboxkrnl
 
-REX_EXPORT(__imp__NtCreateFile, rex::kernel::xboxkrnl::NtCreateFile_entry)
-REX_EXPORT(__imp__NtOpenFile, rex::kernel::xboxkrnl::NtOpenFile_entry)
-REX_EXPORT(__imp__NtReadFile, rex::kernel::xboxkrnl::NtReadFile_entry)
-REX_EXPORT(__imp__NtReadFileScatter, rex::kernel::xboxkrnl::NtReadFileScatter_entry)
-REX_EXPORT(__imp__NtWriteFile, rex::kernel::xboxkrnl::NtWriteFile_entry)
-REX_EXPORT(__imp__NtCreateIoCompletion, rex::kernel::xboxkrnl::NtCreateIoCompletion_entry)
-REX_EXPORT(__imp__NtSetIoCompletion, rex::kernel::xboxkrnl::NtSetIoCompletion_entry)
-REX_EXPORT(__imp__NtRemoveIoCompletion, rex::kernel::xboxkrnl::NtRemoveIoCompletion_entry)
-REX_EXPORT(__imp__NtQueryFullAttributesFile, rex::kernel::xboxkrnl::NtQueryFullAttributesFile_entry)
-REX_EXPORT(__imp__NtQueryDirectoryFile, rex::kernel::xboxkrnl::NtQueryDirectoryFile_entry)
-REX_EXPORT(__imp__NtFlushBuffersFile, rex::kernel::xboxkrnl::NtFlushBuffersFile_entry)
-REX_EXPORT(__imp__NtOpenSymbolicLinkObject, rex::kernel::xboxkrnl::NtOpenSymbolicLinkObject_entry)
-REX_EXPORT(__imp__NtQuerySymbolicLinkObject, rex::kernel::xboxkrnl::NtQuerySymbolicLinkObject_entry)
-REX_EXPORT(__imp__FscGetCacheElementCount, rex::kernel::xboxkrnl::FscGetCacheElementCount_entry)
-REX_EXPORT(__imp__FscSetCacheElementCount, rex::kernel::xboxkrnl::FscSetCacheElementCount_entry)
-REX_EXPORT(__imp__NtDeviceIoControlFile, rex::kernel::xboxkrnl::NtDeviceIoControlFile_entry)
-REX_EXPORT(__imp__IoCreateDevice, rex::kernel::xboxkrnl::IoCreateDevice_entry)
-REX_EXPORT(__imp__IoDismountVolumeByFileHandle,
+REX_EXPORT(__import__NtCreateFile, rex::kernel::xboxkrnl::NtCreateFile_entry)
+REX_EXPORT(__import__NtOpenFile, rex::kernel::xboxkrnl::NtOpenFile_entry)
+REX_EXPORT(__import__NtReadFile, rex::kernel::xboxkrnl::NtReadFile_entry)
+REX_EXPORT(__import__NtReadFileScatter, rex::kernel::xboxkrnl::NtReadFileScatter_entry)
+REX_EXPORT(__import__NtWriteFile, rex::kernel::xboxkrnl::NtWriteFile_entry)
+REX_EXPORT(__import__NtCreateIoCompletion, rex::kernel::xboxkrnl::NtCreateIoCompletion_entry)
+REX_EXPORT(__import__NtSetIoCompletion, rex::kernel::xboxkrnl::NtSetIoCompletion_entry)
+REX_EXPORT(__import__NtRemoveIoCompletion, rex::kernel::xboxkrnl::NtRemoveIoCompletion_entry)
+REX_EXPORT(__import__NtQueryFullAttributesFile, rex::kernel::xboxkrnl::NtQueryFullAttributesFile_entry)
+REX_EXPORT(__import__NtQueryDirectoryFile, rex::kernel::xboxkrnl::NtQueryDirectoryFile_entry)
+REX_EXPORT(__import__NtFlushBuffersFile, rex::kernel::xboxkrnl::NtFlushBuffersFile_entry)
+REX_EXPORT(__import__NtOpenSymbolicLinkObject, rex::kernel::xboxkrnl::NtOpenSymbolicLinkObject_entry)
+REX_EXPORT(__import__NtQuerySymbolicLinkObject, rex::kernel::xboxkrnl::NtQuerySymbolicLinkObject_entry)
+REX_EXPORT(__import__FscGetCacheElementCount, rex::kernel::xboxkrnl::FscGetCacheElementCount_entry)
+REX_EXPORT(__import__FscSetCacheElementCount, rex::kernel::xboxkrnl::FscSetCacheElementCount_entry)
+REX_EXPORT(__import__NtDeviceIoControlFile, rex::kernel::xboxkrnl::NtDeviceIoControlFile_entry)
+REX_EXPORT(__import__IoCreateDevice, rex::kernel::xboxkrnl::IoCreateDevice_entry)
+REX_EXPORT(__import__IoDismountVolumeByFileHandle,
            rex::kernel::xboxkrnl::IoDismountVolumeByFileHandle_entry)
-REX_EXPORT(__imp__IoDismountVolumeByName, rex::kernel::xboxkrnl::IoDismountVolumeByName_entry)
-REX_EXPORT(__imp__IoSynchronousDeviceIoControlRequest,
+REX_EXPORT(__import__IoDismountVolumeByName, rex::kernel::xboxkrnl::IoDismountVolumeByName_entry)
+REX_EXPORT(__import__IoSynchronousDeviceIoControlRequest,
            rex::kernel::xboxkrnl::IoSynchronousDeviceIoControlRequest_entry)
-REX_EXPORT(__imp__StfsCreateDevice, rex::kernel::xboxkrnl::StfsCreateDevice_entry)
-REX_EXPORT(__imp__StfsControlDevice, rex::kernel::xboxkrnl::StfsControlDevice_entry)
+REX_EXPORT(__import__StfsCreateDevice, rex::kernel::xboxkrnl::StfsCreateDevice_entry)
+REX_EXPORT(__import__StfsControlDevice, rex::kernel::xboxkrnl::StfsControlDevice_entry)
 
-REX_EXPORT_STUB(__imp__IoAcquireDeviceObjectLock);
-REX_EXPORT_STUB(__imp__IoAllocateIrp);
-REX_EXPORT_STUB(__imp__IoBuildAsynchronousFsdRequest);
-REX_EXPORT_STUB(__imp__IoBuildDeviceIoControlRequest);
-REX_EXPORT_STUB(__imp__IoBuildSynchronousFsdRequest);
-REX_EXPORT_STUB(__imp__IoCallDriver);
-REX_EXPORT_STUB(__imp__IoCheckShareAccess);
-REX_EXPORT_STUB(__imp__IoCompleteRequest);
-REX_EXPORT_STUB(__imp__IoCreateFile);
-REX_EXPORT_STUB(__imp__IoDeleteDevice);
-REX_EXPORT_STUB(__imp__IoDismountVolume);
-REX_EXPORT_STUB(__imp__IoFreeIrp);
-REX_EXPORT_STUB(__imp__IoInitializeIrp);
-REX_EXPORT_STUB(__imp__IoInvalidDeviceRequest);
-REX_EXPORT_STUB(__imp__IoQueueThreadIrp);
-REX_EXPORT_STUB(__imp__IoReleaseDeviceObjectLock);
-REX_EXPORT_STUB(__imp__IoRemoveShareAccess);
-REX_EXPORT_STUB(__imp__IoSetIoCompletion);
-REX_EXPORT_STUB(__imp__IoSetShareAccess);
-REX_EXPORT_STUB(__imp__IoStartNextPacket);
-REX_EXPORT_STUB(__imp__IoStartNextPacketByKey);
-REX_EXPORT_STUB(__imp__IoStartPacket);
-REX_EXPORT_STUB(__imp__IoSynchronousFsdRequest);
-REX_EXPORT_STUB(__imp__NtDeleteFile);
-REX_EXPORT_STUB(__imp__NtSetSystemTime);
-REX_EXPORT_STUB(__imp__NtWriteFileGather);
-REX_EXPORT_STUB(__imp__IoAcquireCancelSpinLock);
-REX_EXPORT_STUB(__imp__IoReleaseCancelSpinLock);
-REX_EXPORT_STUB(__imp__NtCancelIoFile);
-REX_EXPORT_STUB(__imp__NtCancelIoFileEx);
-REX_EXPORT_STUB(__imp__SvodCreateDevice);
+REX_EXPORT_STUB(__import__IoAcquireDeviceObjectLock);
+REX_EXPORT_STUB(__import__IoAllocateIrp);
+REX_EXPORT_STUB(__import__IoBuildAsynchronousFsdRequest);
+REX_EXPORT_STUB(__import__IoBuildDeviceIoControlRequest);
+REX_EXPORT_STUB(__import__IoBuildSynchronousFsdRequest);
+REX_EXPORT_STUB(__import__IoCallDriver);
+REX_EXPORT_STUB(__import__IoCheckShareAccess);
+REX_EXPORT_STUB(__import__IoCompleteRequest);
+REX_EXPORT_STUB(__import__IoCreateFile);
+REX_EXPORT_STUB(__import__IoDeleteDevice);
+REX_EXPORT_STUB(__import__IoDismountVolume);
+REX_EXPORT_STUB(__import__IoFreeIrp);
+REX_EXPORT_STUB(__import__IoInitializeIrp);
+REX_EXPORT_STUB(__import__IoInvalidDeviceRequest);
+REX_EXPORT_STUB(__import__IoQueueThreadIrp);
+REX_EXPORT_STUB(__import__IoReleaseDeviceObjectLock);
+REX_EXPORT_STUB(__import__IoRemoveShareAccess);
+REX_EXPORT_STUB(__import__IoSetIoCompletion);
+REX_EXPORT_STUB(__import__IoSetShareAccess);
+REX_EXPORT_STUB(__import__IoStartNextPacket);
+REX_EXPORT_STUB(__import__IoStartNextPacketByKey);
+REX_EXPORT_STUB(__import__IoStartPacket);
+REX_EXPORT_STUB(__import__IoSynchronousFsdRequest);
+REX_EXPORT_STUB(__import__NtDeleteFile);
+REX_EXPORT_STUB(__import__NtSetSystemTime);
+REX_EXPORT_STUB(__import__NtWriteFileGather);
+REX_EXPORT_STUB(__import__IoAcquireCancelSpinLock);
+REX_EXPORT_STUB(__import__IoReleaseCancelSpinLock);
+REX_EXPORT_STUB(__import__NtCancelIoFile);
+REX_EXPORT_STUB(__import__NtCancelIoFileEx);
+REX_EXPORT_STUB(__import__SvodCreateDevice);
 
-REX_EXPORT_STUB(__imp__SataCdRomRecordReset);
+REX_EXPORT_STUB(__import__SataCdRomRecordReset);

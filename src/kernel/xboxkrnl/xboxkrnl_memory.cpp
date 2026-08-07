@@ -725,47 +725,47 @@ u32 NtFreeEncryptedMemory_entry(u32 region_type, mapped_u32 base_address_ptr) {
 
 }  // namespace rex::kernel::xboxkrnl
 
-REX_EXPORT(__imp__NtAllocateVirtualMemory, rex::kernel::xboxkrnl::NtAllocateVirtualMemory_entry)
-REX_EXPORT(__imp__NtProtectVirtualMemory, rex::kernel::xboxkrnl::NtProtectVirtualMemory_entry)
-REX_EXPORT(__imp__NtFreeVirtualMemory, rex::kernel::xboxkrnl::NtFreeVirtualMemory_entry)
-REX_EXPORT(__imp__NtQueryVirtualMemory, rex::kernel::xboxkrnl::NtQueryVirtualMemory_entry)
-REX_EXPORT(__imp__MmAllocatePhysicalMemoryEx,
+REX_EXPORT(__import__NtAllocateVirtualMemory, rex::kernel::xboxkrnl::NtAllocateVirtualMemory_entry)
+REX_EXPORT(__import__NtProtectVirtualMemory, rex::kernel::xboxkrnl::NtProtectVirtualMemory_entry)
+REX_EXPORT(__import__NtFreeVirtualMemory, rex::kernel::xboxkrnl::NtFreeVirtualMemory_entry)
+REX_EXPORT(__import__NtQueryVirtualMemory, rex::kernel::xboxkrnl::NtQueryVirtualMemory_entry)
+REX_EXPORT(__import__MmAllocatePhysicalMemoryEx,
            rex::kernel::xboxkrnl::MmAllocatePhysicalMemoryEx_entry)
-REX_EXPORT(__imp__MmAllocatePhysicalMemory, rex::kernel::xboxkrnl::MmAllocatePhysicalMemory_entry)
-REX_EXPORT(__imp__MmFreePhysicalMemory, rex::kernel::xboxkrnl::MmFreePhysicalMemory_entry)
-REX_EXPORT(__imp__MmQueryAddressProtect, rex::kernel::xboxkrnl::MmQueryAddressProtect_entry)
-REX_EXPORT(__imp__MmSetAddressProtect, rex::kernel::xboxkrnl::MmSetAddressProtect_entry)
-REX_EXPORT(__imp__MmQueryAllocationSize, rex::kernel::xboxkrnl::MmQueryAllocationSize_entry)
-REX_EXPORT(__imp__MmQueryStatistics, rex::kernel::xboxkrnl::MmQueryStatistics_entry)
-REX_EXPORT(__imp__MmGetPhysicalAddress, rex::kernel::xboxkrnl::MmGetPhysicalAddress_entry)
-REX_EXPORT(__imp__MmMapIoSpace, rex::kernel::xboxkrnl::MmMapIoSpace_entry)
-REX_EXPORT(__imp__ExAllocatePoolTypeWithTag, rex::kernel::xboxkrnl::ExAllocatePoolTypeWithTag_entry)
-REX_EXPORT(__imp__ExAllocatePool, rex::kernel::xboxkrnl::ExAllocatePool_entry)
-REX_EXPORT(__imp__ExFreePool, rex::kernel::xboxkrnl::ExFreePool_entry)
-REX_EXPORT(__imp__KeGetImagePageTableEntry, rex::kernel::xboxkrnl::KeGetImagePageTableEntry_entry)
-REX_EXPORT(__imp__KeLockL2, rex::kernel::xboxkrnl::KeLockL2_entry)
-REX_EXPORT(__imp__KeUnlockL2, rex::kernel::xboxkrnl::KeUnlockL2_entry)
-REX_EXPORT(__imp__MmCreateKernelStack, rex::kernel::xboxkrnl::MmCreateKernelStack_entry)
-REX_EXPORT(__imp__MmDeleteKernelStack, rex::kernel::xboxkrnl::MmDeleteKernelStack_entry)
+REX_EXPORT(__import__MmAllocatePhysicalMemory, rex::kernel::xboxkrnl::MmAllocatePhysicalMemory_entry)
+REX_EXPORT(__import__MmFreePhysicalMemory, rex::kernel::xboxkrnl::MmFreePhysicalMemory_entry)
+REX_EXPORT(__import__MmQueryAddressProtect, rex::kernel::xboxkrnl::MmQueryAddressProtect_entry)
+REX_EXPORT(__import__MmSetAddressProtect, rex::kernel::xboxkrnl::MmSetAddressProtect_entry)
+REX_EXPORT(__import__MmQueryAllocationSize, rex::kernel::xboxkrnl::MmQueryAllocationSize_entry)
+REX_EXPORT(__import__MmQueryStatistics, rex::kernel::xboxkrnl::MmQueryStatistics_entry)
+REX_EXPORT(__import__MmGetPhysicalAddress, rex::kernel::xboxkrnl::MmGetPhysicalAddress_entry)
+REX_EXPORT(__import__MmMapIoSpace, rex::kernel::xboxkrnl::MmMapIoSpace_entry)
+REX_EXPORT(__import__ExAllocatePoolTypeWithTag, rex::kernel::xboxkrnl::ExAllocatePoolTypeWithTag_entry)
+REX_EXPORT(__import__ExAllocatePool, rex::kernel::xboxkrnl::ExAllocatePool_entry)
+REX_EXPORT(__import__ExFreePool, rex::kernel::xboxkrnl::ExFreePool_entry)
+REX_EXPORT(__import__KeGetImagePageTableEntry, rex::kernel::xboxkrnl::KeGetImagePageTableEntry_entry)
+REX_EXPORT(__import__KeLockL2, rex::kernel::xboxkrnl::KeLockL2_entry)
+REX_EXPORT(__import__KeUnlockL2, rex::kernel::xboxkrnl::KeUnlockL2_entry)
+REX_EXPORT(__import__MmCreateKernelStack, rex::kernel::xboxkrnl::MmCreateKernelStack_entry)
+REX_EXPORT(__import__MmDeleteKernelStack, rex::kernel::xboxkrnl::MmDeleteKernelStack_entry)
 
-REX_EXPORT(__imp__ExAllocatePoolWithTag, rex::kernel::xboxkrnl::ExAllocatePoolWithTag_entry)
-REX_EXPORT_STUB(__imp__ExQueryPoolBlockSize);
-REX_EXPORT_STUB(__imp__MmDoubleMapMemory);
-REX_EXPORT_STUB(__imp__MmUnmapMemory);
-REX_EXPORT(__imp__MmIsAddressValid, rex::kernel::xboxkrnl::MmIsAddressValid_entry)
-REX_EXPORT_STUB(__imp__MmLockAndMapSegmentArray);
-REX_EXPORT_STUB(__imp__MmLockUnlockBufferPages);
-REX_EXPORT_STUB(__imp__MmPersistPhysicalMemoryAllocation);
-REX_EXPORT_STUB(__imp__MmSplitPhysicalMemoryAllocation);
-REX_EXPORT_STUB(__imp__MmUnlockAndUnmapSegmentArray);
-REX_EXPORT_STUB(__imp__MmUnmapIoSpace);
-REX_EXPORT(__imp__NtAllocateEncryptedMemory, rex::kernel::xboxkrnl::NtAllocateEncryptedMemory_entry)
-REX_EXPORT(__imp__NtFreeEncryptedMemory, rex::kernel::xboxkrnl::NtFreeEncryptedMemory_entry)
-REX_EXPORT_STUB(__imp__ExDebugMonitorService);
-REX_EXPORT_STUB(__imp__MmDbgReadCheck);
-REX_EXPORT_STUB(__imp__MmDbgReleaseAddress);
-REX_EXPORT_STUB(__imp__MmDbgWriteCheck);
-REX_EXPORT_STUB(__imp__MmGetPoolPagesType);
-REX_EXPORT_STUB(__imp__ExExpansionInstall);
-REX_EXPORT_STUB(__imp__ExExpansionCall);
-REX_EXPORT_STUB(__imp__MmResetLowestAvailablePages);
+REX_EXPORT(__import__ExAllocatePoolWithTag, rex::kernel::xboxkrnl::ExAllocatePoolWithTag_entry)
+REX_EXPORT_STUB(__import__ExQueryPoolBlockSize);
+REX_EXPORT_STUB(__import__MmDoubleMapMemory);
+REX_EXPORT_STUB(__import__MmUnmapMemory);
+REX_EXPORT(__import__MmIsAddressValid, rex::kernel::xboxkrnl::MmIsAddressValid_entry)
+REX_EXPORT_STUB(__import__MmLockAndMapSegmentArray);
+REX_EXPORT_STUB(__import__MmLockUnlockBufferPages);
+REX_EXPORT_STUB(__import__MmPersistPhysicalMemoryAllocation);
+REX_EXPORT_STUB(__import__MmSplitPhysicalMemoryAllocation);
+REX_EXPORT_STUB(__import__MmUnlockAndUnmapSegmentArray);
+REX_EXPORT_STUB(__import__MmUnmapIoSpace);
+REX_EXPORT(__import__NtAllocateEncryptedMemory, rex::kernel::xboxkrnl::NtAllocateEncryptedMemory_entry)
+REX_EXPORT(__import__NtFreeEncryptedMemory, rex::kernel::xboxkrnl::NtFreeEncryptedMemory_entry)
+REX_EXPORT_STUB(__import__ExDebugMonitorService);
+REX_EXPORT_STUB(__import__MmDbgReadCheck);
+REX_EXPORT_STUB(__import__MmDbgReleaseAddress);
+REX_EXPORT_STUB(__import__MmDbgWriteCheck);
+REX_EXPORT_STUB(__import__MmGetPoolPagesType);
+REX_EXPORT_STUB(__import__ExExpansionInstall);
+REX_EXPORT_STUB(__import__ExExpansionCall);
+REX_EXPORT_STUB(__import__MmResetLowestAvailablePages);

@@ -729,88 +729,88 @@ u32 XamSessionRefObjByHandle_entry(u32 handle, mapped_u32 obj_ptr) {
 }  // namespace kernel
 }  // namespace rex
 
-REX_EXPORT(__imp__XamUserGetXUID, rex::kernel::xam::XamUserGetXUID_entry)
-REX_EXPORT(__imp__XamUserGetSigninState, rex::kernel::xam::XamUserGetSigninState_entry)
-REX_EXPORT(__imp__XamUserGetSigninInfo, rex::kernel::xam::XamUserGetSigninInfo_entry)
-REX_EXPORT(__imp__XamUserGetName, rex::kernel::xam::XamUserGetName_entry)
-REX_EXPORT(__imp__XamUserGetGamerTag, rex::kernel::xam::XamUserGetGamerTag_entry)
-REX_EXPORT(__imp__XamUserReadProfileSettings, rex::kernel::xam::XamUserReadProfileSettings_entry)
-REX_EXPORT(__imp__XamUserReadProfileSettingsEx,
+REX_EXPORT(__import__XamUserGetXUID, rex::kernel::xam::XamUserGetXUID_entry)
+REX_EXPORT(__import__XamUserGetSigninState, rex::kernel::xam::XamUserGetSigninState_entry)
+REX_EXPORT(__import__XamUserGetSigninInfo, rex::kernel::xam::XamUserGetSigninInfo_entry)
+REX_EXPORT(__import__XamUserGetName, rex::kernel::xam::XamUserGetName_entry)
+REX_EXPORT(__import__XamUserGetGamerTag, rex::kernel::xam::XamUserGetGamerTag_entry)
+REX_EXPORT(__import__XamUserReadProfileSettings, rex::kernel::xam::XamUserReadProfileSettings_entry)
+REX_EXPORT(__import__XamUserReadProfileSettingsEx,
            rex::kernel::xam::XamUserReadProfileSettingsEx_entry)
-REX_EXPORT(__imp__XamUserWriteProfileSettings, rex::kernel::xam::XamUserWriteProfileSettings_entry)
-REX_EXPORT(__imp__XamUserCheckPrivilege, rex::kernel::xam::XamUserCheckPrivilege_entry)
-REX_EXPORT(__imp__XamUserContentRestrictionGetFlags,
+REX_EXPORT(__import__XamUserWriteProfileSettings, rex::kernel::xam::XamUserWriteProfileSettings_entry)
+REX_EXPORT(__import__XamUserCheckPrivilege, rex::kernel::xam::XamUserCheckPrivilege_entry)
+REX_EXPORT(__import__XamUserContentRestrictionGetFlags,
            rex::kernel::xam::XamUserContentRestrictionGetFlags_entry)
-REX_EXPORT(__imp__XamUserContentRestrictionGetRating,
+REX_EXPORT(__import__XamUserContentRestrictionGetRating,
            rex::kernel::xam::XamUserContentRestrictionGetRating_entry)
-REX_EXPORT(__imp__XamUserContentRestrictionCheckAccess,
+REX_EXPORT(__import__XamUserContentRestrictionCheckAccess,
            rex::kernel::xam::XamUserContentRestrictionCheckAccess_entry)
-REX_EXPORT(__imp__XamUserIsOnlineEnabled, rex::kernel::xam::XamUserIsOnlineEnabled_entry)
-REX_EXPORT(__imp__XamUserGetMembershipTier, rex::kernel::xam::XamUserGetMembershipTier_entry)
-REX_EXPORT(__imp__XamUserAreUsersFriends, rex::kernel::xam::XamUserAreUsersFriends_entry)
-REX_EXPORT(__imp__XamShowSigninUI, rex::kernel::xam::XamShowSigninUI_entry)
-REX_EXPORT(__imp__XamUserCreateAchievementEnumerator,
+REX_EXPORT(__import__XamUserIsOnlineEnabled, rex::kernel::xam::XamUserIsOnlineEnabled_entry)
+REX_EXPORT(__import__XamUserGetMembershipTier, rex::kernel::xam::XamUserGetMembershipTier_entry)
+REX_EXPORT(__import__XamUserAreUsersFriends, rex::kernel::xam::XamUserAreUsersFriends_entry)
+REX_EXPORT(__import__XamShowSigninUI, rex::kernel::xam::XamShowSigninUI_entry)
+REX_EXPORT(__import__XamUserCreateAchievementEnumerator,
            rex::kernel::xam::XamUserCreateAchievementEnumerator_entry)
-REX_EXPORT(__imp__XamParseGamerTileKey, rex::kernel::xam::XamParseGamerTileKey_entry)
-REX_EXPORT(__imp__XamReadTileToTexture, rex::kernel::xam::XamReadTileToTexture_entry)
-REX_EXPORT(__imp__XamWriteGamerTile, rex::kernel::xam::XamWriteGamerTile_entry)
-REX_EXPORT(__imp__XamSessionCreateHandle, rex::kernel::xam::XamSessionCreateHandle_entry)
-REX_EXPORT(__imp__XamSessionRefObjByHandle, rex::kernel::xam::XamSessionRefObjByHandle_entry)
+REX_EXPORT(__import__XamParseGamerTileKey, rex::kernel::xam::XamParseGamerTileKey_entry)
+REX_EXPORT(__import__XamReadTileToTexture, rex::kernel::xam::XamReadTileToTexture_entry)
+REX_EXPORT(__import__XamWriteGamerTile, rex::kernel::xam::XamWriteGamerTile_entry)
+REX_EXPORT(__import__XamSessionCreateHandle, rex::kernel::xam::XamSessionCreateHandle_entry)
+REX_EXPORT(__import__XamSessionRefObjByHandle, rex::kernel::xam::XamSessionRefObjByHandle_entry)
 
-REX_EXPORT_STUB(__imp__XamUserAddRecentPlayer);
-REX_EXPORT_STUB(__imp__XamUserAllowedToPostToSocialNetwork);
-REX_EXPORT_STUB(__imp__XamUserCreateAvatarAssetEnumerator);
-REX_EXPORT_STUB(__imp__XamUserCreatePlayerEnumerator);
-REX_EXPORT_STUB(__imp__XamUserCreateStatsEnumerator);
-REX_EXPORT_STUB(__imp__XamUserCreateTitlesPlayedEnumerator);
-REX_EXPORT_STUB(__imp__XamUserFlushLogonQueue);
-REX_EXPORT_STUB(__imp__XamUserGetAge);
-REX_EXPORT_STUB(__imp__XamUserGetAgeGroup);
-REX_EXPORT_STUB(__imp__XamUserGetCachedUserFlags);
-REX_EXPORT_STUB(__imp__XamUserGetDeviceId);
-REX_EXPORT_STUB(__imp__XamUserGetIndexFromXUID);
-REX_EXPORT_STUB(__imp__XamUserGetMembershipTierFromXUID);
-REX_EXPORT_STUB(__imp__XamUserGetOnlineCountryFromXUID);
-REX_EXPORT_STUB(__imp__XamUserGetOnlineLanguageFromXUID);
-REX_EXPORT_STUB(__imp__XamUserGetOnlineXUIDFromOfflineXUID);
-REX_EXPORT_STUB(__imp__XamUserGetReportingInfo);
-REX_EXPORT_STUB(__imp__XamUserGetRequestedUserIndexMask);
-REX_EXPORT_STUB(__imp__XamUserGetSubscriptionType);
-REX_EXPORT_STUB(__imp__XamUserGetUserFlags);
-REX_EXPORT_STUB(__imp__XamUserGetUserFlagsFromXUID);
-REX_EXPORT_STUB(__imp__XamUserGetUserIndexMask);
-REX_EXPORT_STUB(__imp__XamUserGetUserTenure);
-REX_EXPORT_STUB(__imp__XamUserGetUsersMissingAvatars);
-REX_EXPORT_STUB(__imp__XamUserGetXUIDForTFA);
-REX_EXPORT_STUB(__imp__XamUserInvalidateProfileSetting);
-REX_EXPORT_STUB(__imp__XamUserIsGuest);
-REX_EXPORT_STUB(__imp__XamUserIsLogonPreviewModeEnabled);
-REX_EXPORT_STUB(__imp__XamUserIsParentalControlled);
-REX_EXPORT_STUB(__imp__XamUserIsPartial);
-REX_EXPORT_STUB(__imp__XamUserIsPartialProfile);
-REX_EXPORT_STUB(__imp__XamUserIsUnsafeProgrammingAllowed);
-REX_EXPORT_STUB(__imp__XamUserLockLogonPreviewMode);
-REX_EXPORT_STUB(__imp__XamUserLogon);
-REX_EXPORT_STUB(__imp__XamUserLogonEx);
-REX_EXPORT_STUB(__imp__XamUserLookupDevice);
-REX_EXPORT_STUB(__imp__XamUserNuiBind);
-REX_EXPORT_STUB(__imp__XamUserNuiEnableBiometric);
-REX_EXPORT_STUB(__imp__XamUserNuiGetEnrollmentIndex);
-REX_EXPORT_STUB(__imp__XamUserNuiGetUserIndex);
-REX_EXPORT_STUB(__imp__XamUserNuiGetUserIndexForBind);
-REX_EXPORT_STUB(__imp__XamUserNuiGetUserIndexForSignin);
-REX_EXPORT_STUB(__imp__XamUserNuiIsBiometricEnabled);
-REX_EXPORT_STUB(__imp__XamUserNuiUnbind);
-REX_EXPORT_STUB(__imp__XamUserOverrideBindingCallbacks);
-REX_EXPORT_STUB(__imp__XamUserOverrideDeviceBindings);
-REX_EXPORT_STUB(__imp__XamUserOverrideGlobalState);
-REX_EXPORT_STUB(__imp__XamUserOverrideUserInfo);
-REX_EXPORT_STUB(__imp__XamUserPrefetchProfileSettings);
-REX_EXPORT_STUB(__imp__XamUserProfileSync);
-REX_EXPORT_STUB(__imp__XamUserReadUserPreference);
-REX_EXPORT_STUB(__imp__XamUserResetSubscriptionType);
-REX_EXPORT_STUB(__imp__XamUserUnlockLogonPreviewMode);
-REX_EXPORT_STUB(__imp__XamUserUpdateRecentPlayer);
-REX_EXPORT_STUB(__imp__XamUserValidateAvatarManifest);
-REX_EXPORT_STUB(__imp__XamUserWriteUserPreference);
-REX_EXPORT_STUB(__imp__XamVerifyPasscode);
+REX_EXPORT_STUB(__import__XamUserAddRecentPlayer);
+REX_EXPORT_STUB(__import__XamUserAllowedToPostToSocialNetwork);
+REX_EXPORT_STUB(__import__XamUserCreateAvatarAssetEnumerator);
+REX_EXPORT_STUB(__import__XamUserCreatePlayerEnumerator);
+REX_EXPORT_STUB(__import__XamUserCreateStatsEnumerator);
+REX_EXPORT_STUB(__import__XamUserCreateTitlesPlayedEnumerator);
+REX_EXPORT_STUB(__import__XamUserFlushLogonQueue);
+REX_EXPORT_STUB(__import__XamUserGetAge);
+REX_EXPORT_STUB(__import__XamUserGetAgeGroup);
+REX_EXPORT_STUB(__import__XamUserGetCachedUserFlags);
+REX_EXPORT_STUB(__import__XamUserGetDeviceId);
+REX_EXPORT_STUB(__import__XamUserGetIndexFromXUID);
+REX_EXPORT_STUB(__import__XamUserGetMembershipTierFromXUID);
+REX_EXPORT_STUB(__import__XamUserGetOnlineCountryFromXUID);
+REX_EXPORT_STUB(__import__XamUserGetOnlineLanguageFromXUID);
+REX_EXPORT_STUB(__import__XamUserGetOnlineXUIDFromOfflineXUID);
+REX_EXPORT_STUB(__import__XamUserGetReportingInfo);
+REX_EXPORT_STUB(__import__XamUserGetRequestedUserIndexMask);
+REX_EXPORT_STUB(__import__XamUserGetSubscriptionType);
+REX_EXPORT_STUB(__import__XamUserGetUserFlags);
+REX_EXPORT_STUB(__import__XamUserGetUserFlagsFromXUID);
+REX_EXPORT_STUB(__import__XamUserGetUserIndexMask);
+REX_EXPORT_STUB(__import__XamUserGetUserTenure);
+REX_EXPORT_STUB(__import__XamUserGetUsersMissingAvatars);
+REX_EXPORT_STUB(__import__XamUserGetXUIDForTFA);
+REX_EXPORT_STUB(__import__XamUserInvalidateProfileSetting);
+REX_EXPORT_STUB(__import__XamUserIsGuest);
+REX_EXPORT_STUB(__import__XamUserIsLogonPreviewModeEnabled);
+REX_EXPORT_STUB(__import__XamUserIsParentalControlled);
+REX_EXPORT_STUB(__import__XamUserIsPartial);
+REX_EXPORT_STUB(__import__XamUserIsPartialProfile);
+REX_EXPORT_STUB(__import__XamUserIsUnsafeProgrammingAllowed);
+REX_EXPORT_STUB(__import__XamUserLockLogonPreviewMode);
+REX_EXPORT_STUB(__import__XamUserLogon);
+REX_EXPORT_STUB(__import__XamUserLogonEx);
+REX_EXPORT_STUB(__import__XamUserLookupDevice);
+REX_EXPORT_STUB(__import__XamUserNuiBind);
+REX_EXPORT_STUB(__import__XamUserNuiEnableBiometric);
+REX_EXPORT_STUB(__import__XamUserNuiGetEnrollmentIndex);
+REX_EXPORT_STUB(__import__XamUserNuiGetUserIndex);
+REX_EXPORT_STUB(__import__XamUserNuiGetUserIndexForBind);
+REX_EXPORT_STUB(__import__XamUserNuiGetUserIndexForSignin);
+REX_EXPORT_STUB(__import__XamUserNuiIsBiometricEnabled);
+REX_EXPORT_STUB(__import__XamUserNuiUnbind);
+REX_EXPORT_STUB(__import__XamUserOverrideBindingCallbacks);
+REX_EXPORT_STUB(__import__XamUserOverrideDeviceBindings);
+REX_EXPORT_STUB(__import__XamUserOverrideGlobalState);
+REX_EXPORT_STUB(__import__XamUserOverrideUserInfo);
+REX_EXPORT_STUB(__import__XamUserPrefetchProfileSettings);
+REX_EXPORT_STUB(__import__XamUserProfileSync);
+REX_EXPORT_STUB(__import__XamUserReadUserPreference);
+REX_EXPORT_STUB(__import__XamUserResetSubscriptionType);
+REX_EXPORT_STUB(__import__XamUserUnlockLogonPreviewMode);
+REX_EXPORT_STUB(__import__XamUserUpdateRecentPlayer);
+REX_EXPORT_STUB(__import__XamUserValidateAvatarManifest);
+REX_EXPORT_STUB(__import__XamUserWriteUserPreference);
+REX_EXPORT_STUB(__import__XamVerifyPasscode);

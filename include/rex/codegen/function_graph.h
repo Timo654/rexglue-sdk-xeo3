@@ -63,7 +63,7 @@ class FunctionGraph {
   FunctionNode* addFunction(uint32_t base, uint32_t size, FunctionAuthority authority,
                             std::string_view name, bool hasXrefs = false);
 
-  // Add a resolved import as a callable function with __imp__ name
+  // Add a resolved import as a callable function with __import__ name
   // Address is the thunk address that bl instructions target
   FunctionNode* addImportFunction(uint32_t address, std::string_view resolvedName);
 

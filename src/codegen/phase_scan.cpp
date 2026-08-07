@@ -101,7 +101,7 @@ void scanBinary(CodegenContext& ctx) {
   for (const auto& [addr, node] : graph.functions()) {
     if (node->authority() != FunctionAuthority::IMPORT)
       continue;
-    if (node->name() == "__imp____C_specific_handler") {
+    if (node->name() == "__import____C_specific_handler") {
       exceptionHandlerFuncs.insert(addr);
       break;
     }

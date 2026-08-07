@@ -333,33 +333,33 @@ u32 XamSwapDisc_entry(u32 disc_number) {
 }  // namespace kernel
 }  // namespace rex
 
-REX_EXPORT(__imp__XamFeatureEnabled, rex::kernel::xam::XamFeatureEnabled_entry)
-REX_EXPORT(__imp__XamGetOnlineSchema, rex::kernel::xam::XamGetOnlineSchema_entry)
-REX_EXPORT(__imp__XamFormatDateString, rex::kernel::xam::XamFormatDateString_entry)
-REX_EXPORT(__imp__XamFormatTimeString, rex::kernel::xam::XamFormatTimeString_entry)
-REX_EXPORT(__imp__XamBuildResourceLocator, rex::kernel::xam::XamBuildResourceLocator_entry)
-REX_EXPORT(__imp__XamBuildGamercardResourceLocator,
+REX_EXPORT(__import__XamFeatureEnabled, rex::kernel::xam::XamFeatureEnabled_entry)
+REX_EXPORT(__import__XamGetOnlineSchema, rex::kernel::xam::XamGetOnlineSchema_entry)
+REX_EXPORT(__import__XamFormatDateString, rex::kernel::xam::XamFormatDateString_entry)
+REX_EXPORT(__import__XamFormatTimeString, rex::kernel::xam::XamFormatTimeString_entry)
+REX_EXPORT(__import__XamBuildResourceLocator, rex::kernel::xam::XamBuildResourceLocator_entry)
+REX_EXPORT(__import__XamBuildGamercardResourceLocator,
            rex::kernel::xam::XamBuildGamercardResourceLocator_entry)
-REX_EXPORT(__imp__XamBuildSharedSystemResourceLocator,
+REX_EXPORT(__import__XamBuildSharedSystemResourceLocator,
            rex::kernel::xam::XamBuildSharedSystemResourceLocator_entry)
-REX_EXPORT(__imp__XamBuildLegacySystemResourceLocator,
+REX_EXPORT(__import__XamBuildLegacySystemResourceLocator,
            rex::kernel::xam::XamBuildLegacySystemResourceLocator_entry)
-REX_EXPORT(__imp__XamBuildXamResourceLocator, rex::kernel::xam::XamBuildXamResourceLocator_entry)
-REX_EXPORT(__imp__XamGetSystemVersion, rex::kernel::xam::XamGetSystemVersion_entry)
-REX_EXPORT(__imp__XCustomRegisterDynamicActions,
+REX_EXPORT(__import__XamBuildXamResourceLocator, rex::kernel::xam::XamBuildXamResourceLocator_entry)
+REX_EXPORT(__import__XamGetSystemVersion, rex::kernel::xam::XamGetSystemVersion_entry)
+REX_EXPORT(__import__XCustomRegisterDynamicActions,
            rex::kernel::xam::XCustomRegisterDynamicActions_entry)
-REX_EXPORT(__imp__XGetAVPack, rex::kernel::xam::XGetAVPack_entry)
-REX_EXPORT(__imp__XGetGameRegion, rex::kernel::xam::XGetGameRegion_entry)
-REX_EXPORT(__imp__XGetLanguage, rex::kernel::xam::XGetLanguage_entry)
-REX_EXPORT(__imp__XamGetCurrentTitleId, rex::kernel::xam::XamGetCurrentTitleId_entry)
-REX_EXPORT(__imp__XamGetExecutionId, rex::kernel::xam::XamGetExecutionId_entry)
-REX_EXPORT(__imp__XamLoaderSetLaunchData, rex::kernel::xam::XamLoaderSetLaunchData_entry)
-REX_EXPORT(__imp__XamLoaderGetLaunchDataSize, rex::kernel::xam::XamLoaderGetLaunchDataSize_entry)
-REX_EXPORT(__imp__XamLoaderGetLaunchData, rex::kernel::xam::XamLoaderGetLaunchData_entry)
-REX_EXPORT(__imp__XamLoaderLaunchTitle, rex::kernel::xam::XamLoaderLaunchTitle_entry)
-REX_EXPORT(__imp__XamLoaderTerminateTitle, rex::kernel::xam::XamLoaderTerminateTitle_entry)
-REX_EXPORT(__imp__XamAlloc, rex::kernel::xam::XamAlloc_entry)
-REX_EXPORT(__imp__XamFree, rex::kernel::xam::XamFree_entry)
-REX_EXPORT(__imp__XamQueryLiveHiveW, rex::kernel::xam::XamQueryLiveHiveW_entry)
-REX_EXPORT(__imp__XamLoaderGetDvdTrayState, rex::kernel::xam::XamLoaderGetDvdTrayState_entry)
-REX_EXPORT(__imp__XamSwapDisc, rex::kernel::xam::XamSwapDisc_entry)
+REX_EXPORT(__import__XGetAVPack, rex::kernel::xam::XGetAVPack_entry)
+REX_EXPORT(__import__XGetGameRegion, rex::kernel::xam::XGetGameRegion_entry)
+REX_EXPORT(__import__XGetLanguage, rex::kernel::xam::XGetLanguage_entry)
+REX_EXPORT(__import__XamGetCurrentTitleId, rex::kernel::xam::XamGetCurrentTitleId_entry)
+REX_EXPORT(__import__XamGetExecutionId, rex::kernel::xam::XamGetExecutionId_entry)
+REX_EXPORT(__import__XamLoaderSetLaunchData, rex::kernel::xam::XamLoaderSetLaunchData_entry)
+REX_EXPORT(__import__XamLoaderGetLaunchDataSize, rex::kernel::xam::XamLoaderGetLaunchDataSize_entry)
+REX_EXPORT(__import__XamLoaderGetLaunchData, rex::kernel::xam::XamLoaderGetLaunchData_entry)
+REX_EXPORT(__import__XamLoaderLaunchTitle, rex::kernel::xam::XamLoaderLaunchTitle_entry)
+REX_EXPORT(__import__XamLoaderTerminateTitle, rex::kernel::xam::XamLoaderTerminateTitle_entry)
+REX_EXPORT(__import__XamAlloc, rex::kernel::xam::XamAlloc_entry)
+REX_EXPORT(__import__XamFree, rex::kernel::xam::XamFree_entry)
+REX_EXPORT(__import__XamQueryLiveHiveW, rex::kernel::xam::XamQueryLiveHiveW_entry)
+REX_EXPORT(__import__XamLoaderGetDvdTrayState, rex::kernel::xam::XamLoaderGetDvdTrayState_entry)
+REX_EXPORT(__import__XamSwapDisc, rex::kernel::xam::XamSwapDisc_entry)

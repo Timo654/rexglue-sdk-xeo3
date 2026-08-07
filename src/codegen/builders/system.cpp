@@ -243,7 +243,7 @@ bool build_mfocrf(BuilderContext& ctx) {
 
 bool build_mflr(BuilderContext& ctx) {
   if (!ctx.config().skipLr)
-    ctx.println("\t{}.u64 = ctx.lr;", ctx.r(ctx.insn.operands[0]));
+    ctx.println("\t{}.u64 = ADJ(ctx)->lr;", ctx.r(ctx.insn.operands[0]));
   return true;
 }
 
@@ -253,13 +253,13 @@ bool build_mfmsr(BuilderContext& ctx) {
     ctx.println("\tstd::atomic_thread_fence(std::memory_order_seq_cst);");
     // Check global lock and return appropriate value
     // Returns 0x8000 if unlocked (interrupts enabled), 0 if locked
-    ctx.println("\t{}.u64 = REX_CHECK_GLOBAL_LOCK();", ctx.r(ctx.insn.operands[0]));
+    ctx.println("//\t{}.u64 = REX_CHECK_GLOBAL_LOCK();", ctx.r(ctx.insn.operands[0]));
   }
   return true;
 }
 
 bool build_mffs(BuilderContext& ctx) {
-  ctx.println("\t{}.u64 = ctx.fpscr.loadFromHost();", ctx.f(ctx.insn.operands[0]));
+  ctx.println("\t{}.u64 = ADJ(ctx)->fpscr.loadFromHost();", ctx.f(ctx.insn.operands[0]));
   return true;
 }
 
@@ -311,7 +311,7 @@ bool build_mtctr(BuilderContext& ctx) {
 
 bool build_mtlr(BuilderContext& ctx) {
   if (!ctx.config().skipLr)
-    ctx.println("\tctx.lr = {}.u64;", ctx.r(ctx.insn.operands[0]));
+    ctx.println("\tADJ(ctx)->lr = {}.u64;", ctx.r(ctx.insn.operands[0]));
   return true;
 }
 
@@ -320,16 +320,16 @@ bool build_mtmsrd(BuilderContext& ctx) {
     // Memory barrier for MSR write
     ctx.println("\tstd::atomic_thread_fence(std::memory_order_seq_cst);");
     // Update MSR bits
-    ctx.println("\tctx.msr = ({}.u32 & 0x8020) | (ctx.msr & ~0x8020);",
+    ctx.println("\tADJ(ctx)->msr = ({}.u32 & 0x8020) | (ADJ(ctx)->msr & ~0x8020);",
                 ctx.r(ctx.insn.operands[0]));
     // Global lock mechanism:
     // R13 = enter lock (disable interrupts)
     // Other = leave lock (enable interrupts)
     uint32_t src_reg = ctx.insn.operands[0];
     if (src_reg == 13) {
-      ctx.println("\tREX_ENTER_GLOBAL_LOCK();");
+      ctx.println("\t//REX_ENTER_GLOBAL_LOCK();");
     } else {
-      ctx.println("\tREX_LEAVE_GLOBAL_LOCK();");
+      ctx.println("\t//REX_LEAVE_GLOBAL_LOCK();");
     }
   }
   return true;
@@ -343,10 +343,10 @@ bool build_mtfsf(BuilderContext& ctx) {
       mask |= 0xF << (4 * j);
   }
   if (mask == 0xFFFFFFFF) {
-    ctx.println("\tctx.fpscr.storeFromGuest({}.u32);", ctx.f(ctx.insn.operands[1]));
+    ctx.println("\tADJ(ctx)->fpscr.storeFromGuest({}.u32);", ctx.f(ctx.insn.operands[1]));
   } else {
     ctx.println(
-        "\tctx.fpscr.storeFromGuest((ctx.fpscr.loadFromHost() & 0x{:08X}) | ({}.u32 & 0x{:08X}));",
+        "\tADJ(ctx)->fpscr.storeFromGuest((ADJ(ctx)->fpscr.loadFromHost() & 0x{:08X}) | ({}.u32 & 0x{:08X}));",
         ~mask, ctx.f(ctx.insn.operands[1]), mask);
   }
   return true;

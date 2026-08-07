@@ -157,23 +157,23 @@ void KeBugCheck_entry(u32 code) {
 
 }  // namespace rex::kernel::xboxkrnl
 
-REX_EXPORT(__imp__DbgBreakPoint, rex::kernel::xboxkrnl::DbgBreakPoint_entry)
-REX_EXPORT(__imp__RtlRaiseException, rex::kernel::xboxkrnl::RtlRaiseException_entry)
-REX_EXPORT(__imp__KeBugCheckEx, rex::kernel::xboxkrnl::KeBugCheckEx_entry)
-REX_EXPORT(__imp__KeBugCheck, rex::kernel::xboxkrnl::KeBugCheck_entry)
+REX_EXPORT(__import__DbgBreakPoint, rex::kernel::xboxkrnl::DbgBreakPoint_entry)
+REX_EXPORT(__import__RtlRaiseException, rex::kernel::xboxkrnl::RtlRaiseException_entry)
+REX_EXPORT(__import__KeBugCheckEx, rex::kernel::xboxkrnl::KeBugCheckEx_entry)
+REX_EXPORT(__import__KeBugCheck, rex::kernel::xboxkrnl::KeBugCheck_entry)
 
-REX_EXPORT_STUB(__imp__DbgBreakPointWithStatus);
-REX_EXPORT_STUB(__imp__DbgPrompt);
-REX_EXPORT_STUB(__imp__DbgLoadImageSymbols);
-REX_EXPORT_STUB(__imp__DbgUnLoadImageSymbols);
-REX_EXPORT_STUB(__imp__DmPrintData);
+REX_EXPORT_STUB(__import__DbgBreakPointWithStatus);
+REX_EXPORT_STUB(__import__DbgPrompt);
+REX_EXPORT_STUB(__import__DbgLoadImageSymbols);
+REX_EXPORT_STUB(__import__DbgUnLoadImageSymbols);
+REX_EXPORT_STUB(__import__DmPrintData);
 
-REX_EXPORT_STUB(__imp__DumpGetRawDumpInfo);
-REX_EXPORT_STUB(__imp__DumpRegisterDedicatedDataBlock);
-REX_EXPORT_STUB(__imp__DumpSetCollectionFacility);
-REX_EXPORT_STUB(__imp__DumpUpdateDumpSettings);
-REX_EXPORT_STUB(__imp__DumpWriteDump);
-REX_EXPORT_STUB(__imp__DumpXitThread);
-REX_EXPORT_STUB(__imp__RtlAssert);
-REX_EXPORT_STUB(__imp__RtlRaiseStatus);
-REX_EXPORT_STUB(__imp__RtlRip);
+REX_EXPORT_STUB(__import__DumpGetRawDumpInfo);
+REX_EXPORT_STUB(__import__DumpRegisterDedicatedDataBlock);
+REX_EXPORT_STUB(__import__DumpSetCollectionFacility);
+REX_EXPORT_STUB(__import__DumpUpdateDumpSettings);
+REX_EXPORT_STUB(__import__DumpWriteDump);
+REX_EXPORT_STUB(__import__DumpXitThread);
+REX_EXPORT_STUB(__import__RtlAssert);
+REX_EXPORT_STUB(__import__RtlRaiseStatus);
+REX_EXPORT_STUB(__import__RtlRip);

@@ -154,5 +154,5 @@ u32 XamContentAggregateCreateEnumerator_entry(u64 xuid, u32 device_id, u32 conte
 }  // namespace kernel
 }  // namespace rex
 
-REX_EXPORT(__imp__XamContentAggregateCreateEnumerator,
+REX_EXPORT(__import__XamContentAggregateCreateEnumerator,
            rex::kernel::xam::XamContentAggregateCreateEnumerator_entry)

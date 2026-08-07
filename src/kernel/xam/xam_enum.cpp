@@ -109,7 +109,7 @@ u32 XamGetPrivateEnumStructureFromHandle_entry(u32 handle, mapped_u32 out_object
 }  // namespace kernel
 }  // namespace rex
 
-REX_EXPORT(__imp__XamEnumerate, rex::kernel::xam::XamEnumerate_entry)
-REX_EXPORT(__imp__XamCreateEnumeratorHandle, rex::kernel::xam::XamCreateEnumeratorHandle_entry)
-REX_EXPORT(__imp__XamGetPrivateEnumStructureFromHandle,
+REX_EXPORT(__import__XamEnumerate, rex::kernel::xam::XamEnumerate_entry)
+REX_EXPORT(__import__XamCreateEnumeratorHandle, rex::kernel::xam::XamCreateEnumeratorHandle_entry)
+REX_EXPORT(__import__XamGetPrivateEnumStructureFromHandle,
            rex::kernel::xam::XamGetPrivateEnumStructureFromHandle_entry)

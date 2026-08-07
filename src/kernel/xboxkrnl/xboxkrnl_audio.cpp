@@ -107,44 +107,44 @@ u32 XAudioSubmitRenderDriverFrame_entry(mapped_void driver_ptr, mapped_void samp
 
 }  // namespace rex::kernel::xboxkrnl
 
-REX_EXPORT(__imp__XAudioGetSpeakerConfig, rex::kernel::xboxkrnl::XAudioGetSpeakerConfig_entry)
-REX_EXPORT(__imp__XAudioGetVoiceCategoryVolumeChangeMask,
+REX_EXPORT(__import__XAudioGetSpeakerConfig, rex::kernel::xboxkrnl::XAudioGetSpeakerConfig_entry)
+REX_EXPORT(__import__XAudioGetVoiceCategoryVolumeChangeMask,
            rex::kernel::xboxkrnl::XAudioGetVoiceCategoryVolumeChangeMask_entry)
-REX_EXPORT(__imp__XAudioGetVoiceCategoryVolume,
+REX_EXPORT(__import__XAudioGetVoiceCategoryVolume,
            rex::kernel::xboxkrnl::XAudioGetVoiceCategoryVolume_entry)
-REX_EXPORT(__imp__XAudioEnableDucker, rex::kernel::xboxkrnl::XAudioEnableDucker_entry)
-REX_EXPORT(__imp__XAudioRegisterRenderDriverClient,
+REX_EXPORT(__import__XAudioEnableDucker, rex::kernel::xboxkrnl::XAudioEnableDucker_entry)
+REX_EXPORT(__import__XAudioRegisterRenderDriverClient,
            rex::kernel::xboxkrnl::XAudioRegisterRenderDriverClient_entry)
-REX_EXPORT(__imp__XAudioUnregisterRenderDriverClient,
+REX_EXPORT(__import__XAudioUnregisterRenderDriverClient,
            rex::kernel::xboxkrnl::XAudioUnregisterRenderDriverClient_entry)
-REX_EXPORT(__imp__XAudioSubmitRenderDriverFrame,
+REX_EXPORT(__import__XAudioSubmitRenderDriverFrame,
            rex::kernel::xboxkrnl::XAudioSubmitRenderDriverFrame_entry)
 
-REX_EXPORT_STUB(__imp__XAudioRenderDriverInitialize);
-REX_EXPORT_STUB(__imp__XAudioRenderDriverLock);
-REX_EXPORT_STUB(__imp__XAudioSetVoiceCategoryVolume);
-REX_EXPORT_STUB(__imp__XAudioBeginDigitalBypassMode);
-REX_EXPORT_STUB(__imp__XAudioEndDigitalBypassMode);
-REX_EXPORT_STUB(__imp__XAudioSubmitDigitalPacket);
-REX_EXPORT_STUB(__imp__XAudioQueryDriverPerformance);
-REX_EXPORT_STUB(__imp__XAudioGetRenderDriverThread);
-REX_EXPORT_STUB(__imp__XAudioSetSpeakerConfig);
-REX_EXPORT_STUB(__imp__XAudioOverrideSpeakerConfig);
-REX_EXPORT_STUB(__imp__XAudioSuspendRenderDriverClients);
-REX_EXPORT_STUB(__imp__XAudioRegisterRenderDriverMECClient);
-REX_EXPORT_STUB(__imp__XAudioUnregisterRenderDriverMECClient);
-REX_EXPORT_STUB(__imp__XAudioCaptureRenderDriverFrame);
-REX_EXPORT_STUB(__imp__XAudioGetRenderDriverTic);
-REX_EXPORT_STUB(__imp__XAudioSetDuckerLevel);
-REX_EXPORT_STUB(__imp__XAudioIsDuckerEnabled);
-REX_EXPORT_STUB(__imp__XAudioGetDuckerLevel);
-REX_EXPORT_STUB(__imp__XAudioGetDuckerThreshold);
-REX_EXPORT_STUB(__imp__XAudioSetDuckerThreshold);
-REX_EXPORT_STUB(__imp__XAudioGetDuckerAttackTime);
-REX_EXPORT_STUB(__imp__XAudioSetDuckerAttackTime);
-REX_EXPORT_STUB(__imp__XAudioGetDuckerReleaseTime);
-REX_EXPORT_STUB(__imp__XAudioSetDuckerReleaseTime);
-REX_EXPORT_STUB(__imp__XAudioGetDuckerHoldTime);
-REX_EXPORT_STUB(__imp__XAudioSetDuckerHoldTime);
-REX_EXPORT_STUB(__imp__XAudioGetUnderrunCount);
-REX_EXPORT_STUB(__imp__XAudioSetProcessFrameCallback);
+REX_EXPORT_STUB(__import__XAudioRenderDriverInitialize);
+REX_EXPORT_STUB(__import__XAudioRenderDriverLock);
+REX_EXPORT_STUB(__import__XAudioSetVoiceCategoryVolume);
+REX_EXPORT_STUB(__import__XAudioBeginDigitalBypassMode);
+REX_EXPORT_STUB(__import__XAudioEndDigitalBypassMode);
+REX_EXPORT_STUB(__import__XAudioSubmitDigitalPacket);
+REX_EXPORT_STUB(__import__XAudioQueryDriverPerformance);
+REX_EXPORT_STUB(__import__XAudioGetRenderDriverThread);
+REX_EXPORT_STUB(__import__XAudioSetSpeakerConfig);
+REX_EXPORT_STUB(__import__XAudioOverrideSpeakerConfig);
+REX_EXPORT_STUB(__import__XAudioSuspendRenderDriverClients);
+REX_EXPORT_STUB(__import__XAudioRegisterRenderDriverMECClient);
+REX_EXPORT_STUB(__import__XAudioUnregisterRenderDriverMECClient);
+REX_EXPORT_STUB(__import__XAudioCaptureRenderDriverFrame);
+REX_EXPORT_STUB(__import__XAudioGetRenderDriverTic);
+REX_EXPORT_STUB(__import__XAudioSetDuckerLevel);
+REX_EXPORT_STUB(__import__XAudioIsDuckerEnabled);
+REX_EXPORT_STUB(__import__XAudioGetDuckerLevel);
+REX_EXPORT_STUB(__import__XAudioGetDuckerThreshold);
+REX_EXPORT_STUB(__import__XAudioSetDuckerThreshold);
+REX_EXPORT_STUB(__import__XAudioGetDuckerAttackTime);
+REX_EXPORT_STUB(__import__XAudioSetDuckerAttackTime);
+REX_EXPORT_STUB(__import__XAudioGetDuckerReleaseTime);
+REX_EXPORT_STUB(__import__XAudioSetDuckerReleaseTime);
+REX_EXPORT_STUB(__import__XAudioGetDuckerHoldTime);
+REX_EXPORT_STUB(__import__XAudioSetDuckerHoldTime);
+REX_EXPORT_STUB(__import__XAudioGetUnderrunCount);
+REX_EXPORT_STUB(__import__XAudioSetProcessFrameCallback);

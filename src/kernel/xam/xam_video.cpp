@@ -35,10 +35,10 @@ u32 XGetVideoCapabilities_entry() {
 }  // namespace kernel
 }  // namespace rex
 
-REX_EXPORT(__imp__XGetVideoMode, rex::kernel::xam::XGetVideoMode_entry)
-REX_EXPORT(__imp__XGetVideoCapabilities, rex::kernel::xam::XGetVideoCapabilities_entry)
+REX_EXPORT(__import__XGetVideoMode, rex::kernel::xam::XGetVideoMode_entry)
+REX_EXPORT(__import__XGetVideoCapabilities, rex::kernel::xam::XGetVideoCapabilities_entry)
 
-REX_EXPORT_STUB(__imp__XGetVideoFlags);
-REX_EXPORT_STUB(__imp__XGetVideoStandard);
-REX_EXPORT_STUB(__imp__XamLoadExtraAVCodecs2);
-REX_EXPORT_STUB(__imp__XamUnloadExtraAVCodecs2);
+REX_EXPORT_STUB(__import__XGetVideoFlags);
+REX_EXPORT_STUB(__import__XGetVideoStandard);
+REX_EXPORT_STUB(__import__XamLoadExtraAVCodecs2);
+REX_EXPORT_STUB(__import__XamUnloadExtraAVCodecs2);

@@ -60,7 +60,7 @@ nlohmann::json buildTemplateData(const rex::codegen::CodegenContext& ctx,
       funcName = crtIt->second;
       isRexcrt = true;
     } else if (fn->base() == ctx.analysisState().entryPoint) {
-      funcName = "xstart";
+      funcName = fmt::format("sub_{:08X}", fn->base());
     } else if (!fn->name().empty()) {
       funcName = fn->name();
     } else {
@@ -69,6 +69,7 @@ nlohmann::json buildTemplateData(const rex::codegen::CodegenContext& ctx,
 
     functionsJson.push_back({
         {"address", fmt::format("0x{:X}", fn->base())},
+        {"relative_address", fmt::format("0x{:X}", fn->base() - ctx.binary().baseAddress())}, // TODO
         {"name", funcName},
         {"is_rexcrt", isRexcrt},
         {"below_code_base", (fn->base() < codeMin)},
@@ -204,6 +205,16 @@ bool CodegenWriter::write(bool force) {
   REXCODEGEN_TRACE("Recompile: generating {}_init.cpp", projectName);
   out = renderWithJson(registry, "codegen/init_cpp", tmplData);
   SaveCurrentOutData(fmt::format("{}_init.cpp", projectName));
+
+   // Generate {project}_import_mapping.cpp
+  REXCODEGEN_TRACE("Recompile: generating {}_import_mapping.cpp", projectName);
+  out = renderWithJson(registry, "codegen/import_mapping_cpp", tmplData);
+  SaveCurrentOutData(fmt::format("{}_import_mapping.cpp", projectName));
+
+  // Generate {project}_precomp_init_cpp.cpp
+  REXCODEGEN_TRACE("Recompile: generating {}_precomp_init.cpp", projectName);
+  out = renderWithJson(registry, "codegen/precomp_init_cpp", tmplData);
+  SaveCurrentOutData(fmt::format("{}_precomp_init.cpp", projectName));
 
   // Generate {project}_register.cpp (registration function for hash-based dispatch)
   REXCODEGEN_TRACE("Recompile: generating {}_register.cpp", projectName);

@@ -64,7 +64,7 @@ uint32_t KernelModule::GetProcAddressByOrdinal(uint16_t ordinal, uint32_t caller
   }
 
   // Look up native implementation by name from the auto-registry
-  std::string imp_name = std::string("__imp__") + export_entry->name;
+  std::string imp_name = std::string("__import__") + export_entry->name;
   REXSYS_DEBUG("GetProcAddressByOrdinal: searching registry for '{}'", imp_name);
   PPCFunc* func = rex::ppc::FindPPCFuncByName(imp_name.c_str());
   if (func) {

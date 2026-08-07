@@ -244,32 +244,32 @@ u32 NtQueryEvent_entry(u32 handle, mapped_u32 out_struc) {
 
 }  // namespace rex::kernel::xboxkrnl
 
-REX_EXPORT(__imp__ObOpenObjectByName, rex::kernel::xboxkrnl::ObOpenObjectByName_entry)
-REX_EXPORT(__imp__ObOpenObjectByPointer, rex::kernel::xboxkrnl::ObOpenObjectByPointer_entry)
-REX_EXPORT(__imp__ObLookupThreadByThreadId, rex::kernel::xboxkrnl::ObLookupThreadByThreadId_entry)
-REX_EXPORT(__imp__ObReferenceObjectByHandle, rex::kernel::xboxkrnl::ObReferenceObjectByHandle_entry)
-REX_EXPORT(__imp__ObReferenceObjectByName, rex::kernel::xboxkrnl::ObReferenceObjectByName_entry)
-REX_EXPORT(__imp__ObDereferenceObject, rex::kernel::xboxkrnl::ObDereferenceObject_entry)
-REX_EXPORT(__imp__ObCreateSymbolicLink, rex::kernel::xboxkrnl::ObCreateSymbolicLink_entry)
-REX_EXPORT(__imp__ObDeleteSymbolicLink, rex::kernel::xboxkrnl::ObDeleteSymbolicLink_entry)
-REX_EXPORT(__imp__NtDuplicateObject, rex::kernel::xboxkrnl::NtDuplicateObject_entry)
-REX_EXPORT(__imp__NtClose, rex::kernel::xboxkrnl::NtClose_entry)
-REX_EXPORT(__imp__NtQueryEvent, rex::kernel::xboxkrnl::NtQueryEvent_entry)
+REX_EXPORT(__import__ObOpenObjectByName, rex::kernel::xboxkrnl::ObOpenObjectByName_entry)
+REX_EXPORT(__import__ObOpenObjectByPointer, rex::kernel::xboxkrnl::ObOpenObjectByPointer_entry)
+REX_EXPORT(__import__ObLookupThreadByThreadId, rex::kernel::xboxkrnl::ObLookupThreadByThreadId_entry)
+REX_EXPORT(__import__ObReferenceObjectByHandle, rex::kernel::xboxkrnl::ObReferenceObjectByHandle_entry)
+REX_EXPORT(__import__ObReferenceObjectByName, rex::kernel::xboxkrnl::ObReferenceObjectByName_entry)
+REX_EXPORT(__import__ObDereferenceObject, rex::kernel::xboxkrnl::ObDereferenceObject_entry)
+REX_EXPORT(__import__ObCreateSymbolicLink, rex::kernel::xboxkrnl::ObCreateSymbolicLink_entry)
+REX_EXPORT(__import__ObDeleteSymbolicLink, rex::kernel::xboxkrnl::ObDeleteSymbolicLink_entry)
+REX_EXPORT(__import__NtDuplicateObject, rex::kernel::xboxkrnl::NtDuplicateObject_entry)
+REX_EXPORT(__import__NtClose, rex::kernel::xboxkrnl::NtClose_entry)
+REX_EXPORT(__import__NtQueryEvent, rex::kernel::xboxkrnl::NtQueryEvent_entry)
 
-REX_EXPORT_STUB(__imp__ObCreateObject);
-REX_EXPORT_STUB(__imp__ObGetWaitableObject);
-REX_EXPORT_STUB(__imp__ObInsertObject);
-REX_EXPORT_STUB(__imp__ObIsTitleObject);
-REX_EXPORT_STUB(__imp__ObLookupAnyThreadByThreadId);
-REX_EXPORT_STUB(__imp__ObMakeTemporaryObject);
-REX_EXPORT_STUB(__imp__ObReferenceObject);
-REX_EXPORT_STUB(__imp__ObTranslateSymbolicLink);
-REX_EXPORT_STUB(__imp__NtCreateDirectoryObject);
-REX_EXPORT_STUB(__imp__NtCreateSymbolicLinkObject);
-REX_EXPORT_STUB(__imp__NtMakeTemporaryObject);
-REX_EXPORT_STUB(__imp__NtOpenDirectoryObject);
-REX_EXPORT_STUB(__imp__NtQueryDirectoryObject);
-REX_EXPORT_STUB(__imp__NtQueryIoCompletion);
-REX_EXPORT_STUB(__imp__NtQueryMutant);
-REX_EXPORT_STUB(__imp__NtQuerySemaphore);
-REX_EXPORT_STUB(__imp__NtQueryTimer);
+REX_EXPORT_STUB(__import__ObCreateObject);
+REX_EXPORT_STUB(__import__ObGetWaitableObject);
+REX_EXPORT_STUB(__import__ObInsertObject);
+REX_EXPORT_STUB(__import__ObIsTitleObject);
+REX_EXPORT_STUB(__import__ObLookupAnyThreadByThreadId);
+REX_EXPORT_STUB(__import__ObMakeTemporaryObject);
+REX_EXPORT_STUB(__import__ObReferenceObject);
+REX_EXPORT_STUB(__import__ObTranslateSymbolicLink);
+REX_EXPORT_STUB(__import__NtCreateDirectoryObject);
+REX_EXPORT_STUB(__import__NtCreateSymbolicLinkObject);
+REX_EXPORT_STUB(__import__NtMakeTemporaryObject);
+REX_EXPORT_STUB(__import__NtOpenDirectoryObject);
+REX_EXPORT_STUB(__import__NtQueryDirectoryObject);
+REX_EXPORT_STUB(__import__NtQueryIoCompletion);
+REX_EXPORT_STUB(__import__NtQueryMutant);
+REX_EXPORT_STUB(__import__NtQuerySemaphore);
+REX_EXPORT_STUB(__import__NtQueryTimer);

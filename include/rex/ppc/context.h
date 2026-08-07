@@ -34,7 +34,7 @@
 struct PPCContext;
 
 // Function signature for recompiled PPC functions
-using PPCFunc = void(PPCContext& ctx, uint8_t* base);
+typedef __attribute__((preserve_none)) void PPCFunc(uintptr_t ctx, uintptr_t base, uintptr_t frame);
 
 namespace rex::runtime {
 PPCFunc* ResolveIndirectFunction(uint32_t guest_address);
@@ -47,20 +47,29 @@ PPCFunc* ResolveIndirectFunction(uint32_t guest_address);
 #define REX_JOIN(x, y) x##y
 #define REX_XSTRINGIFY(x) #x
 #define REX_STRINGIFY(x) REX_XSTRINGIFY(x)
-#define REX_FUNC(x) void x([[maybe_unused]] PPCContext& __restrict ctx, uint8_t* base)
+#define REX_FUNC(x) __attribute__((preserve_none)) void x(uintptr_t ctx, uintptr_t base, uintptr_t frame)
+
 #define REX_EXTERN(x) extern "C" REX_FUNC(x)
-#define REX_WEAK_FUNC(x) __attribute__((weak, noinline)) REX_FUNC(x)
+#define REX_WEAK_FUNC(x) __attribute__((weak, noinline, preserve_none)) void x(uintptr_t ctx, uintptr_t base, uintptr_t frame)
+#define ADJ(x) ((PPCContext*)(x - 0x80))
 
 //=============================================================================
 // Function Mapping
 //=============================================================================
 
 struct PPCFuncMapping {
-  size_t guest;
-  PPCFunc* host;
+  uint32_t guest_rva;
+  uint32_t host_rva;
 };
 
-extern PPCFuncMapping PPCFuncMappings[];
+struct PPCImportMapping {
+  uint32_t imp_addr;
+  uint32_t dest_addr;
+};
+
+extern "C" PPCFuncMapping PPCFuncMappings[];
+__declspec(dllexport) extern "C" PPCImportMapping PrecompiledImportTable[];
+__declspec(dllexport) extern "C" uintptr_t PrecompiledPointers[];
 
 //=============================================================================
 // Pack/Unpack Constants (NORMPACKED32 - 2:10:10:10 format)
@@ -207,6 +216,7 @@ struct FPSCRRegister {
 
   inline void enableFlushModeUnconditional() noexcept {
     csr |= FlushMask;
+    csr |= _MM_MASK_INEXACT;
     setcsr(csr);
   }
 
@@ -218,6 +228,7 @@ struct FPSCRRegister {
   inline void enableFlushMode() noexcept {
     if ((csr & FlushMask) != FlushMask) [[unlikely]] {
       csr |= FlushMask;
+      csr |= _MM_MASK_INEXACT;
       setcsr(csr);
     }
   }
@@ -248,11 +259,34 @@ using PPCFPSCRRegister = rex::ppc::FPSCRRegister;
 // PPCContext Structure
 //=============================================================================
 
-struct alignas(0x40) PPCContext {
+// TODO - update to match xeo3 version?
+struct alignas(0x10) PPCContext {
+  PPCVRegister v63;
+  PPCVRegister v127;
+
+  PPCRegister f0;
+  PPCRegister f1;
+  PPCRegister f13;
+  PPCRegister f31;
+
+  PPCCRRegister cr0;
+  PPCCRRegister cr1;
+  PPCCRRegister cr2;
+  PPCCRRegister cr3;
+  PPCCRRegister cr4;
+  PPCCRRegister cr5;
+  PPCCRRegister cr6;
+  PPCCRRegister cr7;
+
+  uint64_t lr;
+  PPCRegister ctr;
+  uintptr_t image_mem_base;
+  PPCRegister iar;
   PPCRegister r3;
-  PPCRegister r0;
   PPCRegister r1;
-  PPCRegister r2;
+  uint32_t host_mxcsr;
+  PPCXERRegister xer;
+
   PPCRegister r4;
   PPCRegister r5;
   PPCRegister r6;
@@ -262,6 +296,12 @@ struct alignas(0x40) PPCContext {
   PPCRegister r10;
   PPCRegister r11;
   PPCRegister r12;
+  PPCRegister r28;
+  PPCRegister r29;
+  PPCRegister r30;
+  PPCRegister r31;
+  PPCRegister r0;
+  PPCRegister r2;
   PPCRegister r13;
   PPCRegister r14;
   PPCRegister r15;
@@ -277,37 +317,6 @@ struct alignas(0x40) PPCContext {
   PPCRegister r25;
   PPCRegister r26;
   PPCRegister r27;
-  PPCRegister r28;
-  PPCRegister r29;
-  PPCRegister r30;
-  PPCRegister r31;
-
-  uint64_t lr;
-  PPCRegister ctr;
-  PPCXERRegister xer;
-  PPCRegister reserved;
-  uint32_t msr = 0x200A000;
-  PPCCRRegister cr0;
-  PPCCRRegister cr1;
-  PPCCRRegister cr2;
-  PPCCRRegister cr3;
-  PPCCRRegister cr4;
-  PPCCRRegister cr5;
-  PPCCRRegister cr6;
-  PPCCRRegister cr7;
-  PPCFPSCRRegister fpscr;
-  uint8_t vscr_sat = 0;  // VSCR saturation flag (for vector ops)
-
-  /**
-   * Last indirect call target address. Set by REX_CALL_INDIRECT_FUNC before
-   * dispatch. Used by the invalid-function trap to report the faulting address.
-   * Unconditional (not guarded by config flags) because ctr may be optimized
-   * to a local variable via REX_CONFIG_CTR_AS_LOCAL.
-   */
-  uint32_t last_indirect_target = 0;
-
-  PPCRegister f0;
-  PPCRegister f1;
   PPCRegister f2;
   PPCRegister f3;
   PPCRegister f4;
@@ -319,7 +328,6 @@ struct alignas(0x40) PPCContext {
   PPCRegister f10;
   PPCRegister f11;
   PPCRegister f12;
-  PPCRegister f13;
   PPCRegister f14;
   PPCRegister f15;
   PPCRegister f16;
@@ -337,7 +345,18 @@ struct alignas(0x40) PPCContext {
   PPCRegister f28;
   PPCRegister f29;
   PPCRegister f30;
-  PPCRegister f31;
+
+  PPCFPSCRRegister fpscr;
+  uint8_t vscr_sat = 0;  // VSCR saturation flag (for vector ops)
+  /**
+   * Last indirect call target address. Set by REX_CALL_INDIRECT_FUNC before
+   * dispatch. Used by the invalid-function trap to report the faulting address.
+   * Unconditional (not guarded by config flags) because ctr may be optimized
+   * to a local variable via REX_CONFIG_CTR_AS_LOCAL.
+   */
+  uint32_t last_indirect_target = 0;
+  uint32_t msr = 0x200A000;
+  PPCRegister reserved;
 
   PPCVRegister v0;
   PPCVRegister v1;
@@ -402,7 +421,6 @@ struct alignas(0x40) PPCContext {
   PPCVRegister v60;
   PPCVRegister v61;
   PPCVRegister v62;
-  PPCVRegister v63;
   PPCVRegister v64;
   PPCVRegister v65;
   PPCVRegister v66;
@@ -466,8 +484,6 @@ struct alignas(0x40) PPCContext {
   PPCVRegister v124;
   PPCVRegister v125;
   PPCVRegister v126;
-  PPCVRegister v127;
-
   //--- Non-volatile register save/restore --------
   // Layout: r14-r31 (144) | f14-f31 (144) | v14-v31 (288) | v64-v127 (1024)
   // Total: 1600 bytes.  Buffer must be at least this large.

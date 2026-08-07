@@ -35,21 +35,22 @@ FunctionDispatcher* GetBoundFunctionDispatcher() {
 }  // namespace
 
 static void InvalidFunctionTrap(PPCContext& ctx, uint8_t* /*base*/) {
-  REX_FATAL("Call to invalid or unregistered function at guest address 0x{:08X}",
-            ctx.last_indirect_target);
+  //REX_FATAL("Call to invalid or unregistered function at guest address 0x{:08X}",
+  //          ctx.last_indirect_target);
 }
 
 PPCFunc* ResolveIndirectFunction(uint32_t guest_address) {
   FunctionDispatcher* dispatcher = GetBoundFunctionDispatcher();
   if (!dispatcher) {
-    return &InvalidFunctionTrap;
+    //return &InvalidFunctionTrap;
   }
 
   if (PPCFunc* func = dispatcher->GetFunction(guest_address)) {
     return func;
   }
 
-  return &InvalidFunctionTrap;
+  return nullptr;
+ //&InvalidFunctionTrap;
 }
 
 FunctionDispatcher::FunctionDispatcher(rex::memory::Memory* memory, ExportResolver* export_resolver)
@@ -79,7 +80,7 @@ bool FunctionDispatcher::Execute(ThreadState* thread_state, uint32_t address) {
   uint64_t previous_lr = ctx->lr;
   ctx->lr = 0xBCBCBCBC;
 
-  fn(*ctx, memory_->virtual_membase());
+  //fn(*ctx, memory_->virtual_membase());
 
   ctx->lr = previous_lr;
   ctx->r1.u64 += 64 + 112;

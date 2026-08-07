@@ -83,7 +83,7 @@ static void FiberEntryPoint(void* raw_arg) {
   ctx.r3.u64 = static_cast<uint32_t>(fiber->fiber_data);
 
   // Call the fiber function
-  args->start_fn(ctx, mem->virtual_membase());
+  //args->start_fn(ctx, mem->virtual_membase());
 
   // Fiber returned (shouldn't per XDK) -- safe fallback
   if (thread->main_fiber()) {
@@ -300,7 +300,7 @@ void SwitchToFiber_entry(mapped_void lpFiber) {
 
   // Save outgoing fiber's non-volatile registers and SP
   uint32_t current_addr = static_cast<uint32_t>(kthread->fiber_ptr);
-  if (current_addr) {
+  /* if (current_addr) {
     auto* current_fiber = mem->TranslateVirtual<X_FIBER_CONTEXT*>(current_addr);
     ctx->SaveNonVolatiles(current_fiber->register_save_area);
     current_fiber->sp_save = ctx->r1.u64;
@@ -326,7 +326,7 @@ void SwitchToFiber_entry(mapped_void lpFiber) {
 
   // Host fiber switch -- suspends here, resumes when switched back
   rex::thread::Fiber::SwitchTo(target_info->host_fiber);
-  // Resumed: non-volatile regs and stack state already restored by the fiber that switched back.
+  // Resumed: non-volatile regs and stack state already restored by the fiber that switched back.*/
 }
 
 }  // namespace rex::kernel::crt

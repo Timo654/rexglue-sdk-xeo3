@@ -86,7 +86,7 @@
 // Function Dispatch
 //=============================================================================
 
-#define REX_CALL_FUNC(x) x(ctx, base)
+#define REX_CALL_FUNC(x) x(ctx, base, frame)
 
 {% include "codegen/_indirect_call.inja" %}
 
@@ -95,7 +95,7 @@
 //=============================================================================
 
 #define REX_SET_FLUSH_MODE(enable) \
-  do { if (enable) ctx.fpscr.enableFlushMode(); else ctx.fpscr.disableFlushMode(); } while (0)
+  do { if (enable) ADJ(ctx)->fpscr.enableFlushMode(); else ADJ(ctx)->fpscr.disableFlushMode(); } while (0)
 
 //=============================================================================
 // Misc

@@ -354,29 +354,29 @@ u32 XMABlockWhileInUse_entry(mapped_void context_ptr) {
 
 }  // namespace rex::kernel::xboxkrnl
 
-REX_EXPORT(__imp__XMACreateContext, rex::kernel::xboxkrnl::XMACreateContext_entry)
-REX_EXPORT(__imp__XMAReleaseContext, rex::kernel::xboxkrnl::XMAReleaseContext_entry)
-REX_EXPORT(__imp__XMAInitializeContext, rex::kernel::xboxkrnl::XMAInitializeContext_entry)
-REX_EXPORT(__imp__XMASetLoopData, rex::kernel::xboxkrnl::XMASetLoopData_entry)
-REX_EXPORT(__imp__XMAGetInputBufferReadOffset,
+REX_EXPORT(__import__XMACreateContext, rex::kernel::xboxkrnl::XMACreateContext_entry)
+REX_EXPORT(__import__XMAReleaseContext, rex::kernel::xboxkrnl::XMAReleaseContext_entry)
+REX_EXPORT(__import__XMAInitializeContext, rex::kernel::xboxkrnl::XMAInitializeContext_entry)
+REX_EXPORT(__import__XMASetLoopData, rex::kernel::xboxkrnl::XMASetLoopData_entry)
+REX_EXPORT(__import__XMAGetInputBufferReadOffset,
            rex::kernel::xboxkrnl::XMAGetInputBufferReadOffset_entry)
-REX_EXPORT(__imp__XMASetInputBufferReadOffset,
+REX_EXPORT(__import__XMASetInputBufferReadOffset,
            rex::kernel::xboxkrnl::XMASetInputBufferReadOffset_entry)
-REX_EXPORT(__imp__XMASetInputBuffer0, rex::kernel::xboxkrnl::XMASetInputBuffer0_entry)
-REX_EXPORT(__imp__XMAIsInputBuffer0Valid, rex::kernel::xboxkrnl::XMAIsInputBuffer0Valid_entry)
-REX_EXPORT(__imp__XMASetInputBuffer0Valid, rex::kernel::xboxkrnl::XMASetInputBuffer0Valid_entry)
-REX_EXPORT(__imp__XMASetInputBuffer1, rex::kernel::xboxkrnl::XMASetInputBuffer1_entry)
-REX_EXPORT(__imp__XMAIsInputBuffer1Valid, rex::kernel::xboxkrnl::XMAIsInputBuffer1Valid_entry)
-REX_EXPORT(__imp__XMASetInputBuffer1Valid, rex::kernel::xboxkrnl::XMASetInputBuffer1Valid_entry)
-REX_EXPORT(__imp__XMAIsOutputBufferValid, rex::kernel::xboxkrnl::XMAIsOutputBufferValid_entry)
-REX_EXPORT(__imp__XMASetOutputBufferValid, rex::kernel::xboxkrnl::XMASetOutputBufferValid_entry)
-REX_EXPORT(__imp__XMAGetOutputBufferReadOffset,
+REX_EXPORT(__import__XMASetInputBuffer0, rex::kernel::xboxkrnl::XMASetInputBuffer0_entry)
+REX_EXPORT(__import__XMAIsInputBuffer0Valid, rex::kernel::xboxkrnl::XMAIsInputBuffer0Valid_entry)
+REX_EXPORT(__import__XMASetInputBuffer0Valid, rex::kernel::xboxkrnl::XMASetInputBuffer0Valid_entry)
+REX_EXPORT(__import__XMASetInputBuffer1, rex::kernel::xboxkrnl::XMASetInputBuffer1_entry)
+REX_EXPORT(__import__XMAIsInputBuffer1Valid, rex::kernel::xboxkrnl::XMAIsInputBuffer1Valid_entry)
+REX_EXPORT(__import__XMASetInputBuffer1Valid, rex::kernel::xboxkrnl::XMASetInputBuffer1Valid_entry)
+REX_EXPORT(__import__XMAIsOutputBufferValid, rex::kernel::xboxkrnl::XMAIsOutputBufferValid_entry)
+REX_EXPORT(__import__XMASetOutputBufferValid, rex::kernel::xboxkrnl::XMASetOutputBufferValid_entry)
+REX_EXPORT(__import__XMAGetOutputBufferReadOffset,
            rex::kernel::xboxkrnl::XMAGetOutputBufferReadOffset_entry)
-REX_EXPORT(__imp__XMASetOutputBufferReadOffset,
+REX_EXPORT(__import__XMASetOutputBufferReadOffset,
            rex::kernel::xboxkrnl::XMASetOutputBufferReadOffset_entry)
-REX_EXPORT(__imp__XMAGetOutputBufferWriteOffset,
+REX_EXPORT(__import__XMAGetOutputBufferWriteOffset,
            rex::kernel::xboxkrnl::XMAGetOutputBufferWriteOffset_entry)
-REX_EXPORT(__imp__XMAGetPacketMetadata, rex::kernel::xboxkrnl::XMAGetPacketMetadata_entry)
-REX_EXPORT(__imp__XMAEnableContext, rex::kernel::xboxkrnl::XMAEnableContext_entry)
-REX_EXPORT(__imp__XMADisableContext, rex::kernel::xboxkrnl::XMADisableContext_entry)
-REX_EXPORT(__imp__XMABlockWhileInUse, rex::kernel::xboxkrnl::XMABlockWhileInUse_entry)
+REX_EXPORT(__import__XMAGetPacketMetadata, rex::kernel::xboxkrnl::XMAGetPacketMetadata_entry)
+REX_EXPORT(__import__XMAEnableContext, rex::kernel::xboxkrnl::XMAEnableContext_entry)
+REX_EXPORT(__import__XMADisableContext, rex::kernel::xboxkrnl::XMADisableContext_entry)
+REX_EXPORT(__import__XMABlockWhileInUse, rex::kernel::xboxkrnl::XMABlockWhileInUse_entry)

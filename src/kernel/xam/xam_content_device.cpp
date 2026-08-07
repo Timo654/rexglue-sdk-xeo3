@@ -172,16 +172,16 @@ const DummyDeviceInfo* GetDummyDeviceInfo(uint32_t device_id) {
 }  // namespace system
 }  // namespace rex
 
-REX_EXPORT(__imp__XamContentGetDeviceName, rex::kernel::xam::XamContentGetDeviceName_entry)
-REX_EXPORT(__imp__XamContentGetDeviceState, rex::kernel::xam::XamContentGetDeviceState_entry)
-REX_EXPORT(__imp__XamContentGetDeviceData, rex::kernel::xam::XamContentGetDeviceData_entry)
-REX_EXPORT(__imp__XamContentCreateDeviceEnumerator,
+REX_EXPORT(__import__XamContentGetDeviceName, rex::kernel::xam::XamContentGetDeviceName_entry)
+REX_EXPORT(__import__XamContentGetDeviceState, rex::kernel::xam::XamContentGetDeviceState_entry)
+REX_EXPORT(__import__XamContentGetDeviceData, rex::kernel::xam::XamContentGetDeviceData_entry)
+REX_EXPORT(__import__XamContentCreateDeviceEnumerator,
            rex::kernel::xam::XamContentCreateDeviceEnumerator_entry)
 
-REX_EXPORT_STUB(__imp__XamContentAddCacheDevice);
-REX_EXPORT_STUB(__imp__XamContentDeviceCheckUpdates);
-REX_EXPORT_STUB(__imp__XamContentGetDefaultDevice);
-REX_EXPORT_STUB(__imp__XamContentGetDeviceSerialNumber);
-REX_EXPORT_STUB(__imp__XamContentGetDeviceVolumePath);
-REX_EXPORT_STUB(__imp__XamContentGetLocalizedDeviceData);
-REX_EXPORT_STUB(__imp__XamContentRemoveCacheDevice);
+REX_EXPORT_STUB(__import__XamContentAddCacheDevice);
+REX_EXPORT_STUB(__import__XamContentDeviceCheckUpdates);
+REX_EXPORT_STUB(__import__XamContentGetDefaultDevice);
+REX_EXPORT_STUB(__import__XamContentGetDeviceSerialNumber);
+REX_EXPORT_STUB(__import__XamContentGetDeviceVolumePath);
+REX_EXPORT_STUB(__import__XamContentGetLocalizedDeviceData);
+REX_EXPORT_STUB(__import__XamContentRemoveCacheDevice);

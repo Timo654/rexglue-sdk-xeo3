@@ -50,7 +50,7 @@ std::string BuilderContext::r(size_t index) {
     locals.r[index] = true;
     return fmt::format("r{}", index);
   }
-  return fmt::format("ctx.r{}", index);
+  return fmt::format("ADJ(ctx)->r{}", index);
 }
 
 std::string BuilderContext::f(size_t index) {
@@ -60,7 +60,7 @@ std::string BuilderContext::f(size_t index) {
     locals.f[index] = true;
     return fmt::format("f{}", index);
   }
-  return fmt::format("ctx.f{}", index);
+  return fmt::format("ADJ(ctx)->f{}", index);
 }
 
 std::string BuilderContext::v(size_t index) {
@@ -71,7 +71,7 @@ std::string BuilderContext::v(size_t index) {
     locals.v[index] = true;
     return fmt::format("v{}", index);
   }
-  return fmt::format("ctx.v{}", index);
+  return fmt::format("ADJ(ctx)->v{}", index);
 }
 
 std::string BuilderContext::cr(size_t index) {
@@ -79,15 +79,15 @@ std::string BuilderContext::cr(size_t index) {
     locals.cr[index] = true;
     return fmt::format("cr{}", index);
   }
-  return fmt::format("ctx.cr{}", index);
+  return fmt::format("ADJ(ctx)->cr{}", index);
 }
 
 const char* BuilderContext::ctr() {
   if (config().ctrAsLocalVariable) {
     locals.ctr = true;
-    return "ctr";
+    return "ADJ(ctr)";
   }
-  return "ctx.ctr";
+  return "ADJ(ctx)->ctr";
 }
 
 const char* BuilderContext::xer() {
@@ -95,7 +95,7 @@ const char* BuilderContext::xer() {
     locals.xer = true;
     return "xer";
   }
-  return "ctx.xer";
+  return "ADJ(ctx)->xer";
 }
 
 const char* BuilderContext::reserved() {
@@ -103,7 +103,7 @@ const char* BuilderContext::reserved() {
     locals.reserved = true;
     return "reserved";
   }
-  return "ctx.reserved";
+  return "ADJ(ctx)->reserved";
 }
 
 const char* BuilderContext::temp() {
@@ -178,11 +178,11 @@ void BuilderContext::emit_function_call(uint32_t address) {
 
   if (address == cfg.setJmpAddress) {
     // Save PPCContext for restoration after longjmp
-    println("\t{} = ctx;", env());
+    println("\t{} = ADJ(ctx);", env());
     // Use custom ppc_setjmp that uses guest address as key
     println("\t{}.s64 = ppc_setjmp({}.u32);", temp(), r(3));
     // Restore PPCContext if returning from longjmp
-    println("\tif ({}.s64 != 0) ctx = {};", temp(), env());
+    println("\tif ({}.s64 != 0) ADJ(ctx) = {};", temp(), env());
     println("\t{} = {};", r(3), temp());
     return;
   }
@@ -200,7 +200,7 @@ void BuilderContext::emit_function_call(uint32_t address) {
         return;
       }
 
-      println("\t{}(ctx, base);", name);
+      println("\t{}(ctx, base, frame);", name);
       return;
     }
 
@@ -220,17 +220,17 @@ void BuilderContext::emit_function_call(uint32_t address) {
           exp = emitCtx.resolver->GetExportByOrdinal(lib_name, ordinal);
 
         if (exp) {
-          func_name = "__imp__" + std::string(exp->name);
+          func_name = "__import__" + std::string(exp->name);
         }
       }
 
       if (func_name.empty()) {
-        func_name = "__imp__" + importTarget.name;
+        func_name = "__import__" + importTarget.name;
         std::replace(func_name.begin(), func_name.end(), '@', '_');
         std::replace(func_name.begin(), func_name.end(), '.', '_');
       }
 
-      println("\t{}(ctx, base);", func_name);
+      println("\t{}(ctx, base, frame);", func_name);
       return;
     }
 
@@ -269,16 +269,16 @@ void BuilderContext::emit_conditional_branch(bool not_, std::string_view cond) {
         if (callTarget->isFunction()) {
           auto* targetFn = callTarget->asFunction();
           println("\tif ({}{}.{}) {{", not_ ? "!" : "", cr(insn.operands[0]), cond);
-          println("\t\t{}(ctx, base);", targetFn->name());
+          println("\t\t{}(ctx, base, frame);", targetFn->name());
           println("\t\treturn;");
           println("\t}}");
         } else if (callTarget->isImport()) {
           const auto& importTarget = std::get<CallTarget::ToImport>(callTarget->value);
-          std::string func_name = "__imp__" + importTarget.name;
+          std::string func_name = "__import__" + importTarget.name;
           std::replace(func_name.begin(), func_name.end(), '@', '_');
           std::replace(func_name.begin(), func_name.end(), '.', '_');
           println("\tif ({}{}.{}) {{", not_ ? "!" : "", cr(insn.operands[0]), cond);
-          println("\t\t{}(ctx, base);", func_name);
+          println("\t\t{}(ctx, base, frame);", func_name);
           println("\t\treturn;");
           println("\t}}");
         }
@@ -304,7 +304,7 @@ void BuilderContext::emit_set_flush_mode(bool enable) {
   if (csrState != newState) {
     auto prefix = enable ? "enable" : "disable";
     auto suffix = csrState != CSRState::Unknown ? "Unconditional" : "";
-    println("\tctx.fpscr.{}FlushMode{}();", prefix, suffix);
+    println("\tADJ(ctx)->fpscr.{}FlushMode{}();", prefix, suffix);
 
     csrState = newState;
   }
@@ -352,7 +352,7 @@ void BuilderContext::emit_mid_asm_hook() {
         break;
       case 'f':
         if (reg == "fpscr")
-          out += "ctx.fpscr";
+          out += "ADJ(ctx)->fpscr";
         else
           out += f(std::atoi(reg.c_str() + 1));
         break;

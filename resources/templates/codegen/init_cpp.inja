@@ -20,6 +20,11 @@ const rex::PPCImageInfo PPCImageConfig = {
 };
 
 PPCFuncMapping PPCFuncMappings[] = {
-{% for fn in functions %}{% if not fn.below_code_base or fn.is_import %}	{ {{ fn.address }}, {{ fn.name }} },
-{% endif %}{% endfor %}	{ 0, nullptr }
+{% for fn in functions %}{% if not fn.below_code_base or fn.is_import %}	{ {{ fn.relative_address }}, 0 },
+{% endif %}{% endfor %}	{ 0, 0 }
 };
+
+PPCFunc* HostFuncs[] = {
+{% for fn in functions %}	&{{ fn.name }},
+{% endfor %}};
+int HostFuncsCount = sizeof(HostFuncs) / sizeof(PPCFunc*);

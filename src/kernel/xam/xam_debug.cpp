@@ -63,7 +63,7 @@ void RtlDebugTrace_entry(mapped_string string) {
 }  // namespace rex
 
 // Hook registrations
-REX_EXPORT(__imp__OutputDebugStringA, rex::kernel::xam::OutputDebugStringA_entry)
-REX_EXPORT(__imp__OutputDebugStringW, rex::kernel::xam::OutputDebugStringW_entry)
-REX_EXPORT(__imp__RtlOutputDebugString, rex::kernel::xam::RtlOutputDebugString_entry)
-REX_EXPORT(__imp__RtlDebugTrace, rex::kernel::xam::RtlDebugTrace_entry)
+REX_EXPORT(__import__OutputDebugStringA, rex::kernel::xam::OutputDebugStringA_entry)
+REX_EXPORT(__import__OutputDebugStringW, rex::kernel::xam::OutputDebugStringW_entry)
+REX_EXPORT(__import__RtlOutputDebugString, rex::kernel::xam::RtlOutputDebugString_entry)
+REX_EXPORT(__import__RtlDebugTrace, rex::kernel::xam::RtlDebugTrace_entry)

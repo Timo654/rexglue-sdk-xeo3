@@ -29,7 +29,7 @@ using rex::memory::GuestPtr;
 // DbgPrint / XamDbgPrint
 //=============================================================================
 
-REX_HOOK_RAW(__imp__DbgPrint) {
+/* REX_HOOK_RAW(__import__DbgPrint) {
   uint32_t format_ptr = ctx.r3.u32;
   if (!format_ptr) {
     ctx.r3.u64 = 0;
@@ -53,7 +53,7 @@ REX_HOOK_RAW(__imp__DbgPrint) {
   ctx.r3.u64 = 0;  // NTSTATUS success
 }
 
-REX_HOOK_RAW(__imp__XamDbgPrint) {
+REX_HOOK_RAW(__import__XamDbgPrint) {
   uint32_t format_ptr = ctx.r3.u32;
   if (!format_ptr) {
     ctx.r3.u64 = 0;
@@ -74,13 +74,13 @@ REX_HOOK_RAW(__imp__XamDbgPrint) {
   }
 
   ctx.r3.u64 = 0;
-}
+}*/
 
 //=============================================================================
 // sprintf / _snprintf (narrow, stack varargs)
 //=============================================================================
 
-REX_HOOK_RAW(__imp__sprintf) {
+/* REX_HOOK_RAW(__import__sprintf) {
   uint32_t buffer_ptr = ctx.r3.u32;
   uint32_t format_ptr = ctx.r4.u32;
 
@@ -105,7 +105,7 @@ REX_HOOK_RAW(__imp__sprintf) {
   ctx.r3.u64 = count;
 }
 
-REX_HOOK_RAW(__imp___snprintf) {
+REX_HOOK_RAW(__import___snprintf) {
   uint32_t buffer_ptr = ctx.r3.u32;
   int32_t buffer_count = static_cast<int32_t>(ctx.r4.u32);
   uint32_t format_ptr = ctx.r5.u32;
@@ -136,13 +136,13 @@ REX_HOOK_RAW(__imp___snprintf) {
     count = -1;
   }
   ctx.r3.u64 = count;
-}
+}*/
 
 //=============================================================================
 // swprintf / _snwprintf (wide, stack varargs)
 //=============================================================================
 
-REX_HOOK_RAW(__imp__swprintf) {
+/* REX_HOOK_RAW(__import__swprintf) {
   uint32_t buffer_ptr = ctx.r3.u32;
   uint32_t format_ptr = ctx.r4.u32;
 
@@ -168,7 +168,7 @@ REX_HOOK_RAW(__imp__swprintf) {
   ctx.r3.u64 = count;
 }
 
-REX_HOOK_RAW(__imp___snwprintf) {
+REX_HOOK_RAW(__import___snwprintf) {
   uint32_t buffer_ptr = ctx.r3.u32;
   int32_t buffer_count = static_cast<int32_t>(ctx.r4.u32);
   uint32_t format_ptr = ctx.r5.u32;
@@ -207,7 +207,7 @@ REX_HOOK_RAW(__imp___snwprintf) {
 // vsprintf / _vsnprintf (narrow, va_list from memory)
 //=============================================================================
 
-REX_HOOK_RAW(__imp__vsprintf) {
+REX_HOOK_RAW(__import__vsprintf) {
   uint32_t buffer_ptr = ctx.r3.u32;
   uint32_t format_ptr = ctx.r4.u32;
   uint32_t arg_ptr = ctx.r5.u32;
@@ -233,7 +233,7 @@ REX_HOOK_RAW(__imp__vsprintf) {
   ctx.r3.u64 = count;
 }
 
-REX_HOOK_RAW(__imp___vsnprintf) {
+REX_HOOK_RAW(__import___vsnprintf) {
   uint32_t buffer_ptr = ctx.r3.u32;
   int32_t buffer_count = static_cast<int32_t>(ctx.r4.u32);
   uint32_t format_ptr = ctx.r5.u32;
@@ -270,7 +270,7 @@ REX_HOOK_RAW(__imp___vsnprintf) {
 // vswprintf / _vsnwprintf / _vscwprintf (wide, va_list from memory)
 //=============================================================================
 
-REX_HOOK_RAW(__imp__vswprintf) {
+REX_HOOK_RAW(__import__vswprintf) {
   uint32_t buffer_ptr = ctx.r3.u32;
   uint32_t format_ptr = ctx.r4.u32;
   uint32_t arg_ptr = ctx.r5.u32;
@@ -297,7 +297,7 @@ REX_HOOK_RAW(__imp__vswprintf) {
   ctx.r3.u64 = count;
 }
 
-REX_HOOK_RAW(__imp___vsnwprintf) {
+REX_HOOK_RAW(__import___vsnwprintf) {
   uint32_t buffer_ptr = ctx.r3.u32;
   int32_t buffer_count = static_cast<int32_t>(ctx.r4.u32);
   uint32_t format_ptr = ctx.r5.u32;
@@ -332,7 +332,7 @@ REX_HOOK_RAW(__imp___vsnwprintf) {
   ctx.r3.u64 = count;
 }
 
-REX_HOOK_RAW(__imp___vscwprintf) {
+REX_HOOK_RAW(__import___vscwprintf) {
   uint32_t format_ptr = ctx.r3.u32;
   uint32_t arg_ptr = ctx.r4.u32;
 
@@ -355,6 +355,6 @@ REX_HOOK_RAW(__imp___vscwprintf) {
 // Export stubs
 //=============================================================================
 
-REX_EXPORT_STUB(__imp___scprintf);
-REX_EXPORT_STUB(__imp___scwprintf);
-REX_EXPORT_STUB(__imp___vscprintf);
+REX_EXPORT_STUB(__import___scprintf);
+REX_EXPORT_STUB(__import___scwprintf);
+REX_EXPORT_STUB(__import___vscprintf);*/

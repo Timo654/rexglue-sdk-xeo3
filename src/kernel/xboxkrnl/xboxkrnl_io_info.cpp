@@ -455,7 +455,7 @@ u32 NtQueryVolumeInformationFile_entry(u32 file_handle,
 
 }  // namespace rex::kernel::xboxkrnl
 
-REX_EXPORT(__imp__NtQueryInformationFile, rex::kernel::xboxkrnl::NtQueryInformationFile_entry)
-REX_EXPORT(__imp__NtSetInformationFile, rex::kernel::xboxkrnl::NtSetInformationFile_entry)
-REX_EXPORT(__imp__NtQueryVolumeInformationFile,
+REX_EXPORT(__import__NtQueryInformationFile, rex::kernel::xboxkrnl::NtQueryInformationFile_entry)
+REX_EXPORT(__import__NtSetInformationFile, rex::kernel::xboxkrnl::NtSetInformationFile_entry)
+REX_EXPORT(__import__NtQueryVolumeInformationFile,
            rex::kernel::xboxkrnl::NtQueryVolumeInformationFile_entry)

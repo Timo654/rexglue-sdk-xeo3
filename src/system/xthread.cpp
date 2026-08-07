@@ -571,7 +571,7 @@ X_STATUS XThread::Terminate(int exit_code) {
 void XThread::Execute() {
   REXSYS_NOISY_DEBUG("Execute thid {} (handle={:08X}, '{}', native={:08X})", thread_id_, handle(),
                      thread_name_, thread_->system_id());
-
+  /*
   // Let the kernel know we are starting.
   kernel_state_->OnThreadExecute(this);
 
@@ -645,13 +645,13 @@ void XThread::Execute() {
 
   // Execute the function
   REXSYS_NOISY_DEBUG("XThread::Execute - Calling function at {:08X}", address);
-  func(*ctx, base);
+  func(*ctx, base, frame);
 
   exit_code = static_cast<int>(ctx->r3.u32);
 
   // If we got here it means the execute completed without an exit being called.
   // Treat the return code as an implicit exit code (if desired).
-  Exit(!want_exit_code ? 0 : exit_code);
+  Exit(!want_exit_code ? 0 : exit_code);*/
 }
 
 void XThread::EnterCriticalRegion() {
@@ -790,7 +790,7 @@ void XThread::RundownAPCs() {
   auto mem = memory();
   auto kthread = guest_object<X_KTHREAD>();
   auto* ctx = thread_state_->context();
-
+  /*
   // Rundown both user (1) and kernel (0) APC lists.
   for (int mode = 1; mode >= 0; --mode) {
     auto old_irql = kernel::xboxkrnl::xeKeKfAcquireSpinLock(ctx, &kthread->apc_lock);
@@ -813,7 +813,7 @@ void XThread::RundownAPCs() {
         if (fn) {
           auto* ctx = thread_state_->context();
           ctx->r3.u64 = apc_ptr;
-          fn(*ctx, mem->virtual_membase());
+          fn(*ctx, mem->virtual_membase(), frame);
         } else {
           REXSYS_WARN("RundownAPCs: rundown_routine {:08X} not found",
                       uint32_t(apc->rundown_routine));
@@ -827,7 +827,7 @@ void XThread::RundownAPCs() {
       old_irql = kernel::xboxkrnl::xeKeKfAcquireSpinLock(ctx, &kthread->apc_lock);
     }
     kernel::xboxkrnl::xeKeKfReleaseSpinLock(ctx, &kthread->apc_lock, old_irql);
-  }
+  }*/
 }
 
 int32_t XThread::QueryPriority() {
@@ -1179,7 +1179,7 @@ static void SaveContext(const PPCContext* ctx, ThreadSavedState& state) {
   state.context.xer_ca = ctx->xer.ca;
   state.context.xer_ov = ctx->xer.ov;
   state.context.xer_so = ctx->xer.so;
-  state.context.vscr_sat = ctx->vscr_sat;
+  //state.context.vscr_sat = ctx->vscr_sat;
 }
 
 // Load ThreadSavedState into PPCContext
@@ -1290,7 +1290,7 @@ static void LoadContext(PPCContext* ctx, const ThreadSavedState& state) {
   ctx->xer.ca = state.context.xer_ca;
   ctx->xer.ov = state.context.xer_ov;
   ctx->xer.so = state.context.xer_so;
-  ctx->vscr_sat = state.context.vscr_sat;
+  //ctx->vscr_sat = state.context.vscr_sat;
 }
 
 bool XThread::Save(stream::ByteStream* stream) {

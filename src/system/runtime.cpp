@@ -215,13 +215,13 @@ X_STATUS Runtime::Setup(const rex::PPCImageInfo& image_info, RuntimeConfig confi
     return X_STATUS_UNSUCCESSFUL;
   }
 
-  if (image_info.func_mappings) {
+  /* if (image_info.func_mappings) {
     int count = 0;
     int duplicates = 0;
     int rejected = 0;
-    for (int i = 0; image_info.func_mappings[i].guest != 0; ++i) {
-      uint32_t guest = static_cast<uint32_t>(image_info.func_mappings[i].guest);
-      auto* host = image_info.func_mappings[i].host;
+    for (int i = 0; image_info.func_mappings[i].guest_rva != 0; ++i) {
+      uint32_t guest = static_cast<uint32_t>(image_info.func_mappings[i].guest_rva);
+      auto* host = image_info.func_mappings[i].host_rva;
       if (!host) {
         continue;
       }
@@ -246,7 +246,7 @@ X_STATUS Runtime::Setup(const rex::PPCImageInfo& image_info, RuntimeConfig confi
 
   REXSYS_DEBUG("Runtime setup complete (code: {:08X}-{:08X}, image: {:08X}-{:08X})",
                image_info.code_base, image_info.code_base + image_info.code_size,
-               image_info.image_base, image_info.image_base + image_info.image_size);
+               image_info.image_base, image_info.image_base + image_info.image_size);*/
   return X_STATUS_SUCCESS;
 }
 
