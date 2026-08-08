@@ -571,7 +571,7 @@ std::string FunctionNode::emitCpp(const EmitContext& ctx) const {
         }
 
         // Emit comment with instruction disassembly
-        emit_println(body, "\t// {} {}", insn.opcode->name, insn.op_str);
+        emit_println(body, "\t// {:X} {} {}", blockBase, insn.opcode->name, insn.op_str);
 
         // Check for mid-asm hook BEFORE instruction
         auto hookIt = ctx.config.midAsmHooks.find(blockBase);
@@ -610,7 +610,7 @@ std::string FunctionNode::emitCpp(const EmitContext& ctx) const {
     emit_println(body, "\t\t\tREXLOG_WARN(\"SEH exception caught in sub_{:08X}\");", base());
 
     if (sehInfo->frameSize > 0) {
-      emit_println(body, "\t\t\tctx.r12.s64 = ctx.r31.s64 + {};  // Establisher frame pointer",
+      emit_println(body, "\t\t\tADJ(ctx)->r12.s64 = ctx.r31.s64 + {};  // Establisher frame pointer",
                    sehInfo->frameSize);
     }
 

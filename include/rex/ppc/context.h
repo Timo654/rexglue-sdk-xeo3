@@ -68,8 +68,6 @@ struct PPCImportMapping {
 };
 
 extern "C" PPCFuncMapping PPCFuncMappings[];
-__declspec(dllexport) extern "C" PPCImportMapping PrecompiledImportTable[];
-__declspec(dllexport) extern "C" uintptr_t PrecompiledPointers[];
 
 //=============================================================================
 // Pack/Unpack Constants (NORMPACKED32 - 2:10:10:10 format)
@@ -216,7 +214,7 @@ struct FPSCRRegister {
 
   inline void enableFlushModeUnconditional() noexcept {
     csr |= FlushMask;
-    csr |= _MM_MASK_INEXACT;
+    csr |= _MM_MASK_MASK;
     setcsr(csr);
   }
 
@@ -228,7 +226,7 @@ struct FPSCRRegister {
   inline void enableFlushMode() noexcept {
     if ((csr & FlushMask) != FlushMask) [[unlikely]] {
       csr |= FlushMask;
-      csr |= _MM_MASK_INEXACT;
+      csr |= _MM_MASK_MASK;
       setcsr(csr);
     }
   }

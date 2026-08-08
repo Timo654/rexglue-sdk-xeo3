@@ -10,11 +10,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include(generated/rexglue.cmake)
 
-add_library(names.snake_case SHARED)
+add_library{{ names.snake_case }} SHARED)
 
-target_compile_options(names.snake_case PRIVATE -mavx)
+target_compile_options({{ names.snake_case }} PRIVATE -mavx)
 
-set_target_properties(names.snake_case PROPERTIES
+set_target_properties({{ names.snake_case }} PROPERTIES
     PREFIX ""
 )
 

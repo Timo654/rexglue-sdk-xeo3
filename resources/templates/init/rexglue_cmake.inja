@@ -21,7 +21,6 @@ else()
             "ReXGlue SDK not found. Either:\n"
             "  - Set REXSDK_DIR to the rexglue-sdk source tree (e.g. thirdparty/rexglue-sdk)\n"
             "  - Install the SDK package and ensure it is on CMAKE_PREFIX_PATH")
-    endif()
     message(STATUS "Found ReXGlue SDK ${REXGLUE_VERSION_STRING} at ${rexglue_DIR}")
 endif()
 

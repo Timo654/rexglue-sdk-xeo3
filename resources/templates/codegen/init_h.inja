@@ -169,6 +169,9 @@ extern PPCFuncMapping PPCFuncMappings[];
 
 #define REX_QUERY_TIMEBASE() __rdtsc(); // TODO - improve?
 
+__declspec(dllexport) extern "C" PPCImportMapping PrecompiledImportTable[];
+__declspec(dllexport) extern "C" uintptr_t PrecompiledPointers[];
+
 //=============================================================================
 // Setjmp/Longjmp
 //=============================================================================
