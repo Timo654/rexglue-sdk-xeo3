@@ -13,9 +13,9 @@ add_executable(rexglue
 
 target_include_directories(rexglue
     PRIVATE
-        ${REXGLUE_ROOT}/src
-        ${REXGLUE_ROOT}/thirdparty/disasm
-        ${REXGLUE_ROOT}/thirdparty/cli11/include
+        ${REXGLUE_XEO3_ROOT}/src
+        ${REXGLUE_XEO3_ROOT}/thirdparty/disasm
+        ${REXGLUE_XEO3_ROOT}/thirdparty/cli11/include
 )
 
 target_link_libraries(rexglue

@@ -9,7 +9,7 @@ set_target_properties(rexaudio PROPERTIES EXPORT_NAME audio)
 set_target_properties(rexruntime PROPERTIES EXPORT_NAME runtime)
 set_target_properties(rexcodegen PROPERTIES EXPORT_NAME codegen)
 
-set(REXGLUE_INSTALL_TARGETS
+set(REXGLUE_XEO3_INSTALL_TARGETS
     rexruntime
     rexgpu-xenos
     disruptorplus renderdoc simde tomlplusplus
@@ -19,18 +19,18 @@ set(REXGLUE_INSTALL_TARGETS
 )
 
 if(REXGLUE_USE_VULKAN)
-    list(APPEND REXGLUE_INSTALL_TARGETS
+    list(APPEND REXGLUE_XEO3_INSTALL_TARGETS
         SPIRV glslang MachineIndependent GenericCodeGen OSDependent OGLCompiler  # glslang
         SPIRV-Tools-static
     )
 endif()
 
 if(REXGLUE_USE_D3D12)
-    list(APPEND REXGLUE_INSTALL_TARGETS dxc-headers)
+    list(APPEND REXGLUE_XEO3_INSTALL_TARGETS dxc-headers)
 endif()
 
 if(REXGLUE_ENABLE_TRACY)
-    list(APPEND REXGLUE_INSTALL_TARGETS TracyClient)
+    list(APPEND REXGLUE_XEO3_INSTALL_TARGETS TracyClient)
 endif()
 
 set(REXGLUE_INSTALL_FIDELITYFX_TARGETS)
@@ -42,7 +42,7 @@ if(TARGET amd_fidelityfx_dx12)
     list(APPEND REXGLUE_INSTALL_FIDELITYFX_TARGETS amd_fidelityfx_dx12)
 endif()
 
-install(TARGETS ${REXGLUE_INSTALL_TARGETS}
+install(TARGETS ${REXGLUE_XEO3_INSTALL_TARGETS}
     EXPORT rexglueTargets
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
@@ -160,11 +160,11 @@ install(EXPORT rexglueTargets
 )
 
 # Register in the CMake User Package Registry after install.
-# This makes find_package(rexglue) work with no REXSDK env var or CMAKE_PREFIX_PATH.
+# This makes find_package(rexglue_xeo3) work with no REXSDK env var or CMAKE_PREFIX_PATH.
 # Multiple SxS installs coexist. Each prefix gets a unique hash entry.
 #
-# Windows: HKCU\Software\Kitware\CMake\Packages\rexglue  (REG_SZ, value name = MD5 hash)
-# Unix:    ~/.cmake/packages/rexglue/<hash>               (file containing prefix path)
+# Windows: HKCU\Software\Kitware\CMake\Packages\rexglue_xeo3  (REG_SZ, value name = MD5 hash)
+# Unix:    ~/.cmake/packages/rexglue_xeo3/<hash>               (file containing prefix path)
 install(CODE [[
     # Normalize path casing on Windows before hashing to avoid duplicate entries
     if(CMAKE_HOST_WIN32)
@@ -176,16 +176,16 @@ install(CODE [[
 
     if(CMAKE_HOST_WIN32)
         # Windows CMake User Package Registry lives in HKCU (not the filesystem)
-        set(_reg_root "HKCU\\Software\\Kitware\\CMake\\Packages\\rexglue")
+        set(_reg_root "HKCU\\Software\\Kitware\\CMake\\Packages\\rexglue_xeo3")
         execute_process(
             COMMAND reg add "${_reg_root}" /v "${_hash}" /t REG_SZ /d "${CMAKE_INSTALL_PREFIX}" /f
             OUTPUT_QUIET ERROR_QUIET
         )
     else()
-        set(_reg_dir "$ENV{HOME}/.cmake/packages/rexglue")
+        set(_reg_dir "$ENV{HOME}/.cmake/packages/rexglue_xeo3")
         file(MAKE_DIRECTORY "${_reg_dir}")
         file(WRITE "${_reg_dir}/${_hash}" "${CMAKE_INSTALL_PREFIX}")
     endif()
-    message(STATUS "Registered rexglue in CMake user package registry")
+    message(STATUS "Registered rexglue_xeo3 in CMake user package registry")
     message(STATUS "  -> ${CMAKE_INSTALL_PREFIX}")
 ]])

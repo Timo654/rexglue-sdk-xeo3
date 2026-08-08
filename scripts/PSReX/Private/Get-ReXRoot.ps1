@@ -8,7 +8,7 @@
     See LICENSE file in the project root for full license text.
 #>
 function Get-ReXRoot {
-    if ($env:REXGLUE_ROOT) { return $env:REXGLUE_ROOT }
+    if ($env:REXGLUE_XEO3_ROOT) { return $env:REXGLUE_XEO3_ROOT }
     $root = git rev-parse --show-toplevel 2>$null
     if ($root) { return [System.IO.Path]::GetFullPath($root) }
     # Fallback: module is at <repo>/scripts/PSReX/

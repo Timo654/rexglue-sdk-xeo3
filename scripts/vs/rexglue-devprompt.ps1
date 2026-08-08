@@ -47,8 +47,8 @@ if (-not $env:VSCMD_VER) {
 # -- ReXGlue environment ------------------------------------------------------
 $Preset = "win-$Arch"
 
-$env:REXGLUE_ROOT = $RepoRoot
-$env:REXGLUE_PRESET = $Preset
+$env:REXGLUE_XEO3_ROOT = $RepoRoot
+$env:REXGLUE_XEO3_PRESET = $Preset
 
 # Add install bin directory to PATH
 $InstallBin = Join-Path $RepoRoot "out\install\$Preset\bin"

@@ -59,7 +59,7 @@ set(REXGPU_XENOS_VULKAN_SOURCES
 if(REXGLUE_USE_D3D12)
     # DXBC third-party dependency
     set(REXGPU_XENOS_DXBC_THIRDPARTY_SOURCES
-        ${REXGLUE_ROOT}/thirdparty/dxbc/DXBCChecksum.cpp
+        ${REXGLUE_XEO3_ROOT}/thirdparty/dxbc/DXBCChecksum.cpp
     )
 
     # DXBC shader translation (required for D3D12)
@@ -107,8 +107,8 @@ set_target_properties(rexgpu-xenos PROPERTIES
 )
 
 target_include_directories(rexgpu-xenos PRIVATE
-    ${REXGLUE_ROOT}/thirdparty/renderdoc
-    ${REXGLUE_ROOT}  # For thirdparty/dxbc/DXBCChecksum.h include
+    ${REXGLUE_XEO3_ROOT}/thirdparty/renderdoc
+    ${REXGLUE_XEO3_ROOT}  # For thirdparty/dxbc/DXBCChecksum.h include
 )
 
 target_compile_options(rexgpu-xenos PRIVATE -Wno-unused-variable)

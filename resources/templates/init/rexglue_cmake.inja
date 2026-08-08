@@ -6,20 +6,20 @@
 set(REXSDK_VERSION "" CACHE STRING "Override SDK version (leave empty for default)")
 
 # Find SDK
-set(REXSDK_DIR "" CACHE PATH "Path to rexglue-sdk source tree")
-if(REXSDK_DIR)
-    add_subdirectory("{{ cmake_var("REXSDK_DIR") }}" rexglue-sdk)
-    message(STATUS "Using ReXGlue SDK from source tree: {{ cmake_var("REXSDK_DIR") }}")
+set(REXSDK_XEO3_DIR "" CACHE PATH "Path to rexglue-sdk-xeo3 source tree")
+if(REXSDK_XEO3_DIR)
+    add_subdirectory("{{ cmake_var("REXSDK_XEO3_DIR") }}" rexglue-sdk-xeo3)
+    message(STATUS "Using ReXGlue SDK from source tree: {{ cmake_var("REXSDK_XEO3_DIR") }}")
 else()
     if(REXSDK_VERSION)
-        find_package(rexglue {{ cmake_var("REXSDK_VERSION") }} EXACT QUIET CONFIG)
+        find_package(rexglue_xeo3 {{ cmake_var("REXSDK_VERSION") }} EXACT QUIET CONFIG)
     else()
-        find_package(rexglue {{ sdk_version }} QUIET CONFIG)
+        find_package(rexglue_xeo3 {{ sdk_version }} QUIET CONFIG)
     endif()
-    if(NOT rexglue_FOUND)
+    if(NOT rexglue_xeo3_FOUND)
         message(FATAL_ERROR
             "ReXGlue SDK not found. Either:\n"
-            "  - Set REXSDK_DIR to the rexglue-sdk source tree (e.g. thirdparty/rexglue-sdk)\n"
+            "  - Set REXSDK_XEO3_DIR to the rexglue-sdk source tree (e.g. thirdparty/rexglue-sdk-xeo3)\n"
             "  - Install the SDK package and ensure it is on CMAKE_PREFIX_PATH")
     message(STATUS "Found ReXGlue SDK ${REXGLUE_VERSION_STRING} at ${rexglue_DIR}")
     endif()

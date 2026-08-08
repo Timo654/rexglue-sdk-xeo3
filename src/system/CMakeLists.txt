@@ -56,12 +56,12 @@ add_library(rex::kernel ALIAS rexruntime)
 set_target_properties(rexruntime PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
 
 target_include_directories(rexruntime PUBLIC
-    $<BUILD_INTERFACE:${REXGLUE_ROOT}/include>
+    $<BUILD_INTERFACE:${REXGLUE_XEO3_ROOT}/include>
     $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/include>
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
 target_include_directories(rexruntime PRIVATE
-    ${REXGLUE_ROOT}/thirdparty
+    ${REXGLUE_XEO3_ROOT}/thirdparty
 )
 
 target_link_libraries(rexruntime

@@ -92,12 +92,12 @@ add_library(rexui OBJECT ${REXUI_SOURCES})
 add_library(rex::ui ALIAS rexui)
 
 target_include_directories(rexui PUBLIC
-    $<BUILD_INTERFACE:${REXGLUE_ROOT}/include>
+    $<BUILD_INTERFACE:${REXGLUE_XEO3_ROOT}/include>
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
 target_include_directories(rexui PRIVATE
-    ${REXGLUE_ROOT}/src  # For ui/shaders/bytecode includes
-    ${REXGLUE_ROOT}/thirdparty/stb  # stb_image.h for icon decoding
+    ${REXGLUE_XEO3_ROOT}/src  # For ui/shaders/bytecode includes
+    ${REXGLUE_XEO3_ROOT}/thirdparty/stb  # stb_image.h for icon decoding
 )
 
 target_link_libraries(rexui PUBLIC

@@ -2,7 +2,7 @@
 # Modern C++23 cross-platform SDK for recompiling Xbox 360 executables
 cmake_minimum_required(VERSION 3.25)
 
-project(ReXGlue
+project(ReXGlue_XeO3
     VERSION 0.9.0
     LANGUAGES C CXX
     DESCRIPTION "Xbox 360 Recompilation SDK"
@@ -48,7 +48,7 @@ if (REXGLUE_ENABLE_FIDELITYFX AND
 endif()
 
 # Root of the SDK source tree
-set(REXGLUE_ROOT "${CMAKE_CURRENT_SOURCE_DIR}")
+set(REXGLUE_XEO3_ROOT "${CMAKE_CURRENT_SOURCE_DIR}")
 
 # SDK install support
 include(GNUInstallDirs)
@@ -172,9 +172,9 @@ configure_file(
 )
 
 # Output directories (multi-config appends /<Config>/ automatically)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${REXGLUE_ROOT}/out/${REX_PLATFORM}")
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${REXGLUE_ROOT}/out/${REX_PLATFORM}")
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${REXGLUE_ROOT}/out/${REX_PLATFORM}")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${REXGLUE_XEO3_ROOT}/out/${REX_PLATFORM}")
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${REXGLUE_XEO3_ROOT}/out/${REX_PLATFORM}")
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${REXGLUE_XEO3_ROOT}/out/${REX_PLATFORM}")
 
 # Sanitizer support for debugging memory corruption and undefined behavior
 if(REXGLUE_ENABLE_SANITIZERS)
@@ -185,8 +185,8 @@ if(REXGLUE_ENABLE_SANITIZERS)
 endif()
 
 if(REXGLUE_BUILD_TESTS)
-    list(APPEND CMAKE_MODULE_PATH "${REXGLUE_ROOT}/cmake")
-    list(APPEND CMAKE_MODULE_PATH "${REXGLUE_ROOT}/thirdparty/catch2/extras")
+    list(APPEND CMAKE_MODULE_PATH "${REXGLUE_XEO3_ROOT}/cmake")
+    list(APPEND CMAKE_MODULE_PATH "${REXGLUE_XEO3_ROOT}/thirdparty/catch2/extras")
 endif()
 
 # Third-party dependencies (vendored sources only)
@@ -198,7 +198,7 @@ add_compile_options(
     -Wextra
 )
 
-include_directories(${REXGLUE_ROOT}/include)
+include_directories(${REXGLUE_XEO3_ROOT}/include)
 
 add_subdirectory(src/core)
 add_subdirectory(src/filesystem)
@@ -239,7 +239,7 @@ if(PROJECT_IS_TOP_LEVEL)
 else()
     # When consumed via add_subdirectory(), provide the same interface as find_package().
     # This sets REXGLUE_SHARE_DIR and makes rexglue_configure_target() available.
-    set(REXGLUE_SHARE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src/ui" PARENT_SCOPE)
-    set(REXGLUE_SHARE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src/ui")
+    set(REXGLUE_XEO3_SHARE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src/ui" PARENT_SCOPE)
+    set(REXGLUE_XEO3_SHARE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src/ui")
     include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/rexglue_helpers.cmake)
 endif()

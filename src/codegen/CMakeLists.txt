@@ -49,12 +49,12 @@ set(CODEGEN_BUILDER_SOURCES
 )
 
 # Inja templates
-set(TEMPLATE_SOURCE_DIR "${REXGLUE_ROOT}/resources/templates")
+set(TEMPLATE_SOURCE_DIR "${REXGLUE_XEO3_ROOT}/resources/templates")
 set(TEMPLATE_OUTPUT_DIR "${CMAKE_CURRENT_BINARY_DIR}/generated/templates")
 
 set(INJA_TEMPLATE_FILES
-    ${TEMPLATE_SOURCE_DIR}/init/app_header.inja
-    ${TEMPLATE_SOURCE_DIR}/init/main_cpp.inja
+    #${TEMPLATE_SOURCE_DIR}/init/app_header.inja
+    #${TEMPLATE_SOURCE_DIR}/init/main_cpp.inja
     ${TEMPLATE_SOURCE_DIR}/init/cmakelists.inja
     ${TEMPLATE_SOURCE_DIR}/init/cmake_presets.inja
     ${TEMPLATE_SOURCE_DIR}/init/rexglue_cmake.inja
@@ -87,8 +87,8 @@ add_custom_command(
     COMMAND ${CMAKE_COMMAND}
         -DTEMPLATE_SOURCE_DIR=${TEMPLATE_SOURCE_DIR}
         -DTEMPLATE_OUTPUT_DIR=${TEMPLATE_OUTPUT_DIR}
-        -P ${REXGLUE_ROOT}/cmake/embed_templates.cmake
-    DEPENDS ${INJA_TEMPLATE_FILES} ${REXGLUE_ROOT}/cmake/embed_templates.cmake
+        -P ${REXGLUE_XEO3_ROOT}/cmake/embed_templates.cmake
+    DEPENDS ${INJA_TEMPLATE_FILES} ${REXGLUE_XEO3_ROOT}/cmake/embed_templates.cmake
     COMMENT "Embedding inja templates"
     VERBATIM
 )
@@ -106,12 +106,12 @@ add_dependencies(rexcodegen embed_templates)
 
 target_include_directories(rexcodegen
     PUBLIC
-        $<BUILD_INTERFACE:${REXGLUE_ROOT}/include>
-        $<BUILD_INTERFACE:${REXGLUE_ROOT}/thirdparty/inja/single_include>
-        $<BUILD_INTERFACE:${REXGLUE_ROOT}/thirdparty/inja/third_party/include>
+        $<BUILD_INTERFACE:${REXGLUE_XEO3_ROOT}/include>
+        $<BUILD_INTERFACE:${REXGLUE_XEO3_ROOT}/thirdparty/inja/single_include>
+        $<BUILD_INTERFACE:${REXGLUE_XEO3_ROOT}/thirdparty/inja/third_party/include>
         $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
     PRIVATE
-        ${REXGLUE_ROOT}/thirdparty/disasm
+        ${REXGLUE_XEO3_ROOT}/thirdparty/disasm
         ${CMAKE_CURRENT_SOURCE_DIR}
         ${CMAKE_CURRENT_SOURCE_DIR}/builders
         ${CMAKE_CURRENT_BINARY_DIR}/generated/templates
