@@ -858,6 +858,7 @@ void XexModule::ReadSecurityInfo() {
     security_info_.image_flags = xex2_sec_info->image_flags;
     security_info_.export_table = xex2_sec_info->export_table;
     security_info_.load_address = xex2_sec_info->load_address;
+    security_info_.header_digest = xex2_sec_info->header_digest;
     security_info_.page_descriptor_count = xex2_sec_info->page_descriptor_count;
     security_info_.page_descriptors = xex2_sec_info->page_descriptors;
   }

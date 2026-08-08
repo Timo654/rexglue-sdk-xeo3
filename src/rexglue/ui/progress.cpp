@@ -106,11 +106,17 @@ void ProgressView::binaryInfo(const rex::codegen::BinaryInfo& info) {
     filetime = fmt::format("{:%Y-%m-%d %H:%M:%S} UTC", fmt::gmtime(t));
   }
 
-  std::array<KeyValueRow, 4> rows{{
+  std::array<KeyValueRow, 5> rows{{
       {"Title ID", fmt::format("{:08X}", info.title_id)},
       {"Media ID", fmt::format("{:08X}", info.media_id)},
       {"Version", fmt::format("{}.{}.{}.{}", info.version_major, info.version_minor,
                               info.version_build, info.version_qfe)},
+      {"XEO3 filename",
+       [](const auto& digest) {
+         auto d = reinterpret_cast<const uint32_t*>(digest);
+         return fmt::format("xeo3_{:08x}_{:08x}_{:08x}_{:08x}_{:08x}.dll", d[0], d[1], d[2], d[3],
+                            d[4]);
+       }(info.header_digest)},
       {"Filetime", std::move(filetime)},
   }};
   KeyValueBlock(info.name, rows);

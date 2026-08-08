@@ -179,6 +179,7 @@ Result<void> InitProject(const InitOptions& opts, const CliContext& ctx) {
       {"names", names_to_json(names)},
       {"sdk_version", REXGLUE_VERSION_FLOOR},
       {"sdk_version_full", REXGLUE_VERSION_STRING},
+      {"xeo_dll", ""},
       {"generated_on", IsoUtcStamp()},
       {"include_stamp", true},
       {"xex_path", xexRelManifest},
@@ -210,14 +211,14 @@ Result<void> InitProject(const InitOptions& opts, const CliContext& ctx) {
     fs::path out;
     RegeneratePolicy policy;
   };
-  std::string app_header = names.snake_case + "_app.h";
+  //std::string app_header = names.snake_case + "_app.h";
   std::string manifest_file = names.snake_case + "_manifest.toml";
   std::vector<Render> renders = {
       {"init/cmakelists", projectRoot / "CMakeLists.txt", RegeneratePolicy::RequiresForce},
       {"init/rexglue_cmake", projectRoot / "generated" / "rexglue.cmake",
        RegeneratePolicy::AlwaysRegenerate},
-      {"init/main_cpp", projectRoot / "src" / "main.cpp", RegeneratePolicy::FirstInitOnly},
-      {"init/app_header", projectRoot / "src" / app_header, RegeneratePolicy::FirstInitOnly},
+      //{"init/main_cpp", projectRoot / "src" / "main.cpp", RegeneratePolicy::FirstInitOnly},
+      //{"init/app_header", projectRoot / "src" / app_header, RegeneratePolicy::FirstInitOnly},
       {"init/manifest_toml", projectRoot / manifest_file, RegeneratePolicy::RequiresForce},
       {"init/cmake_presets", projectRoot / "CMakePresets.json", RegeneratePolicy::RequiresForce},
   };

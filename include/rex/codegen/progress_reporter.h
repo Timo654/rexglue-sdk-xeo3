@@ -27,6 +27,7 @@ struct BinaryInfo {
   uint32_t version_minor = 0;       ///< xex2_version.minor (4 bits)
   uint32_t version_build = 0;       ///< xex2_version.build (16 bits)
   uint32_t version_qfe = 0;         ///< xex2_version.qfe   (8 bits)
+  const char* header_digest; ///< xex2_security_info header_digest (20 bytes)
   uint32_t pe_time_date_stamp = 0;  ///< IMAGE_FILE_HEADER.TimeDateStamp (Unix epoch seconds)
 };
 

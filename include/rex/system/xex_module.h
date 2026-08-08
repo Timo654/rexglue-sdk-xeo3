@@ -52,6 +52,7 @@ class XexModule : public Module {
     uint32_t export_table;
     uint32_t load_address;
     uint32_t page_descriptor_count;
+    const char* header_digest;
     const xex2_page_descriptor* page_descriptors;
   };
   enum XexFormat {

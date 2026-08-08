@@ -10,7 +10,31 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include(generated/rexglue.cmake)
 
-add_library{{ names.snake_case }} SHARED)
+# Generate Windows version resource dynamically
+
+set(GENERATED_RC "${CMAKE_CURRENT_BINARY_DIR}/version.rc")
+    file(WRITE "${GENERATED_RC}" "
+#include <winres.h>
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION 1,0,0,0
+BEGIN
+    BLOCK \"StringFileInfo\"
+    BEGIN
+        BLOCK \"040904b0\"
+        BEGIN
+            VALUE \"FileDescription\", \"rexglue: {{ names.snake_case }}\"
+            VALUE \"OriginalFilename\", \"{{ xex_path }}\"
+        END
+    END
+    BLOCK \"VarFileInfo\"
+    BEGIN
+        VALUE \"Translation\", 0x0409, 1200
+    END
+END
+")
+
+add_library({{ names.snake_case }} SHARED)
+target_sources({{ names.snake_case }} PRIVATE "${GENERATED_RC}")
 
 target_compile_options({{ names.snake_case }} PRIVATE -mavx)
 

@@ -66,6 +66,10 @@ void ReportBinaryInfo(ProgressReporter* reporter, std::string_view display_name,
     info.version_build = version.build;
     info.version_qfe = version.qfe;
   }
+
+  if (auto* exec = xex.xex_security_info()) {
+    info.header_digest = exec->header_digest;
+  }
   reporter->binaryInfo(info);
 }
 
