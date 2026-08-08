@@ -10,15 +10,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include(generated/rexglue.cmake)
 
-# Sources
-set({{ names.upper_case }}_SOURCES
-    src/main.cpp
-)
+add_library(names.snake_case SHARED)
 
-if(WIN32)
-    add_executable({{ names.snake_case }} WIN32 {{ cmake_var(names.upper_case + "_SOURCES") }})
-else()
-    add_executable({{ names.snake_case }} {{ cmake_var(names.upper_case + "_SOURCES") }})
-endif()
+target_compile_options(names.snake_case PRIVATE -mavx)
+
+set_target_properties(names.snake_case PROPERTIES
+    PREFIX ""
+)
 
 rexglue_setup_target({{ names.snake_case }})
