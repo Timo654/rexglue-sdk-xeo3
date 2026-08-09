@@ -5,14 +5,18 @@
 #include <windows.h>
 
 #define VERSION 46
+#define GUEST_TIMEBASE_HZ 50000000ULL
+#define TARGET_FREQ (GUEST_TIMEBASE_HZ << 24)
 
 extern "C" IMAGE_DOS_HEADER __ImageBase;
 
+uint32_t baseTime = 0;
+__declspec(dllexport) extern "C" uint64_t timeScale = 0;
 __declspec(dllexport) extern "C" uintptr_t PrecompiledPointers[10] = {0};
 
 __declspec(dllexport) extern "C" int InitPrecompiledDll(PPCFuncMapping** CodeMap, int64_t* ElemCount, uintptr_t** EmuSetupCallbacks, uint32_t* Info) {
-    uintptr_t module_base = reinterpret_cast<uintptr_t>(&__ImageBase);
 
+    uintptr_t module_base = reinterpret_cast<uintptr_t>(&__ImageBase);
     for (int i = 0; i < HostFuncsCount; i++) {
         uintptr_t rva = reinterpret_cast<uintptr_t>(HostFuncs[i]) - module_base;
         PPCFuncMappings[i].host_rva = static_cast<uint32_t>(rva);
@@ -22,12 +26,20 @@ __declspec(dllexport) extern "C" int InitPrecompiledDll(PPCFuncMapping** CodeMap
     *ElemCount = HostFuncsCount;
     Info[0] = 1;
     Info[1] = VERSION;
-
-    // There is extra pointer setup blabla but not used? idk
-
+    baseTime = Info[3];
+    // TODO - figure out what the rest of the things are?
+    LARGE_INTEGER freq;
+    QueryPerformanceFrequency(&freq);
+    uint64_t qpf = (uint64_t)(freq.QuadPart);
+    timeScale = ((qpf >> 1) + TARGET_FREQ) / qpf;
     return VERSION;
 }
 
-__declspec(dllexport) extern "C" void CleanupPrecompiledDll() {
-
+extern "C" uint64_t QueryTimebase() {
+    LARGE_INTEGER qpc;
+    QueryPerformanceCounter(&qpc);
+    uint64_t current_qpc = (uint64_t)qpc.QuadPart - baseTime;
+    return (current_qpc * timeScale) >> 24;
 }
+
+__declspec(dllexport) extern "C" void CleanupPrecompiledDll() {

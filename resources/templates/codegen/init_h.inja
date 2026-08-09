@@ -167,11 +167,11 @@ extern PPCFuncMapping PPCFuncMappings[];
 #define REX_UNIMPLEMENTED(addr, opcode) \
   throw std::runtime_error("Unimplemented PPC instruction: " opcode)
 
-#define REX_QUERY_TIMEBASE() __rdtsc(); // TODO - improve?
+#define REX_QUERY_TIMEBASE() QueryTimebase();
 
 __declspec(dllexport) extern "C" PPCImportMapping PrecompiledImportTable[];
 __declspec(dllexport) extern "C" uintptr_t PrecompiledPointers[];
-
+extern "C" uint64_t QueryTimebase();
 //=============================================================================
 // Setjmp/Longjmp
 //=============================================================================
