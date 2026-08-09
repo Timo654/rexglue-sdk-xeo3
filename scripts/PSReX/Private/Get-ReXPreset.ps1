@@ -8,7 +8,7 @@
     See LICENSE file in the project root for full license text.
 #>
 function Get-ReXPreset {
-    if ($env:REXGLUE_PRESET) { return $env:REXGLUE_PRESET }
+    if ($env:REXGLUE_XEO3_PRESET) { return $env:REXGLUE_XEO3_PRESET }
     $platform = if ($IsWindows) { "win" } else { "linux" }
     $arch = if ($IsWindows -and $env:PROCESSOR_ARCHITECTURE -eq "ARM64") { "arm64" } else { "amd64" }
     return "$platform-$arch"

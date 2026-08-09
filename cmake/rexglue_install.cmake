@@ -116,7 +116,7 @@ endif()
 install(FILES
     src/ui/windowed_app_main_sdl.cpp
     src/ui/rex_app.cpp
-    DESTINATION ${CMAKE_INSTALL_DATADIR}/rexglue
+    DESTINATION ${CMAKE_INSTALL_DATADIR}/rexglue_xeo3
 )
 
 # Install DXC API headers (vendored, for D3D12 backend)
@@ -131,32 +131,32 @@ endif()
 # Generate and install package config files
 configure_package_config_file(
     cmake/rexglueConfig.cmake.in
-    ${CMAKE_CURRENT_BINARY_DIR}/rexglueConfig.cmake
-    INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/rexglue
+    ${CMAKE_CURRENT_BINARY_DIR}/rexglue_xeo3Config.cmake
+    INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/rexglue_xeo3
 )
 
 write_basic_package_version_file(
-    ${CMAKE_CURRENT_BINARY_DIR}/rexglueConfigVersion.cmake
+    ${CMAKE_CURRENT_BINARY_DIR}/rexglue_xeo3ConfigVersion.cmake
     VERSION ${REXGLUE_NUMERIC_VERSION}
     COMPATIBILITY SameMajorVersion
 )
 
 install(FILES
-    ${CMAKE_CURRENT_BINARY_DIR}/rexglueConfig.cmake
-    ${CMAKE_CURRENT_BINARY_DIR}/rexglueConfigVersion.cmake
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/rexglue
+    ${CMAKE_CURRENT_BINARY_DIR}/rexglue_xeo3Config.cmake
+    ${CMAKE_CURRENT_BINARY_DIR}/rexglue_xeo3ConfigVersion.cmake
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/rexglue_xeo3
 )
 
 install(FILES
     ${CMAKE_SOURCE_DIR}/cmake/rexglue_helpers.cmake
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/rexglue
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/rexglue_xeo3
 )
 
 # Export targets with rex:: namespace
 install(EXPORT rexglueTargets
     FILE rexglueTargets.cmake
     NAMESPACE rex::
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/rexglue
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/rexglue_xeo3
 )
 
 # Register in the CMake User Package Registry after install.
