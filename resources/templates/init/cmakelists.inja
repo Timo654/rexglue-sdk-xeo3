@@ -23,7 +23,6 @@ BEGIN
         BLOCK \"040904b0\"
         BEGIN
             VALUE \"FileDescription\", \"rexglue: {{ names.snake_case }}\"
-            VALUE \"OriginalFilename\", \"{{ xex_path }}\"
         END
     END
     BLOCK \"VarFileInfo\"
@@ -43,3 +42,6 @@ set_target_properties({{ names.snake_case }} PROPERTIES
 )
 
 rexglue_setup_target({{ names.snake_case }})
+if(REXGLUE_XEO3_OUTPUT_NAME)
+  set_target_properties({{ names.snake_case }} PROPERTIES OUTPUT_NAME "${REXGLUE_XEO3_OUTPUT_NAME}")
+endif()

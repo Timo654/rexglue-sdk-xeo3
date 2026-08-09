@@ -34,7 +34,8 @@ namespace {
 
 nlohmann::json buildTemplateData(const rex::codegen::CodegenContext& ctx,
                                  const std::vector<const rex::codegen::FunctionNode*>& functions,
-                                 const std::unordered_map<uint32_t, std::string>& rexcrtByAddr) {
+                                 const std::unordered_map<uint32_t, std::string>& rexcrtByAddr,
+                                 const std::string& xeo3Filename) {
   const auto& cfg = ctx.Config();
 
   // Compute code_base and code_size from binary sections
@@ -102,6 +103,7 @@ nlohmann::json buildTemplateData(const rex::codegen::CodegenContext& ctx,
       {"config_flags", configFlags},
       {"functions", functionsJson},
       {"recomp_files", nlohmann::json::array()},
+      {"xeo3_filename", xeo3Filename},
   };
 }
 
@@ -111,8 +113,8 @@ namespace rex::codegen {
 
 constexpr size_t kOutputBufferReserveSize = 32 * 1024 * 1024;  // 32 MB
 
-CodegenWriter::CodegenWriter(CodegenContext& ctx, Runtime* runtime)
-    : ctx_(ctx), runtime_(runtime) {}
+CodegenWriter::CodegenWriter(CodegenContext& ctx, Runtime* runtime, std::string xeo3Filename)
+    : ctx_(ctx), runtime_(runtime), xeo3Filename_(std::move(xeo3Filename)) {}
 
 // Convenience accessors
 FunctionGraph& CodegenWriter::graph() {
@@ -194,7 +196,7 @@ bool CodegenWriter::write(bool force) {
   if (!config().templateDir.empty())
     registry.loadOverrides(config().templateDir);
 
-  auto tmplData = buildTemplateData(ctx_, functions, rexcrtByAddr);
+  auto tmplData = buildTemplateData(ctx_, functions, rexcrtByAddr, xeo3Filename_);
 
   // Generate {project}_init.h (self-contained: config + declarations + macros)
   REXCODEGEN_TRACE("Recompile: generating {}_init.h", projectName);

@@ -27,7 +27,7 @@ namespace rex::codegen {
 
 class CodegenWriter {
  public:
-  CodegenWriter(CodegenContext& ctx, Runtime* runtime = nullptr);
+  CodegenWriter(CodegenContext& ctx, Runtime* runtime = nullptr, std::string xeo3Filename = {});
 
   /// Run the full output pipeline: validate, clean old files, generate, flush.
   bool write(bool force);
@@ -47,7 +47,7 @@ class CodegenWriter {
  private:
   CodegenContext& ctx_;
   Runtime* runtime_;
-
+  std::string xeo3Filename_;
   std::string out;
   size_t cppFileIndex = 0;
   std::vector<std::pair<std::string, std::string>> pendingWrites;

@@ -43,3 +43,5 @@ extern "C" uint64_t QueryTimebase() {
 }
 
 __declspec(dllexport) extern "C" void CleanupPrecompiledDll() {
+
+}

@@ -27,6 +27,7 @@
 #include <rex/codegen/config.h>
 #include <rex/codegen/progress_reporter.h>
 #include <rex/codegen/template_registry.h>
+#include <rex/codegen/xeo3_filename.h>
 #include <rex/kernel/init.h>
 #include <rex/logging.h>
 #include <rex/runtime.h>
@@ -50,10 +51,8 @@ std::string DeriveTargetNameFromFilePath(const std::string& file_path) {
   return name;
 }
 
-void ReportBinaryInfo(ProgressReporter* reporter, std::string_view display_name,
+std::string ReportBinaryInfo(ProgressReporter* reporter, std::string_view display_name,
                       const rex::runtime::XexModule& xex) {
-  if (!reporter)
-    return;
   BinaryInfo info{};
   info.name = display_name;
   info.pe_time_date_stamp = xex.pe_time_date_stamp();
@@ -67,10 +66,15 @@ void ReportBinaryInfo(ProgressReporter* reporter, std::string_view display_name,
     info.version_qfe = version.qfe;
   }
 
+  std::string xeo3Filename;
   if (auto* exec = xex.xex_security_info()) {
     info.header_digest = exec->header_digest;
+    xeo3Filename = MakeXeo3Filename(info.header_digest);
   }
-  reporter->binaryInfo(info);
+  if (reporter)
+    reporter->binaryInfo(info);
+
+  return xeo3Filename;
 }
 
 }  // namespace
@@ -95,6 +99,7 @@ Result<void> ProjectRecompiler::Run(const ProjectRecompilerOptions& opts) {
     std::string guestPath;
     bool isDll;
     RecompilerConfig config;
+    std::string xeo3Filename;
   };
 
   std::vector<ModuleEntry> allModules;
@@ -211,8 +216,9 @@ Result<void> ProjectRecompiler::Run(const ProjectRecompilerOptions& opts) {
   }
 
   auto entry_display_name = std::filesystem::path(targeted[0].config.filePath).filename().string();
-  ReportBinaryInfo(opts.reporter, entry_display_name,
-                   *runtime->kernel_state()->GetExecutableModule()->xex_module());
+  targeted[0].xeo3Filename =
+      ReportBinaryInfo(opts.reporter, entry_display_name,
+                       *runtime->kernel_state()->GetExecutableModule()->xex_module());
 
   std::vector<rex::system::object_ref<rex::system::UserModule>> dllModules;
   for (size_t i = 1; i < targeted.size(); ++i) {
@@ -241,7 +247,8 @@ Result<void> ProjectRecompiler::Run(const ProjectRecompilerOptions& opts) {
     REXCODEGEN_TRACE("Loaded DLL module '{}' at base 0x{:08X}", targeted[i].targetName,
                      userMod->xex_module()->base_address());
     auto dll_display_name = std::filesystem::path(targeted[i].config.filePath).filename().string();
-    ReportBinaryInfo(opts.reporter, dll_display_name, *userMod->xex_module());
+    targeted[i].xeo3Filename =
+        ReportBinaryInfo(opts.reporter, dll_display_name, *userMod->xex_module());
     dllModules.push_back(std::move(userMod));
   }
 
@@ -347,7 +354,7 @@ Result<void> ProjectRecompiler::Run(const ProjectRecompilerOptions& opts) {
       opts.reporter->phaseChanged("Write");
     }
     REXCODEGEN_TRACE("Writing output for '{}'...", entry.module->targetName);
-    CodegenWriter writer(entry.ctx, runtime.get());
+    CodegenWriter writer(entry.ctx, runtime.get(), entry.module->xeo3Filename);
     if (!writer.write(opts.force)) {
       return Err<void>(ErrorCategory::Validation,
                        fmt::format("Write failed for '{}'", entry.module->targetName));

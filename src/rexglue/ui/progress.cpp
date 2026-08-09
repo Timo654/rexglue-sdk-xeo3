@@ -13,6 +13,7 @@
 
 #include "glyphs.h"
 #include "ui.h"
+#include <rex/codegen/xeo3_filename.h>
 
 #include <array>
 #include <chrono>
@@ -111,12 +112,7 @@ void ProgressView::binaryInfo(const rex::codegen::BinaryInfo& info) {
       {"Media ID", fmt::format("{:08X}", info.media_id)},
       {"Version", fmt::format("{}.{}.{}.{}", info.version_major, info.version_minor,
                               info.version_build, info.version_qfe)},
-      {"XEO3 filename",
-       [](const auto& digest) {
-         auto d = reinterpret_cast<const uint32_t*>(digest);
-         return fmt::format("xeo3_{:08x}_{:08x}_{:08x}_{:08x}_{:08x}.dll", d[0], d[1], d[2], d[3],
-                            d[4]);
-       }(info.header_digest)},
+      {"XEO3 filename", rex::codegen::MakeXeo3Filename(info.header_digest) + ".dll"},
       {"Filetime", std::move(filetime)},
   }};
   KeyValueBlock(info.name, rows);
