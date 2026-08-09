@@ -15,7 +15,7 @@ set(REXGLUE_XEO3_INSTALL_TARGETS
     disruptorplus renderdoc simde tomlplusplus
     aes128 mspack o1heap disasm xxhash
     libavcodec libavutil
-    rexglue
+    rexglue_xeo3
 )
 
 if(REXGLUE_USE_VULKAN)

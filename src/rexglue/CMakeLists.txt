@@ -1,6 +1,6 @@
 # ReXGlue 
 
-add_executable(rexglue
+add_executable(rexglue_xeo3
     main.cpp
     ui/ui.cpp
     ui/progress.cpp
@@ -11,14 +11,14 @@ add_executable(rexglue
     commands/legacy_config.cpp
 )
 
-target_include_directories(rexglue
+target_include_directories(rexglue_xeo3
     PRIVATE
         ${REXGLUE_XEO3_ROOT}/src
         ${REXGLUE_XEO3_ROOT}/thirdparty/disasm
         ${REXGLUE_XEO3_ROOT}/thirdparty/cli11/include
 )
 
-target_link_libraries(rexglue
+target_link_libraries(rexglue_xeo3
     PRIVATE
         rexcodegen
 )
@@ -38,4 +38,4 @@ if(WIN32)
     endif()
 endif()
 
-add_executable(rex::rexglue ALIAS rexglue)
+add_executable(rex::rexglue ALIAS rexglue_xeo3)
