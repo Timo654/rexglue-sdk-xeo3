@@ -421,49 +421,61 @@ bool build_srw(BuilderContext& ctx) {
 
 bool build_crand(BuilderContext& ctx) {
   // crand: CR[crD] = CR[crA] & CR[crB]
-  emitCRBitOperation(ctx, "&");
+  emitCRBitOperation(ctx, "&", ctx.insn.operands[1], ctx.insn.operands[2]);
   return true;
 }
 
 bool build_crandc(BuilderContext& ctx) {
   // crandc: CR[crD] = CR[crA] & ~CR[crB]
-  emitCRBitOperation(ctx, "&", false, true, false);
+  emitCRBitOperation(ctx, "&", ctx.insn.operands[1], ctx.insn.operands[2], false, true, false);
   return true;
 }
 
 bool build_creqv(BuilderContext& ctx) {
   // creqv: CR[crD] = ~(CR[crA] ^ CR[crB])  (XNOR)
-  emitCRBitOperation(ctx, "^", false, false, true);
+  emitCRBitOperation(ctx, "^", ctx.insn.operands[1], ctx.insn.operands[2], false, false, true);
   return true;
 }
 
 bool build_crnand(BuilderContext& ctx) {
   // crnand: CR[crD] = ~(CR[crA] & CR[crB])
-  emitCRBitOperation(ctx, "&", false, false, true);
+  emitCRBitOperation(ctx, "&", ctx.insn.operands[1], ctx.insn.operands[2], false, false, true);
   return true;
 }
 
 bool build_crnor(BuilderContext& ctx) {
   // crnor: CR[crD] = ~(CR[crA] | CR[crB])
-  emitCRBitOperation(ctx, "|", false, false, true);
+  emitCRBitOperation(ctx, "|", ctx.insn.operands[1], ctx.insn.operands[2], false, false, true);
   return true;
 }
 
 bool build_cror(BuilderContext& ctx) {
   // cror: CR[crD] = CR[crA] | CR[crB]
-  emitCRBitOperation(ctx, "|");
+  emitCRBitOperation(ctx, "|", ctx.insn.operands[1], ctx.insn.operands[2]);
   return true;
 }
 
 bool build_crorc(BuilderContext& ctx) {
   // crorc: CR[crD] = CR[crA] | ~CR[crB]
-  emitCRBitOperation(ctx, "|", false, true, false);
+  emitCRBitOperation(ctx, "|", ctx.insn.operands[1], ctx.insn.operands[2], false, true, false);
   return true;
 }
 
 bool build_crxor(BuilderContext& ctx) {
   // crxor: CR[crD] = CR[crA] ^ CR[crB]
-  emitCRBitOperation(ctx, "^");
+  emitCRBitOperation(ctx, "^", ctx.insn.operands[1], ctx.insn.operands[2]);
+  return true;
+}
+
+bool build_crnot(BuilderContext& ctx) {
+  // crnot: CR[crD] = ~CR[crA]
+  emitCRBitOperation(ctx, "|", ctx.insn.operands[1], ctx.insn.operands[1], false, false, true);
+  return true;
+}
+
+bool build_crmove(BuilderContext& ctx) {
+  // crmove: CR[crD] = CR[crA]
+  emitCRBitOperation(ctx, "|", ctx.insn.operands[1], ctx.insn.operands[1]);
   return true;
 }
 

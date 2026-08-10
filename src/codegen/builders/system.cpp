@@ -276,6 +276,17 @@ bool build_mftbu(BuilderContext& ctx) {
   return true;
 }
 
+bool build_mfpvr(BuilderContext& ctx) {
+  // returns the 360 PVR, list from Xenia:
+  // 0x710200 = Used by Zephyr
+  // 0x710300 = Used by Zephyr
+  // 0x710500 = Used by Jasper
+  // 0x710700 = Default
+  // 0x710800 = Used by Corona V1 & V2
+  ctx.println("\t{}.u64 = 0x710700;", ctx.r(ctx.insn.operands[0]));
+  return true;
+}
+
 //=============================================================================
 // Move To Special Registers
 //=============================================================================
@@ -333,6 +344,10 @@ bool build_mtmsrd(BuilderContext& ctx) {
     }
   }
   return true;
+}
+
+bool build_mtmsr(BuilderContext& ctx) {
+  return build_mtmsrd(ctx);
 }
 
 bool build_mtfsf(BuilderContext& ctx) {

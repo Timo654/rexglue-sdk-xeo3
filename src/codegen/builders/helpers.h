@@ -96,11 +96,10 @@ inline void emitRecordFormCompare(BuilderContext& ctx) {
  * @param invertB If true, invert the value of crB before the operation
  * @param invertResult If true, invert the final result before storing in crD
  */
-inline void emitCRBitOperation(BuilderContext& ctx, std::string_view op, bool invertA = false,
+inline void emitCRBitOperation(BuilderContext& ctx, std::string_view op, uint32_t crA,
+                               uint32_t crB, bool invertA = false,
                                bool invertB = false, bool invertResult = false) {
   uint32_t crD = ctx.insn.operands[0];
-  uint32_t crA = ctx.insn.operands[1];
-  uint32_t crB = ctx.insn.operands[2];
 
   uint32_t crField_D = crD / 4;
   uint32_t crBit_D = crD % 4;

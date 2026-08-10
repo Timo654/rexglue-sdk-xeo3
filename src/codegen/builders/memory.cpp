@@ -201,6 +201,15 @@ bool build_ldux(BuilderContext& ctx) {
   return true;
 }
 
+bool build_ldbrx(BuilderContext& ctx) {
+  ctx.print("\t{}.u64 = __builtin_bswap64({}(", ctx.r(ctx.insn.operands[0]),
+            ctx.mmio_check_x_form() ? "REX_MM_LOAD_U64" : "REX_LOAD_U64");
+  if (ctx.insn.operands[1] != 0)
+    ctx.print("{}.u64 + ", ctx.r(ctx.insn.operands[1]));
+  ctx.println("{}.u64));", ctx.r(ctx.insn.operands[2]));
+  return true;
+}
+
 //=============================================================================
 // Atomic Load and Reserve
 //=============================================================================

@@ -110,6 +110,8 @@ bool build_crnor(BuilderContext& ctx);
 bool build_cror(BuilderContext& ctx);
 bool build_crorc(BuilderContext& ctx);
 bool build_crxor(BuilderContext& ctx);
+bool build_crnot(BuilderContext& ctx);
+bool build_crmove(BuilderContext& ctx);
 
 // Equivalence (XNOR)
 bool build_eqv(BuilderContext& ctx);
@@ -301,6 +303,7 @@ bool build_ld(BuilderContext& ctx);
 bool build_ldu(BuilderContext& ctx);
 bool build_ldx(BuilderContext& ctx);
 bool build_ldux(BuilderContext& ctx);
+bool build_ldbrx(BuilderContext& ctx);
 
 // Atomic load and reserve
 bool build_lwarx(BuilderContext& ctx);
@@ -418,6 +421,7 @@ bool build_mfmsr(BuilderContext& ctx);
 bool build_mffs(BuilderContext& ctx);
 bool build_mftb(BuilderContext& ctx);
 bool build_mftbu(BuilderContext& ctx);
+bool build_mfpvr(BuilderContext& ctx);
 
 // Move to special registers
 bool build_mtcr(BuilderContext& ctx);
@@ -425,6 +429,7 @@ bool build_mtcrf(BuilderContext& ctx);
 bool build_mtctr(BuilderContext& ctx);
 bool build_mtlr(BuilderContext& ctx);
 bool build_mtmsrd(BuilderContext& ctx);
+bool build_mtmsr(BuilderContext& ctx);
 bool build_mtfsf(BuilderContext& ctx);
 bool build_mtxer(BuilderContext& ctx);
 
@@ -495,6 +500,7 @@ bool build_vavgsh(BuilderContext& ctx);
 bool build_vavgsw(BuilderContext& ctx);
 bool build_vavgub(BuilderContext& ctx);
 bool build_vavguh(BuilderContext& ctx);
+bool build_vavguw(BuilderContext& ctx);
 
 // Vector logical
 bool build_vand(BuilderContext& ctx);

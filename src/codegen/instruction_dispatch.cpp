@@ -114,6 +114,8 @@ static const std::unordered_map<int, Builder>& GetDispatchTable() {
       {PPC_INST_CROR, build_cror},
       {PPC_INST_CRORC, build_crorc},
       {PPC_INST_CRXOR, build_crxor},
+      {PPC_INST_CRNOT, build_crnot},
+      {PPC_INST_CRMOVE, build_crmove},
 
       //=====================================================================
       // Comparison
@@ -234,6 +236,7 @@ static const std::unordered_map<int, Builder>& GetDispatchTable() {
       {PPC_INST_LDUX, build_ldux},
       {PPC_INST_LWARX, build_lwarx},
       {PPC_INST_LDARX, build_ldarx},
+      {PPC_INST_LDBRX, build_ldbrx},
       {PPC_INST_LFD, build_lfd},
       {PPC_INST_LFDU, build_lfdu},
       {PPC_INST_LFDUX, build_lfdux},
@@ -396,11 +399,13 @@ static const std::unordered_map<int, Builder>& GetDispatchTable() {
       {PPC_INST_MFFS, build_mffs},
       {PPC_INST_MFTB, build_mftb},
       {PPC_INST_MFTBU, build_mftbu},
+      {PPC_INST_MFPVR, build_mfpvr},
       {PPC_INST_MTCR, build_mtcr},
       {PPC_INST_MTCRF, build_mtcrf},
       {PPC_INST_MTOCRF, build_mtcrf},
       {PPC_INST_MTCTR, build_mtctr},
       {PPC_INST_MTLR, build_mtlr},
+      {PPC_INST_MTMSR, build_mtmsr},
       {PPC_INST_MTMSRD, build_mtmsrd},
       {PPC_INST_MTFSF, build_mtfsf},
       {PPC_INST_MTXER, build_mtxer},
@@ -491,6 +496,7 @@ static const std::unordered_map<int, Builder>& GetDispatchTable() {
       {PPC_INST_VAVGSW, build_vavgsw},
       {PPC_INST_VAVGUB, build_vavgub},
       {PPC_INST_VAVGUH, build_vavguh},
+      {PPC_INST_VAVGUW, build_vavguw},
 
       //=====================================================================
       // Vector - Logical

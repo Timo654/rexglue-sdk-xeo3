@@ -122,6 +122,13 @@ inline simde__m128i simde_mm_adds_epu32(simde__m128i a, simde__m128i b) {
       a, simde_mm_min_epu32(simde_mm_xor_si128(a, simde_mm_cmpeq_epi32(a, a)), b));
 }
 
+// Unsigned 32-bit average
+inline simde__m128i simde_mm_avg_epu32(simde__m128i a, simde__m128i b) {
+  simde__m128i sum = simde_mm_add_epi32(simde_mm_srli_epi32(a, 1), simde_mm_srli_epi32(b, 1));
+  return simde_mm_add_epi32(sum,
+                            simde_mm_and_si128(simde_mm_or_si128(a, b), simde_mm_set1_epi32(1)));
+}
+
 // Signed 8-bit average (rounds towards zero)
 inline simde__m128i simde_mm_avg_epi8(simde__m128i a, simde__m128i b) {
   simde__m128i c = simde_mm_set1_epi8(char(128));

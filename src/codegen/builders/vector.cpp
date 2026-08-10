@@ -475,6 +475,15 @@ bool build_vavguh(BuilderContext& ctx) {
   return true;
 }
 
+bool build_vavguw(BuilderContext& ctx) {
+  ctx.println(
+      "\tsimde_mm_store_si128((simde__m128i*){}.u32, "
+      "rex::ppc::simde_mm_avg_epu32(simde_mm_load_si128((simde__m128i*){}.u32), "
+      "simde_mm_load_si128((simde__m128i*){}.u32)));",
+      ctx.v(ctx.insn.operands[0]), ctx.v(ctx.insn.operands[1]), ctx.v(ctx.insn.operands[2]));
+  return true;
+}
+
 //=============================================================================
 // Vector Logical
 //=============================================================================
