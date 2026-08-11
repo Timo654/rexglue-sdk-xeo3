@@ -224,6 +224,15 @@ bool build_mfcr(BuilderContext& ctx) {
   return true;
 }
 
+bool build_mfvscr(BuilderContext& ctx) {
+  uint32_t vd = ctx.insn.operands[0];
+  ctx.println("\t{}.u32[0] = 0;", ctx.v(vd));
+  ctx.println("\t{}.u32[1] = 0;", ctx.v(vd));
+  ctx.println("\t{}.u32[2] = 0;", ctx.v(vd));
+  ctx.println("\t{}.u32[3] = ADJ(ctx)->vscr_sat != 0 ? 1u : 0u;", ctx.v(vd));
+  return true;
+}
+
 bool build_mfocrf(BuilderContext& ctx) {
   // FXM is a one-hot mask: bit 7 = CR0, bit 6 = CR1, ..., bit 0 = CR7
   uint32_t fxm = ctx.insn.operands[1];
@@ -371,6 +380,12 @@ bool build_mtxer(BuilderContext& ctx) {
   ctx.println("\t{}.so = ({}.u64 & 0x80000000) != 0;", ctx.xer(), ctx.r(ctx.insn.operands[0]));
   ctx.println("\t{}.ov = ({}.u64 & 0x40000000) != 0;", ctx.xer(), ctx.r(ctx.insn.operands[0]));
   ctx.println("\t{}.ca = ({}.u64 & 0x20000000) != 0;", ctx.xer(), ctx.r(ctx.insn.operands[0]));
+  return true;
+}
+
+bool build_mtvscr(BuilderContext& ctx) {
+  uint32_t vb = ctx.insn.operands[0];
+  ctx.println("\tADJ(ctx)->vscr_sat = static_cast<uint8_t>({}.u32[3] & 1);", ctx.v(vb));
   return true;
 }
 

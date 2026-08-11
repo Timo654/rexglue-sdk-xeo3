@@ -205,8 +205,8 @@ bool build_ldbrx(BuilderContext& ctx) {
   ctx.print("\t{}.u64 = __builtin_bswap64({}(", ctx.r(ctx.insn.operands[0]),
             ctx.mmio_check_x_form() ? "REX_MM_LOAD_U64" : "REX_LOAD_U64");
   if (ctx.insn.operands[1] != 0)
-    ctx.print("{}.u64 + ", ctx.r(ctx.insn.operands[1]));
-  ctx.println("{}.u64));", ctx.r(ctx.insn.operands[2]));
+    ctx.print("{}.u32 + ", ctx.r(ctx.insn.operands[1]));
+  ctx.println("{}.u32));", ctx.r(ctx.insn.operands[2]));
   return true;
 }
 
@@ -450,6 +450,16 @@ bool build_stdux(BuilderContext& ctx) {
   emitStoreXFormWithUpdate(ctx, "REX_STORE_U64", "REX_MM_STORE_U64", "u64");
   return true;
 }
+
+bool build_stdbrx(BuilderContext& ctx) {
+  ctx.print("{}", ctx.mmio_check_x_form() ? "\tREX_MM_STORE_U64(" : "\tREX_STORE_U64(");
+  if (ctx.insn.operands[1] != 0)
+    ctx.print("{}.u32 + ", ctx.r(ctx.insn.operands[1]));
+  ctx.println("{}.u32, __builtin_bswap64({}.u64));", ctx.r(ctx.insn.operands[2]),
+              ctx.r(ctx.insn.operands[0]));
+  return true;
+}
+
 
 //=============================================================================
 // Floating Point Stores

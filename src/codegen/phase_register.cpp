@@ -487,8 +487,8 @@ VoidResult registerEntryPoints(CodegenContext& ctx) {
       }
 
       if (resolvedName.empty()) {
-        REXCODEGEN_ERROR("Cannot resolve ordinal {} from {}", ordinal, lib_name);
-        resolvedName = fmt::format("sub_{:X}", sym.address);
+        REXCODEGEN_WARN("Cannot resolve ordinal {} from {}", ordinal, lib_name);
+        resolvedName = fmt::format("__import__{}_{:X}", lib_name, ordinal);
         unresolvedCount++;
       }
 

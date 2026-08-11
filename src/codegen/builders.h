@@ -349,6 +349,7 @@ bool build_std(BuilderContext& ctx);
 bool build_stdu(BuilderContext& ctx);
 bool build_stdx(BuilderContext& ctx);
 bool build_stdux(BuilderContext& ctx);
+bool build_stdbrx(BuilderContext& ctx);
 
 // Floating point stores
 bool build_stfd(BuilderContext& ctx);
@@ -414,6 +415,7 @@ bool build_mcrf(BuilderContext& ctx);
 // Move from special registers
 bool build_mfctr(BuilderContext& ctx);
 bool build_mfcr(BuilderContext& ctx);
+bool build_mfvscr(BuilderContext& ctx);
 bool build_mfxer(BuilderContext& ctx);
 bool build_mfocrf(BuilderContext& ctx);
 bool build_mflr(BuilderContext& ctx);
@@ -432,6 +434,7 @@ bool build_mtmsrd(BuilderContext& ctx);
 bool build_mtmsr(BuilderContext& ctx);
 bool build_mtfsf(BuilderContext& ctx);
 bool build_mtxer(BuilderContext& ctx);
+bool build_mtvscr(BuilderContext& ctx);
 
 // Clear left double word immediate
 bool build_clrldi(BuilderContext& ctx);

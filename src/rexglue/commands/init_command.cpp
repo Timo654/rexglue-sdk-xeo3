@@ -240,7 +240,7 @@ Result<void> InitProject(const InitOptions& opts, const CliContext& ctx) {
   }
 
   REXLOG_TRACE("Creating directory structure...");
-  for (const auto& dir : {projectRoot, projectRoot / "src", projectRoot / "generated"}) {
+  for (const auto& dir : {projectRoot, projectRoot / "generated"}) {
     fs::create_directories(dir, ec);
     if (ec) {
       return Err<void>(ErrorCategory::IO,
