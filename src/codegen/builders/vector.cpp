@@ -433,6 +433,17 @@ bool build_vsubshs(BuilderContext& ctx) {
   return true;
 }
 
+bool build_vmhraddshs(BuilderContext& ctx) {
+  ctx.println(
+      "\tsimde_mm_store_si128((simde__m128i*){}.u16, "
+      "simde_mm_adds_epi16(simde_mm_mulhrs_epi16(simde_mm_load_si128((simde__m128i*){}.u16), "
+      "simde_mm_load_si128((simde__m128i*){}.u16)), "
+      "simde_mm_load_si128((simde__m128i*){}.u16)));",
+      ctx.v(ctx.insn.operands[0]), ctx.v(ctx.insn.operands[1]), ctx.v(ctx.insn.operands[2]),
+      ctx.v(ctx.insn.operands[3]));
+  return true;
+}
+
 //=============================================================================
 // Vector Average
 //=============================================================================

@@ -178,11 +178,11 @@ void BuilderContext::emit_function_call(uint32_t address) {
 
   if (address == cfg.setJmpAddress) {
     // Save PPCContext for restoration after longjmp
-    println("\t{} = ADJ(ctx);", env());
+    println("\t{} = *ADJ(ctx);", env());
     // Use custom ppc_setjmp that uses guest address as key
     println("\t{}.s64 = ppc_setjmp({}.u32);", temp(), r(3));
     // Restore PPCContext if returning from longjmp
-    println("\tif ({}.s64 != 0) ADJ(ctx) = {};", temp(), env());
+    println("\tif ({}.s64 != 0) *ADJ(ctx) = {};", temp(), env());
     println("\t{} = {};", r(3), temp());
     return;
   }

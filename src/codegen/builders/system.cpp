@@ -72,6 +72,18 @@ bool build_cctph(BuilderContext& ctx) {
   return true;
 }
 
+bool build_icbi(BuilderContext& ctx) {
+  // Instruction Cache Block Invalidate
+  (void)ctx;
+  return true;
+}
+
+bool build_isync(BuilderContext& ctx) {
+  // Instruction Synchronize
+  (void)ctx;
+  return true;
+}
+
 //=============================================================================
 // Trap Instructions
 // PPC trap instructions are assertion/debug checks. The TO field (bits 21-25)
@@ -400,4 +412,11 @@ bool build_clrldi(BuilderContext& ctx) {
   return true;
 }
 
+//=============================================================================
+// System Call
+//=============================================================================
+bool build_sc(BuilderContext& ctx) {
+  ctx.println("\tREX_SYSCALL(ctx);", ctx.f(ctx.insn.operands[0]));
+  return true;
+}
 }  // namespace rex::codegen

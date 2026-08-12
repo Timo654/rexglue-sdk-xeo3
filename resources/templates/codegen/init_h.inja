@@ -149,6 +149,11 @@ extern PPCFuncMapping PPCFuncMappings[];
 // Function Dispatch
 //=============================================================================
 
+#define REX_SYSCALL(ctx) do { \
+    ADJ(ctx)->r3.s64 = ADJ(ctx)->r0.s64; \
+    reinterpret_cast<void(__fastcall*)()>(PrecompiledPointers[2])(); \
+} while (0)
+
 #define REX_CALL_FUNC(x) x(ctx, base, frame)
 
 {% include "codegen/_indirect_call.inja" %}

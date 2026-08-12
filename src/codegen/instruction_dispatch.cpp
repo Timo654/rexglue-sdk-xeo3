@@ -245,6 +245,7 @@ static const std::unordered_map<int, Builder>& GetDispatchTable() {
       {PPC_INST_LFSU, build_lfsu},
       {PPC_INST_LFSUX, build_lfsux},
       {PPC_INST_LFSX, build_lfsx},
+      {PPC_INST_LQ, build_lq},
 
       //=====================================================================
       // Memory - Stores
@@ -280,6 +281,7 @@ static const std::unordered_map<int, Builder>& GetDispatchTable() {
       {PPC_INST_STFSU, build_stfsu},
       {PPC_INST_STFSUX, build_stfsux},
       {PPC_INST_STFSX, build_stfsx},
+      {PPC_INST_STFQ, build_stfq},
 
       //=====================================================================
       // Memory - Vector Loads
@@ -328,6 +330,9 @@ static const std::unordered_map<int, Builder>& GetDispatchTable() {
       {PPC_INST_CCTPL, build_cctpl},
       {PPC_INST_CCTPM, build_cctpm},
       {PPC_INST_CCTPH, build_cctph},
+      {PPC_INST_ICBI, build_icbi},
+      {PPC_INST_ISYNC, build_isync},
+      {PPC_INST_SC,    build_sc},
       // Trap word immediate (all variants map to generic TWI)
       {PPC_INST_TWI, build_twi},
       {PPC_INST_TWLGTI, build_twi},
@@ -480,6 +485,7 @@ static const std::unordered_map<int, Builder>& GetDispatchTable() {
       {PPC_INST_VSUBUHM, build_vsubuhm},
       {PPC_INST_VSUBUWM, build_vsubuwm},
       {PPC_INST_VSUBSHS, build_vsubshs},
+      {PPC_INST_VMHRADDSHS, build_vmhraddshs},
       {PPC_INST_VMAXSW, build_vmaxsw},
       {PPC_INST_VMAXSH, build_vmaxsh},
       {PPC_INST_VMAXSB, build_vmaxsb},

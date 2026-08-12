@@ -211,6 +211,28 @@ bool build_ldbrx(BuilderContext& ctx) {
 }
 
 //=============================================================================
+// Quad Loads
+//=============================================================================
+
+bool build_lq(BuilderContext& ctx) {
+  uint32_t rt = ctx.insn.operands[0];
+  int32_t offset = static_cast<int32_t>(ctx.insn.operands[1]);
+  uint32_t ra = ctx.insn.operands[2];
+
+  ctx.print("\t{}.u64 = REX_LOAD_U64(", ctx.r(rt));
+  if (ra != 0)
+    ctx.print("{}.u32 + ", ctx.r(ra));
+  ctx.println("{});", offset);
+
+  ctx.print("\t{}.u64 = REX_LOAD_U64(", ctx.r(rt + 1));
+  if (ra != 0)
+    ctx.print("{}.u32 + ", ctx.r(ra));
+  ctx.println("{});", offset + 8);
+
+  return true;
+}
+
+//=============================================================================
 // Atomic Load and Reserve
 //=============================================================================
 
@@ -556,6 +578,24 @@ bool build_stfsux(BuilderContext& ctx) {
   return true;
 }
 
+bool build_stfq(BuilderContext& ctx) {
+  ctx.emit_set_flush_mode(false);
+  uint32_t frs = ctx.insn.operands[0];
+  int32_t offset = static_cast<int32_t>(ctx.insn.operands[1]);
+  uint32_t ra = ctx.insn.operands[2];
+
+  ctx.print("\tREX_STORE_U64(");
+  if (ra != 0)
+    ctx.print("{}.u32 + ", ctx.r(ra));
+  ctx.println("{}, {}.u64);", offset, ctx.f(frs));
+
+  ctx.print("\tREX_STORE_U64(");
+  if (ra != 0)
+    ctx.print("{}.u32 + ", ctx.r(ra));
+  ctx.println("{}, {}.u64);", offset + 8, ctx.f(frs + 1));
+
+  return true;
+}
 //=============================================================================
 // Vector Loads (will be more comprehensive in vector.cpp)
 //=============================================================================

@@ -318,6 +318,7 @@ bool build_lfs(BuilderContext& ctx);
 bool build_lfsu(BuilderContext& ctx);
 bool build_lfsux(BuilderContext& ctx);
 bool build_lfsx(BuilderContext& ctx);
+bool build_lq(BuilderContext& ctx);
 
 // Byte stores
 bool build_stb(BuilderContext& ctx);
@@ -361,6 +362,7 @@ bool build_stfs(BuilderContext& ctx);
 bool build_stfsu(BuilderContext& ctx);
 bool build_stfsux(BuilderContext& ctx);
 bool build_stfsx(BuilderContext& ctx);
+bool build_stfq(BuilderContext& ctx);
 
 // Vector loads
 bool build_lvx(BuilderContext& ctx);
@@ -391,6 +393,8 @@ bool build_db16cyc(BuilderContext& ctx);
 bool build_cctpl(BuilderContext& ctx);
 bool build_cctpm(BuilderContext& ctx);
 bool build_cctph(BuilderContext& ctx);
+bool build_icbi(BuilderContext& ctx);
+bool build_isync(BuilderContext& ctx);
 
 // Trap instructions (generic builders - all specific variants map to these)
 bool build_twi(BuilderContext& ctx);  // Trap word immediate
@@ -478,6 +482,7 @@ bool build_vadduws(BuilderContext& ctx);
 bool build_vadduhs(BuilderContext& ctx);
 bool build_vsubsbs(BuilderContext& ctx);
 bool build_vsubshs(BuilderContext& ctx);
+bool build_vmhraddshs(BuilderContext& ctx);
 bool build_vsubsws(BuilderContext& ctx);
 bool build_vsububm(BuilderContext& ctx);
 bool build_vsububs(BuilderContext& ctx);
@@ -592,4 +597,6 @@ bool build_vupkhsh(BuilderContext& ctx);
 bool build_vupklsb(BuilderContext& ctx);
 bool build_vupklsh(BuilderContext& ctx);
 
+// System call
+bool build_sc(BuilderContext& ctx);
 }  // namespace rex::codegen
