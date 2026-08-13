@@ -367,10 +367,6 @@ bool build_mtmsrd(BuilderContext& ctx) {
   return true;
 }
 
-bool build_mtmsr(BuilderContext& ctx) {
-  return build_mtmsrd(ctx);
-}
-
 bool build_mtfsf(BuilderContext& ctx) {
   uint32_t fm = ctx.insn.operands[0];
   uint32_t mask = 0;

@@ -413,7 +413,7 @@ static const std::unordered_map<int, Builder>& GetDispatchTable() {
       {PPC_INST_MTOCRF, build_mtcrf},
       {PPC_INST_MTCTR, build_mtctr},
       {PPC_INST_MTLR, build_mtlr},
-      {PPC_INST_MTMSR, build_mtmsr},
+      {PPC_INST_MTMSR, build_mtmsrd},
       {PPC_INST_MTMSRD, build_mtmsrd},
       {PPC_INST_MTFSF, build_mtfsf},
       {PPC_INST_MTXER, build_mtxer},
@@ -496,6 +496,7 @@ static const std::unordered_map<int, Builder>& GetDispatchTable() {
       {PPC_INST_VMINUH, build_vminuh},
       {PPC_INST_VMAXUB, build_vmaxub},
       {PPC_INST_VMINUB, build_vminub},
+      {PPC_INST_VMAXUW, build_vmaxuw},
       {PPC_INST_VMINUW, build_vminuw},
 
       //=====================================================================
