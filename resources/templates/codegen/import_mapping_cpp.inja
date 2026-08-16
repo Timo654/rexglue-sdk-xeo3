@@ -4,15 +4,11 @@
 #include "{{ project }}_init.h"
 
 __declspec(dllexport) PPCImportMapping PrecompiledImportTable[] = {
-{% for fn in functions %}{% if fn.is_import %}	{ {{ fn.address }}, 0 },
-{% endif %}{% endfor %}	{ 0, 0 },
+{% for fn in imports %}	{ {{ fn.address }}, 0 },
+{% endfor %}	{ 0, 0 },
 	{ 0xFFFFFFFF, 0 },
 };
 
-{% set import_index = 0 -%}
-{% for fn in functions -%}
-{% if fn.is_import -%}
-REX_IMPORT_FUNC_IMPL({{ fn.name }}, {{ import_index }})
-{% set import_index = import_index + 1 -%}
-{% endif -%}
+{% for fn in imports -%}
+REX_IMPORT_FUNC_IMPL({{ fn.name }}, {{ loop.index }})
 {% endfor -%}

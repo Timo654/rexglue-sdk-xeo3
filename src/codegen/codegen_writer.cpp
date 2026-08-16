@@ -52,6 +52,8 @@ nlohmann::json buildTemplateData(const rex::codegen::CodegenContext& ctx,
 
   // Build functions JSON array
   nlohmann::json functionsJson = nlohmann::json::array();
+  nlohmann::json importsJson = nlohmann::json::array();
+  std::unordered_set<std::string> addedImportNames;
   for (const auto* fn : functions) {
     std::string funcName;
     bool isRexcrt = false;
@@ -60,22 +62,32 @@ nlohmann::json buildTemplateData(const rex::codegen::CodegenContext& ctx,
     if (crtIt != rexcrtByAddr.end()) {
       funcName = crtIt->second;
       isRexcrt = true;
-    } else if (fn->base() == ctx.analysisState().entryPoint) {
-      funcName = fmt::format("sub_{:08X}", fn->base());
     } else if (!fn->name().empty()) {
       funcName = fn->name();
     } else {
       funcName = fmt::format("sub_{:08X}", fn->base());
     }
+    bool isImport = (fn->authority() == rex::codegen::FunctionAuthority::IMPORT);
 
-    functionsJson.push_back({
+    nlohmann::json funcData = {
         {"address", fmt::format("0x{:X}", fn->base())},
         {"relative_address", fmt::format("0x{:X}", fn->base() - ctx.binary().baseAddress())},
         {"name", funcName},
         {"is_rexcrt", isRexcrt},
         {"below_code_base", (fn->base() < codeMin)},
-        {"is_import", fn->authority() == rex::codegen::FunctionAuthority::IMPORT},
-    });
+        {"is_import", isImport},
+    };
+
+    functionsJson.push_back(funcData);
+
+    if (isImport) {
+      if (addedImportNames.insert(funcName).second) {
+        importsJson.push_back(funcData);
+      } else { // some imports are duplicated sometimes
+        funcData["name"] = fmt::format("__import__sub_{:08X}", fn->base());
+        importsJson.push_back(funcData);
+      }
+    }
   }
 
   // Build config flags
@@ -102,6 +114,7 @@ nlohmann::json buildTemplateData(const rex::codegen::CodegenContext& ctx,
       {"is_dll", ctx.isDllModule()},
       {"config_flags", configFlags},
       {"functions", functionsJson},
+      {"imports", importsJson},
       {"recomp_files", nlohmann::json::array()},
       {"xeo3_filename", xeo3Filename},
   };
