@@ -13,6 +13,7 @@ Once you have initialized a project and gotten codegen working with it, you can 
 
 ## TODOs
 MMIO R/W is currently not handled, as it seemed to just crash the emulator when used and games seemed to work fine without it.
+SEH handling
 
 ## Current status
 Chaos;Head Love Chu Chu runs playably with XEO3 using the recompiled binary.
