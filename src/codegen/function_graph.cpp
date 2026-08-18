@@ -358,9 +358,7 @@ std::string FunctionNode::emitCpp(const EmitContext& ctx) const {
     REXCODEGEN_WARN("Function 0x{:08X} has no blocks - generating stub", base());
 
     std::string name;
-    if (base() == ctx.entryPoint) {
-      name = fmt::format("sub_{:08X}", base());
-    } else if (!name_.empty()) {
+    if (!name_.empty()) {
       name = name_;
     } else {
       name = fmt::format("sub_{:08X}", base());
@@ -470,9 +468,7 @@ std::string FunctionNode::emitCpp(const EmitContext& ctx) const {
 
   // --- Function name ---
   std::string name;
-  if (base() == ctx.entryPoint) {
-    name = fmt::format("sub_{:08X}", base());
-  } else if (!name_.empty()) {
+  if (!name_.empty()) {
     name = name_;
   } else {
     name = fmt::format("sub_{:08X}", base());
