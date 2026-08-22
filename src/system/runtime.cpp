@@ -212,8 +212,8 @@ X_STATUS Runtime::Setup(const rex::PPCImageInfo& image_info, RuntimeConfig confi
     Shutdown();
     return X_STATUS_UNSUCCESSFUL;
   }
-
-  /* if (image_info.func_mappings) {
+  /*
+   if (image_info.func_mappings) {
     int count = 0;
     int duplicates = 0;
     int rejected = 0;
@@ -252,7 +252,7 @@ X_STATUS Runtime::Setup(const rex::PPCImageInfo& image_info, RuntimeConfig confi
       "non_argument={} non_volatile={}",
       flags.skip_lr, flags.skip_msr, flags.ctr_as_local, flags.xer_as_local, flags.cr_as_local,
       flags.reserved_as_local, flags.non_argument_as_local, flags.non_volatile_as_local);
-
+      */
   return X_STATUS_SUCCESS;
 }
 

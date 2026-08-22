@@ -12,7 +12,7 @@ set_target_properties(rexcodegen PROPERTIES EXPORT_NAME codegen)
 include(${CMAKE_CURRENT_LIST_DIR}/rexglue_helpers.cmake)
 
 # Build install target list dynamically based on backend options
-set(REXGLUE_INSTALL_TARGETS
+set(REXGLUE_XEO3_INSTALL_TARGETS
     rexruntime
     rexgpu-xenos
     disruptorplus renderdoc simde tomlplusplus
@@ -52,7 +52,7 @@ install(TARGETS ${REXGLUE_XEO3_INSTALL_TARGETS}
 )
 
 # A Debug codegen tool runs an order of magnitude slower, so only Release ships.
-install(TARGETS rexglue
+install(TARGETS rexglue_xeo3
     EXPORT rexglueTargets
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
     CONFIGURATIONS Release

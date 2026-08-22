@@ -101,7 +101,7 @@ std::string FingerprintModule(const RecompilerConfig& cfg,
   return ComputeInputFingerprint(inputs, sdkVersion, flags);
 }
 
-void ReportBinaryInfo(ProgressReporter* reporter, std::string_view display_name,
+std::string ReportBinaryInfo(ProgressReporter* reporter, std::string_view display_name,
                       const rex::runtime::XexModule& xex) {
   BinaryInfo info{};
   info.name = display_name;

@@ -218,7 +218,7 @@ void BuilderContext::emit_function_call(uint32_t address) {
             println("\tADJ(ctx)->r{} = r{};", i, i);
         }
         emitCtx.reference(name);
-        println("\t{}(ctx, base);", name);
+        println("\t{}(ctx, base, frame);", name);
         for (size_t i = 14; i < 32; ++i) {
           if (locals.r[i])
             println("\tr{} = ADJ(ctx)->r{};", i, i);
@@ -227,7 +227,7 @@ void BuilderContext::emit_function_call(uint32_t address) {
       }
 
       emitCtx.reference(name);
-      println("\t{}(ctx, base);", name);
+      println("\t{}(ctx, base, frame);", name);
       return;
     }
 
@@ -258,7 +258,7 @@ void BuilderContext::emit_function_call(uint32_t address) {
       }
 
       emitCtx.reference(func_name);
-      println("\t{}(ctx, base);", func_name);
+      println("\t{}(ctx, base, frame);", func_name);
       return;
     }
 

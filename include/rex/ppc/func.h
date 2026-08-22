@@ -27,7 +27,7 @@
 struct PPCContext;
 
 // Function signature for recompiled PPC functions
-using PPCFunc = void(PPCContext& ctx, uint8_t* base);
+typedef __attribute__((preserve_none)) void PPCFunc(uintptr_t ctx, uintptr_t base, uintptr_t frame);
 
 namespace rex::runtime {
 PPCFunc* ResolveIndirectFunction(uint32_t guest_address);
@@ -42,16 +42,23 @@ PPCFunc* ResolveIndirectFunction(uint32_t guest_address);
 #define REX_STRINGIFY(x) REX_XSTRINGIFY(x)
 // REX_FUNC is the bare signature; the declaring site supplies linkage, either
 // by writing extern "C" itself or by using REX_EXTERN.
-#define REX_FUNC(x) void x([[maybe_unused]] PPCContext& __restrict ctx, uint8_t* base)
+#define REX_FUNC(x) __attribute__((preserve_none)) void x(uintptr_t ctx, uintptr_t base, uintptr_t frame)
 #define REX_EXTERN(x) extern "C" REX_FUNC(x)
+#define ADJ(x) ((PPCContext*)(x - 0x80))
 
 //=============================================================================
 // Function Mapping
 //=============================================================================
 
 struct PPCFuncMapping {
-  size_t guest;
-  PPCFunc* host;
+  uint32_t guest_rva;
+  uint32_t host_rva;
+};
+
+struct PPCImportMapping {
+  uint32_t imp_addr;
+  uint32_t dest_addr;
 };
 
 extern PPCFuncMapping PPCFuncMappings[];
+__declspec(dllexport) extern "C" PPCImportMapping PrecompiledImportTable[];

@@ -39,8 +39,8 @@ endif()
 include("${CMAKE_CURRENT_LIST_DIR}/rexglueTargets.cmake")
 
 # Only Release rexglue is installed, so every consumer config has to reach it.
-if(TARGET rex::rexglue)
-    set_target_properties(rex::rexglue PROPERTIES
+if(TARGET rex::rexglue_xeo3)
+    set_target_properties(rex::rexglue_xeo3 PROPERTIES
         MAP_IMPORTED_CONFIG_DEBUG Release
         MAP_IMPORTED_CONFIG_RELWITHDEBINFO Release
         MAP_IMPORTED_CONFIG_MINSIZEREL Release)

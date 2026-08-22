@@ -12,8 +12,7 @@ The executable is "rexglue_xeo3" instead of "rexglue", but otherwise the steps w
 Once you have initialized a project and gotten codegen working with it, you can build the project with cmake and it will output a xeo3 DLL that you can throw in the emulator folder.
 
 ## TODOs
-MMIO R/W is currently not handled, as it seemed to just crash the emulator when used and games seemed to work fine without it.
-SEH handling
+Exception handling, logging?
 
 ## Current status
 Chaos;Head Love Chu Chu runs playably with XEO3 using the recompiled binary.

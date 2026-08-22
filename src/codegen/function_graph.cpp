@@ -614,7 +614,7 @@ std::string FunctionNode::emitCpp(const EmitContext& ctx) const {
       const auto& scope = *it;
       if (scope.filter == 0 && scope.handler != 0) {
         ctx.reference(fmt::format("sub_{:08X}", scope.handler));
-        emit_println(body, "\t\t\tsub_{:08X}(ctx, base);  // __finally handler", scope.handler);
+        emit_println(body, "\t\t\tsub_{:08X}(ctx, base, frame);  // __finally handler", scope.handler);
       }
     }
 
@@ -622,7 +622,7 @@ std::string FunctionNode::emitCpp(const EmitContext& ctx) const {
       auto* restoreFn = ctx.graph.getFunction(sehInfo->restoreHelper);
       if (restoreFn && !restoreFn->name().empty()) {
         ctx.reference(restoreFn->name());
-        emit_println(body, "\t\t\t{}(ctx, base);  // Restore caller registers", restoreFn->name());
+        emit_println(body, "\t\t\t{}(ctx, base, frame);  // Restore caller registers", restoreFn->name());
       }
     }
 

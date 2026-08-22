@@ -10,7 +10,7 @@ add_executable(rexglue_xeo3
     commands/project_scan.cpp
 )
 
-rex_config_postfix(rexglue)
+rex_config_postfix(rexglue_xeo3)
 
 target_include_directories(rexglue_xeo3
     PRIVATE
@@ -24,20 +24,20 @@ target_link_libraries(rexglue_xeo3
         rexcodegen
 )
 
-rex_target_pch(rexglue <CLI/CLI.hpp>)
+rex_target_pch(rexglue_xeo3 <CLI/CLI.hpp>)
 
 # Delay-load FidelityFX DLLs so rexglue can run in tool mode without them.
 if(WIN32)
     if(TARGET amd_fidelityfx_vk)
-        target_link_options(rexglue PRIVATE
+        target_link_options(rexglue_xeo3 PRIVATE
             "LINKER:/DELAYLOAD:$<TARGET_FILE_NAME:amd_fidelityfx_vk>")
     endif()
     if(TARGET amd_fidelityfx_dx12)
-        target_link_options(rexglue PRIVATE
+        target_link_options(rexglue_xeo3 PRIVATE
             "LINKER:/DELAYLOAD:$<TARGET_FILE_NAME:amd_fidelityfx_dx12>")
     endif()
     if(TARGET amd_fidelityfx_vk OR TARGET amd_fidelityfx_dx12)
-        target_link_libraries(rexglue PRIVATE delayimp)
+        target_link_libraries(rexglue_xeo3 PRIVATE delayimp)
     endif()
 endif()
 
